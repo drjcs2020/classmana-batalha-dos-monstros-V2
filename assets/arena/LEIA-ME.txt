@@ -1,0 +1,1 @@
+ClassMana V2 — Teste visual com artes PNG reais. Envie index.html à raiz e assets/arena/ mantendo o restante de assets/ intacto. O botão de dica mostra mensagem padrão sem penalidade. Questões e cálculo de mana originais preservados.
