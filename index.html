@@ -1,0 +1,719 @@
+<!-- ClassMana Batalha Real V58: Rainha Aranha frames corrigidos -->
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>ClassMana — Batalha dos Monstros V26</title><style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030916;font-family:Trebuchet MS,Arial;color:#fff}#game{position:fixed;inset:0}canvas{width:100%;height:100%;display:block;touch-action:none}.hud{position:absolute;inset:8px 10px auto;display:flex;justify-content:space-between;gap:10px;pointer-events:none}.card{width:min(355px,43vw);background:#071326e8;border:2px solid #f0c35c;border-radius:16px;padding:8px 11px;box-shadow:0 5px 22px #000b}.title{font-size:11px;color:#ffd66b;letter-spacing:1px}.name{font-weight:900;font-size:clamp(13px,2vw,19px)}.stats{display:flex;gap:10px;align-items:center;font-weight:900;font-size:13px;margin:3px 0}.bar{height:12px;background:#020710;border:1px solid #ffffff66;border-radius:8px;overflow:hidden;margin-top:4px}.bar i{display:block;height:100%;width:100%;transition:width .18s}.hp i{background:linear-gradient(90deg,#31d46c,#a8f76b)}.mana i{background:linear-gradient(90deg,#38b9ff,#a44dff)}.enemy i{background:linear-gradient(90deg,#ffcc38,#ff4438)}#stageText{position:absolute;top:94px;left:50%;transform:translateX(-50%);font-size:clamp(16px,2.3vw,26px);font-weight:900;text-shadow:0 3px 8px #000;text-align:center;pointer-events:none}#msg{position:absolute;top:130px;left:50%;transform:translateX(-50%);padding:7px 14px;border-radius:15px;background:#050b16c9;font-weight:bold;text-align:center;pointer-events:none;min-width:220px}.controls{position:absolute;bottom:12px;right:12px;display:grid;grid-template-columns:repeat(2,minmax(118px,160px));gap:8px}.btn{border:2px solid #f4cf70;border-radius:14px;padding:12px 9px;color:white;font-weight:900;font-size:12px;background:linear-gradient(#254e83,#102342);box-shadow:0 5px 0 #030914;cursor:pointer}.btn:active{transform:translateY(3px)}.btn.special{background:linear-gradient(#8c43bb,#401e70)}.btn.def{background:linear-gradient(#2d9d91,#125d5a)}.btn.charge{background:linear-gradient(#b27a28,#704314)}#joy{position:absolute;left:18px;bottom:18px;width:108px;height:108px;border:2px solid #ffffff70;border-radius:50%;background:#07132680;touch-action:none}#knob{position:absolute;width:46px;height:46px;left:29px;top:29px;border-radius:50%;background:#d5edffdd;border:2px solid #fff}.overlay{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#fff4c9f2 0%,#f5c453ef 38%,#5aa9e6ed 100%);z-index:10}.panel{width:min(820px,94vw);max-height:94vh;overflow:auto;padding:20px;text-align:center;border:3px solid #d99a18;border-radius:22px;background:linear-gradient(145deg,#fffdf4f7 0%,#ffe9a6f5 54%,#d9effff5 100%);color:#173653;box-shadow:0 15px 50px #174f7b55, inset 0 0 28px #ffffffaa}.panel img.logo{max-width:270px;max-height:95px}.panel h1{margin:5px;color:#9a5d00;text-shadow:0 2px 0 #fff6c9}.start{font-size:17px;padding:13px 28px;border:0;border-radius:13px;font-weight:900;background:linear-gradient(#ffd86a,#c98728);color:#26170b;cursor:pointer}.heroes{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.heroPick{background:linear-gradient(145deg,#ffffff,#dff1ff);border:2px solid #4f8fc2;border-radius:14px;padding:7px;cursor:pointer;color:#173653}.heroPick.sel{border-color:#075cff;background:linear-gradient(145deg,#e9f6ff,#79c8ff);box-shadow:0 0 0 4px #ffffff,0 0 24px #075cffcc;transform:translateY(-3px);position:relative}.heroPick.sel:after{content:'✓ SELECIONADO';display:block;margin-top:5px;padding:4px 6px;border-radius:8px;background:#075cff;color:#fff;font-size:11px;font-weight:900;letter-spacing:.4px}.heroCanvas{width:120px;height:125px;max-width:100%;display:block;margin:0 auto}.qbox{width:min(620px,92vw);padding:22px;border:3px solid #d99a18;border-radius:20px;background:linear-gradient(145deg,#fffdf4,#ffe8a1 55%,#dff2ff);color:#173653;text-align:center;box-shadow:0 15px 50px #174f7b55}.answers{display:grid;gap:9px;margin-top:15px}.ans{padding:12px;border:2px solid #6fa5cc;border-radius:10px;background:linear-gradient(145deg,#ffffff,#e4f3ff);color:#173653;font-weight:bold;cursor:pointer;transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}.ans.correct{background:linear-gradient(145deg,#d9ffe1,#65d57c)!important;border-color:#16883b!important;color:#073d19!important;box-shadow:0 0 0 3px #fff,0 0 18px #24a94c88}.ans.wrong{background:linear-gradient(145deg,#ffe0e0,#f06d6d)!important;border-color:#b71919!important;color:#5c0808!important;box-shadow:0 0 0 3px #fff,0 0 18px #d32f2f66}.transition{font-size:clamp(28px,5vw,60px);font-weight:900;color:#ffd55c;text-shadow:0 4px 20px #000;text-align:center}.playerName{width:min(420px,90%);padding:12px 14px;border-radius:12px;border:2px solid #6f8eac;background:#fff;color:#173653;font-size:17px;text-align:center;margin:8px 0}.menuActions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.rankBtn{font-size:15px;padding:12px 20px;border:2px solid #d99a18;border-radius:13px;font-weight:900;background:linear-gradient(#fff4bf,#e9b640);color:#173653;cursor:pointer}.rankingScroll{max-height:58vh;overflow-y:auto;overflow-x:auto;border:2px solid #d99a18;border-radius:14px;background:#fff9e8cc;-webkit-overflow-scrolling:touch}.ranking{width:100%;border-collapse:collapse;margin-top:0}.ranking thead th{position:sticky;top:0;background:#ffe7a0;z-index:2}.ranking th,.ranking td{padding:9px;border-bottom:1px solid #ffffff22;text-align:left}.ranking th{color:#8a5600}.ranking td{color:#173653}.ranking th,.ranking td{border-bottom-color:#174f7b33}.rankMe{background:#ffd75f18}.hidden{display:none!important}#sound{position:absolute;right:12px;top:126px;z-index:4;border:1px solid #ffd35d;border-radius:10px;background:#071326d9;color:#fff;padding:7px 10px;cursor:pointer}#menu{overflow-y:auto;overflow-x:hidden;place-items:start center;padding:16px 0;-webkit-overflow-scrolling:touch}#menu>.panel{max-height:none;overflow:visible;margin:auto}.menuPanel{position:relative;overflow:hidden;background:linear-gradient(145deg,#fffdf4f5 0%,#ffe49aef 52%,#d8effff2 100%),url('assets/bg_hive.png') center/cover}.menuPanel:before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#fff8dcdd,#f6c94dbb 45%,#58a6d6aa);z-index:0}.menuPanel>*{position:relative;z-index:1}.decorRow{display:flex;justify-content:center;align-items:center;gap:18px;margin:4px 0 10px}.decorRow img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 4px 5px #17365355)}.classPick{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0}.classBtn{padding:12px 22px;border-radius:14px;border:2px solid #5c91bd;background:linear-gradient(#fff,#d9efff);color:#173653;font-weight:900;cursor:pointer}.classBtn.sel{border-color:#c88913;background:linear-gradient(#fff1ad,#e8b23b);box-shadow:0 0 18px #e8b23b88}.tutorialProgress{height:14px;border-radius:10px;background:#ffffff99;border:2px solid #c38b22;overflow:hidden;margin:12px auto;max-width:620px}.tutorialProgress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2c83c3,#f0b83f);transition:width 1s linear}.timerHud{position:absolute;top:54px;left:50%;transform:translateX(-50%);z-index:3;background:#fff6d9e8;color:#173653;border:2px solid #d39b2c;border-radius:14px;padding:6px 12px;font-weight:900;box-shadow:0 4px 15px #0003;pointer-events:none}@media(max-width:700px){.hud{inset:4px 4px auto}.card{padding:5px 7px}.title{font-size:8px}.stats{font-size:10px;gap:5px}.bar{height:9px}#stageText{top:83px}#msg{top:110px;font-size:11px}.controls{right:5px;bottom:5px;grid-template-columns:repeat(2,98px);gap:5px}.btn{padding:10px 4px;font-size:10px}#joy{left:6px;bottom:6px;width:94px;height:94px}#knob{left:25px;top:25px;width:40px;height:40px}.heroes{grid-template-columns:repeat(2,1fr)}.heroCanvas{height:95px}#sound{top:104px}.timerHud{top:48px;font-size:12px;padding:5px 9px}}
+#openingVideo{position:fixed;inset:0;z-index:100;background:#020713;display:flex;align-items:center;justify-content:center}#openingVideo video{width:100%;height:100%;object-fit:contain;background:#020713}#openingVideo .videoActions{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));left:0;right:0;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:0 12px}#openingVideo button{font:800 15px Trebuchet MS,Arial;border:2px solid #f8d476;border-radius:14px;background:linear-gradient(#fff1b5,#e4ad34);color:#18365a;padding:12px 18px;cursor:pointer;box-shadow:0 3px 14px #000a}#gameOverOverlay{z-index:30;overflow-y:auto;overflow-x:hidden;place-items:start center;padding:18px 0;-webkit-overflow-scrolling:touch;background:radial-gradient(circle at 50% 35%,#4b1220f5 0%,#160711f8 48%,#03040afc 100%)}#gameOverOverlay .gameOverPanel{width:min(650px,92vw);max-height:none;margin:auto;padding:28px 22px;text-align:center;border:3px solid #d7a33b;border-radius:24px;background:linear-gradient(160deg,#24101bee,#080b15f5);box-shadow:0 0 50px #ff314455,inset 0 0 30px #d7a33b22;color:#fff}#gameOverOverlay .goLogo{width:min(310px,70vw);max-height:110px;object-fit:contain;filter:drop-shadow(0 6px 14px #000)}#gameOverOverlay h1{font-size:clamp(38px,8vw,76px);margin:10px 0 0;color:#ff5265;letter-spacing:3px;text-shadow:0 4px 0 #5c0914,0 0 24px #ff263f99}#gameOverOverlay .defeatTitle{font-size:clamp(18px,3vw,28px);font-weight:900;color:#ffd46b;margin:8px 0}#gameOverOverlay .goDetails{font-size:15px;line-height:1.55;color:#f5e8df;margin:12px auto 20px}.gameOverActions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.gameOverActions button{min-width:180px}#openingVideo[hidden]{display:none!important}#openingVideo:not(.playing) video{filter:brightness(.43)}#openingVideo .videoActions{z-index:2}#openingVideo.playing #openingSound{display:none}
+#gameOverOverlay .goDragonStage{position:relative;height:190px;overflow:hidden;margin:0 auto 2px;max-width:580px}#gameOverOverlay .goDragon{position:absolute;width:min(330px,62vw);right:-360px;top:0;filter:drop-shadow(0 8px 16px #000) drop-shadow(0 0 16px #ff6a22);animation:dragonEnter .9s cubic-bezier(.2,.8,.2,1) forwards}#gameOverOverlay .goFireLayer{position:absolute;inset:0;pointer-events:none}.goFireball{position:absolute;right:190px;top:86px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff7a0 0 12%,#ffb21f 28%,#ff4b12 62%,#7b0800 100%);box-shadow:0 0 18px #ff7b18,0 0 36px #ff3218;animation:goFire 1.05s linear forwards}.goFireball:after{content:'';position:absolute;left:24px;top:9px;width:70px;height:16px;border-radius:50%;background:linear-gradient(90deg,#ffb21fcc,#ff321866,transparent);filter:blur(3px)}@keyframes dragonEnter{to{right:4px}}@keyframes goFire{0%{transform:translate(0,0) scale(.6);opacity:0}12%{opacity:1}100%{transform:translate(-520px,55px) scale(1.25);opacity:0}}@media(max-width:700px){#gameOverOverlay .goDragonStage{height:150px}.goFireball{right:135px;top:68px}@keyframes goFire{100%{transform:translate(-360px,45px) scale(1.15);opacity:0}}}
+
+.classmanaTitle{font-family:Impact,"Arial Black",sans-serif!important;font-size:clamp(24px,3.1vw,36px)!important;line-height:1.05!important;white-space:nowrap!important;letter-spacing:1px!important;color:#1769aa!important;-webkit-text-fill-color:#1769aa!important;-webkit-text-stroke:2px #f2a01f!important;paint-order:stroke fill!important;text-shadow:0 2px 0 #9a4b0b,0 0 3px #ffd45d,0 0 8px #e88a16!important;text-transform:uppercase;margin:7px 0 10px!important}.heroPick{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important}.heroCanvas{margin-left:auto!important;margin-right:auto!important}.sceneDecor{position:absolute;z-index:2;pointer-events:none;object-fit:contain;filter:drop-shadow(0 7px 9px #0008)}.decor-sign{left:2%;bottom:19%;width:min(120px,11vw)}.decor-rocks{right:1%;bottom:10%;width:min(120px,11vw)}.decor-compass{left:1.5%;top:25%;width:min(74px,7vw)}.decor-chest{right:2%;top:42%;bottom:auto;width:min(110px,10vw)}.decor-scroll{right:2%;top:24%;width:min(80px,8vw)}@media(max-width:700px){.sceneDecor{opacity:.78}.decor-sign,.decor-rocks,.decor-chest{width:70px}.decor-chest{right:2%;top:43%;bottom:auto}.decor-compass,.decor-scroll{width:50px}}
+
+/* ===== V43 • INTERFACE VISUAL SOBRE BASE FUNCIONAL V41 ===== */
+#menu{background:linear-gradient(135deg,#55d6ff36,#a56cff2e),url('assets/ui_entry_bg.jpg') center/cover no-repeat fixed!important;padding:18px 0!important}
+#menu:before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 50% 43%,#d5fbff1f 0%,#65d7ff14 36%,#07152a50 100%);pointer-events:none}
+#menu>.menuPanel{width:min(900px,94vw);background:linear-gradient(145deg,#d9f7ffe8 0%,#8ee2f3df 43%,#ae9ae9dc 100%)!important;border:2px solid #83eaff!important;box-shadow:0 0 0 2px #6246a388,0 16px 45px #031025aa,inset 0 0 30px #f4fdff99!important;color:#092a4a!important;backdrop-filter:blur(5px)}
+#menu>.menuPanel:before{background:linear-gradient(135deg,#effdff48,#64d8ef2b 48%,#a879e638)!important}
+/* pedido: BATALHA DOS MONSTROS azul escuro + contorno laranja escuro ClassMana */
+#menu .classmanaTitle{color:#123d78!important;-webkit-text-fill-color:#123d78!important;-webkit-text-stroke:2.4px #b85a16!important;paint-order:stroke fill!important;text-shadow:0 3px 0 #71350d,0 0 4px #f19a3a,0 0 10px #ffd08a88!important}
+#menu .classBtn{border-color:#62dff4;background:linear-gradient(#f2fdff,#93e1ef);color:#12375a;box-shadow:0 4px 12px #183e7c33}
+#menu .classBtn.sel{border-color:#f2bd55;background:linear-gradient(#fff0a0,#e4aa35);box-shadow:0 0 0 2px #fff4bd,0 0 18px #f0b84e99}
+#menu .heroPick{background:linear-gradient(150deg,#f1fdfff0,#a4e5f1e8 55%,#c2a9ece8)!important;border-color:#72e4f6!important;color:#102e55!important;box-shadow:0 6px 14px #0c255c42,inset 0 0 12px #ffffff88}
+#menu .heroPick.sel{border-color:#efbd55!important;background:linear-gradient(145deg,#f1fdff,#a8e9f3 50%,#d5b8f1)!important;box-shadow:0 0 0 3px #fff0aa,0 0 24px #53dfffbb!important}
+#menu .playerName{background:#effdfff2;border-color:#64d9ec;color:#0b3154;box-shadow:inset 0 0 10px #68cfff44,0 0 12px #4adfff33}
+#menu .start,#menu .rankBtn{border:2px solid #e9b650;background:linear-gradient(#7be9f7,#438fd1 55%,#7659b6);color:#fff;text-shadow:0 2px 3px #15366b;box-shadow:0 5px 0 #29386d,0 0 15px #66e8ff66}
+#menu .decorRow img{filter:drop-shadow(0 5px 7px #17365388) drop-shadow(0 0 8px #70e9ff66)}
+#tutorial,#question{background:linear-gradient(135deg,#0d2d5899,#603c918f),url('assets/ui_entry_bg.jpg') center/cover no-repeat fixed!important}
+#tutorial .panel,#question .qbox{background:linear-gradient(145deg,#e8fafff2,#9de3f0ed 52%,#c0ace9ed)!important;border-color:#7ce9ff!important;color:#0b2c50!important;box-shadow:0 0 0 2px #7651bb77,0 18px 50px #020b1dbb,inset 0 0 24px #fff9!important}
+#tutorial .ans,#question .ans{background:linear-gradient(145deg,#f8feff,#c7eff7)!important;border-color:#6ccfe8!important;color:#12395e!important}
+#rankingOverlay{background:linear-gradient(135deg,#10294c55,#5d2e8455),url('assets/ui_ranking_bg.jpg') center/cover no-repeat fixed!important;padding:16px 0!important;place-items:start center!important;overflow-y:auto!important}
+#rankingOverlay>.panel{width:min(1040px,95vw);max-height:none;margin:auto;background:linear-gradient(145deg,#d6f5f6e7 0%,#9ee0e9e5 48%,#baa8e3e2 100%)!important;border:2px solid #82e8f7!important;color:#0c2949!important;box-shadow:0 0 0 2px #6d4ba599,0 18px 55px #030917cc,inset 0 0 26px #ffffff99!important;backdrop-filter:blur(6px)}
+#rankingOverlay .rankingLogo{display:block;width:min(300px,58vw);max-height:105px;object-fit:contain;margin:0 auto 2px;filter:drop-shadow(0 5px 10px #06132988)}
+#rankingOverlay h1{margin:2px 0 8px;color:#163f78!important;-webkit-text-stroke:2px #b85a16;paint-order:stroke fill;text-shadow:0 2px 0 #71350d,0 0 7px #f0a14f99!important;font-family:Impact,'Arial Black',sans-serif;letter-spacing:2px}
+#rankingOverlay .rankingScroll{background:#071a2fd9!important;border-color:#78e9ff!important;box-shadow:inset 0 0 18px #4fdfff22}
+#rankingOverlay .ranking thead th{background:linear-gradient(#31577c,#1d385c)!important;color:#ffe69a!important}
+#rankingOverlay .ranking td{color:#f5fbff!important;border-bottom-color:#77d9ff2e!important}
+#rankingOverlay .rankMe{background:#7b5cc65c!important;outline:1px solid #ffe36c88}
+#rankingOverlay .rankBtn{border:2px solid #e9b650;background:linear-gradient(#7cecff,#3b8bd6 55%,#704fb5);color:#fff;text-shadow:0 2px 3px #16345e;box-shadow:0 5px 0 #27366c,0 0 15px #6ceaff66}
+#gameOverOverlay{background:linear-gradient(135deg,#24113a99,#081d38a8),url('assets/ui_ranking_bg.jpg') center/cover no-repeat fixed!important}
+#gameOverOverlay .gameOverPanel{background:linear-gradient(155deg,#173858e8,#49316be8)!important;border-color:#72e8ff!important;box-shadow:0 0 45px #58dcff55,inset 0 0 28px #9b75e833!important}
+/* rocha decorativa fora dos controles; somente posicionamento visual */
+.decor-rocks{left:2%!important;right:auto!important;top:48%!important;bottom:auto!important;width:min(105px,9vw)!important}
+@media(max-width:700px){#menu>.menuPanel,#rankingOverlay>.panel{width:96vw}.decor-rocks{left:1%!important;top:45%!important;width:58px!important}}
+
+
+/* V44 — feedback visual das questões + transição de monstro derrotado */
+#question .ans.correct,#tutorial .ans.correct{background:linear-gradient(145deg,#d9ffe1,#55d675)!important;border-color:#0f8d39!important;color:#063b18!important;box-shadow:0 0 0 3px #fff,0 0 22px #20c45a99!important;transform:scale(1.015)}
+#question .ans.wrong,#tutorial .ans.wrong{background:linear-gradient(145deg,#ffe1e1,#f05261)!important;border-color:#b70e23!important;color:#5b0712!important;box-shadow:0 0 0 3px #fff,0 0 22px #e12c4388!important;transform:scale(.985)}
+#transition{background:radial-gradient(circle at 50% 42%,rgba(74,78,178,.91) 0%,rgba(30,39,101,.96) 44%,rgba(8,13,43,.99) 100%)!important;backdrop-filter:blur(2px)}
+#transition .transition{width:min(760px,92vw);padding:28px 24px;border-radius:28px;border:3px solid #55dfff;background:linear-gradient(145deg,rgba(26,49,116,.95),rgba(89,43,132,.94));box-shadow:0 0 0 3px rgba(255,109,77,.72),0 20px 60px #000b,inset 0 0 35px rgba(94,231,255,.16);color:#ff557d;text-shadow:0 3px 0 #50172b,0 0 18px #ff4777aa}
+.defeatedBadge{position:relative;width:150px;height:150px;margin:0 auto 14px;border:8px solid #ff405e;border-radius:50%;background:radial-gradient(circle,#273b7d 0%,#101b4d 72%);box-shadow:0 0 28px #ff405e88,inset 0 0 24px #0008;display:grid;place-items:center;overflow:hidden}
+.defeatedBadge img{max-width:125px;max-height:125px;object-fit:contain;filter:drop-shadow(0 5px 8px #0008)}
+.defeatedBadge:after{content:'';position:absolute;width:190px;height:12px;background:#ff405e;transform:rotate(-42deg);border-radius:8px;box-shadow:0 0 10px #ff405e}
+.defeatedSkull{font-size:44px;line-height:1;margin-bottom:5px;filter:drop-shadow(0 4px 5px #0008)}
+.defeatedMain{font-size:clamp(27px,4.6vw,54px);font-weight:1000;letter-spacing:.5px;color:#ff557d}
+.defeatedBonus{margin-top:8px;font-size:clamp(17px,2.5vw,28px);color:#7eeaff;text-shadow:0 2px 8px #000;font-weight:900}
+.defeatedNext{margin-top:12px;font-size:14px;color:#fff;letter-spacing:1px;opacity:.9}
+@media(max-width:700px){.defeatedBadge{width:118px;height:118px}.defeatedBadge img{max-width:98px;max-height:98px}#transition .transition{padding:20px 14px}.defeatedSkull{font-size:34px}}
+
+/* V47 — paleta ClassMana mais saturada + splash + Magia Suprema */
+#classmanaSplash{position:fixed;inset:0;z-index:120;display:grid;place-items:center;background:radial-gradient(circle at 50% 42%,#174e91 0%,#182b6a 42%,#120d35 76%,#050817 100%);overflow:hidden;transition:opacity .55s ease}
+#classmanaSplash.hide{opacity:0;pointer-events:none}
+#classmanaSplash img{width:min(1100px,94vw);max-height:88vh;object-fit:contain;filter:drop-shadow(0 16px 30px #000a) drop-shadow(0 0 28px #28dfff66);animation:splashIn .75s ease-out both}
+#classmanaSplash:after{content:'';position:absolute;inset:-20%;background:radial-gradient(circle,#ffe26a99 0 1px,transparent 2px) 0 0/65px 65px;opacity:.18;animation:sparkle 3s linear infinite;pointer-events:none}
+@keyframes splashIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}@keyframes sparkle{to{transform:translate3d(35px,-28px,0)}}
+#openingVideo{visibility:hidden}
+#menu>.menuPanel{background:linear-gradient(145deg,rgba(33,184,221,.93) 0%,rgba(49,113,205,.93) 48%,rgba(112,70,190,.92) 100%),url('assets/ui_entry_bg.jpg') center/cover no-repeat fixed!important;border-color:#54e9ff!important;color:#fff!important;box-shadow:0 0 0 2px #8058d799,0 18px 55px #020917cc,inset 0 0 28px #9af5ff66!important}
+#menu .menuPanel:before{background:linear-gradient(135deg,#15c9e455,#286ed177 48%,#7a45c477)!important}
+#menu .menuPanel p,#menu .menuPanel b{color:#fff!important;text-shadow:0 2px 4px #123b6c}
+#menu .classBtn{background:linear-gradient(#52e4f3,#2f82d2 60%,#6047b2)!important;color:#fff!important;border-color:#8ff4ff!important;text-shadow:0 1px 2px #17386a;box-shadow:0 4px 12px #09265366}
+#menu .classBtn.sel{background:linear-gradient(#ffe56d,#efad35)!important;color:#263b69!important;border-color:#fff0a0!important;text-shadow:none;box-shadow:0 0 20px #ffe26d99!important}
+#menu .heroPick{background:linear-gradient(145deg,#e9fdff,#75dce9 50%,#8c72d5)!important;border-color:#70ecff!important;color:#10365c!important}
+#menu .playerName{background:#e9fdfff2!important;border-color:#6deaff!important;color:#0b3154!important}
+#rankingOverlay>.panel{background:linear-gradient(145deg,rgba(49,202,224,.92) 0%,rgba(54,126,211,.92) 48%,rgba(116,76,195,.91) 100%)!important;border-color:#72efff!important;color:#fff!important;box-shadow:0 0 0 2px #8055ceaa,0 18px 55px #030917cc,inset 0 0 28px #a7f7ff55!important}
+#rankingOverlay #rankSummary{color:#fff;text-shadow:0 2px 5px #17365f;font-weight:800}
+#ultimate{grid-column:1/-1;background:linear-gradient(100deg,#d83aa9,#7b45d5 48%,#247fd6)!important;border-color:#ffb8f0!important;box-shadow:0 5px 0 #27134c,0 0 18px #d949d899!important}
+#ultimate:disabled{filter:grayscale(.65);opacity:.65}
+@media(max-width:700px){#classmanaSplash img{width:96vw}#ultimate{padding:9px 4px!important}}
+
+
+/* V60 • título inspirado no wordmark CLASSMANA enviado pelo usuário */
+#menu .classmanaTitle{font-family:Impact,"Arial Narrow","Arial Black",sans-serif!important;font-stretch:condensed;font-size:clamp(28px,4.2vw,48px)!important;line-height:1!important;letter-spacing:1.5px!important;color:#fff7a8!important;-webkit-text-fill-color:#fff7a8!important;background:linear-gradient(180deg,#fffde7 0%,#fff7a0 32%,#ffd52e 68%,#fff08a 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-stroke:5px #071b57!important;paint-order:stroke fill!important;text-shadow:0 3px 0 #e6004f,0 6px 0 #071b57,0 9px 0 #08bfd1,0 11px 8px #07142b99!important;text-transform:uppercase;margin:8px 0 12px!important;}
+#menu .battleTitleImg{
+    display:block;
+    width:min(650px,90vw);
+    height:auto;
+    max-height:180px;
+    object-fit:contain;
+    margin:0 auto -52px;
+    filter:drop-shadow(0 5px 8px #07142b66);
+}
+
+#menu .logo{
+    display:block;
+    margin:0 auto 4px;
+}
+}
+</style></head><body><div id="classmanaSplash" aria-label="ClassMana"><img src="assets/splash_classmana.png" alt="ClassMana"></div><div id="openingVideo" aria-label="Vídeo de abertura ClassMana"><video id="openingMovie" playsinline preload="auto"><source media="(max-width: 700px) and (orientation: portrait)" src="assets/abertura_classmana_vertical.mp4" type="video/mp4">
+<source src="assets/abertura_classmana.mp4" type="video/mp4"></video><div class="videoActions"><button type="button" id="openingSound">🔊 ASSISTIR COM SOM</button><button type="button" id="openingSkip">PULAR ABERTURA ▶</button></div></div><div id="game"><canvas id="c"></canvas><img class="sceneDecor decor-sign" src="assets/items3d/sign.png"><img class="sceneDecor decor-rocks" src="assets/items3d/rocks.png"><img class="sceneDecor decor-compass" src="assets/items3d/compass.png"><img class="sceneDecor decor-chest" src="assets/items3d/chest.png"><img class="sceneDecor decor-scroll" src="assets/items3d/scroll.png"><div class="hud"><div class="card"><div class="title">✦ CLASSMANA • HERÓI</div><div class="name" id="hname">Herói</div><div class="stats"><span><img src="assets/items3d/heart.png" style="width:20px;height:20px;object-fit:contain;vertical-align:middle"> <b id="hearts">5</b></span><span>⭐ <b id="score">0</b></span><span><img src="assets/icon_shield.png" style="width:20px;height:20px;object-fit:contain;vertical-align:middle"> <b id="shieldTxt">PRONTO</b></span></div><div class="bar hp"><i id="php"></i></div><div class="bar mana"><i id="pmana"></i></div></div><div class="card"><div class="title" id="round">FASE 1 / 10</div><div class="name" id="ename">FANTASMA</div><div class="stats"><span id="difficulty">DIFICULDADE ★</span></div><div class="bar enemy"><i id="ehp"></i></div></div></div><div id="stageText"></div><div id="msg"></div><div class="timerHud" id="timerHud">⏳ 00:00</div><button id="sound">🔊</button><div id="joy"><div id="knob"></div></div><div class="controls"><button class="btn" id="magic">[ESPAÇO/Z] ⚔ GOLPE</button><button class="btn special" id="special">[X/ENTER] ✨ SUPER</button><button class="btn def" id="defend">[E/SHIFT] 🛡 ESCUDO</button><button class="btn charge" id="charge">[R/CTRL] 🧪 RECARREGAR</button><button class="btn" id="ultimate">[C] ⚡ MAGIA SUPREMA • -500 pts / -20% HP</button></div>
+<div class="overlay" id="menu"><div class="panel menuPanel"><img class="battleTitleImg" src="assets/titulo_batalha_monstros.png" alt="Batalha dos Monstros"><img class="logo" src="assets/logo.png"><div class="decorRow"><img src="assets/items3d/dagger.png"><img src="assets/items3d/crystal.png"><img src="assets/items3d/book_blue.png"><img src="assets/items3d/shield.png"><img src="assets/items3d/potion.png"></div><p><b>1. Escolha sua turma</b></p><div class="classPick" id="classPick"><button class="classBtn sel" data-class="4º A">4º A</button><button class="classBtn" data-class="4º B">4º B</button><button class="classBtn" data-class="4º C">4º C</button></div><p><b>2. Escolha seu herói</b></p><div class="heroes" id="heroes"></div><p><b>3. Digite seu nome</b></p><input class="playerName" id="playerName" maxlength="28" placeholder="NOME DO JOGADOR" autocomplete="off"><div class="menuActions"><button class="start" id="start">▶ INICIAR AVENTURA</button><button class="rankBtn" id="openRanking">🏆 PLACAR</button></div></div></div>
+<div class="overlay hidden" id="tutorial"><div class="panel"><h1>⚔ COMO JOGAR</h1><p><b>Objetivo:</b> derrote os 9 monstros para desbloquear o Dragão de Fogo.</p><div style="display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:10px;text-align:left;margin:16px auto;max-width:620px"><div class="ans">⬅️⬆️⬇️➡️ ou <b>W A S D</b><br><small>Mover o herói</small></div><div class="ans"><b>Z</b> ⚔ Golpe principal<br><small>Use como ataque padrão</small></div><div class="ans"><b>X</b> ✨ SUPER<br><small>Máximo de 3 por batalha • 5s entre usos</small></div><div class="ans"><b>E</b> 🛡 Escudo<br><small>Protege, mas custa pontos</small></div><div class="ans"><b>R</b> 🧪 Recarregar Mana<br><small>2 questões por recarga • erros reduzem a energia • automático após 3s</small></div><div class="ans"><b>C</b> ⚡ Magia Suprema<br><small>1 por monstro • custa 500 pontos + 20% de HP</small></div><div class="ans">🎯 Dica<br><small>Mantenha distância: chefes próximos causam mais dano.</small></div></div><p><b>🛡 Atenção:</b> cada uso do escudo reduz <b>50 pontos</b>. Use com estratégia.</p><div class="tutorialProgress"><i id="tutorialBar"></i></div><p id="tutorialCount">A batalha começa em 12...</p><button class="start" id="skipTutorial">⚡ COMEÇAR AGORA</button></div></div><div class="overlay hidden" id="question"><div class="qbox"><h2>🔷 RECARREGAR MANA</h2><p>Responda para recuperar energia. A batalha está pausada.</p><h2 id="qtext"></h2><div class="answers" id="answers"></div><p id="qfeedback"></p></div></div><div class="overlay hidden" id="transition"><div class="transition" id="transitionText"></div></div><div class="overlay hidden" id="gameOverOverlay"><div class="gameOverPanel"><img class="goLogo" src="assets/logo.png" alt="ClassMana"><div class="goDragonStage"><img class="goDragon" src="assets/monster_dragon.png" alt="Dragão de Fogo"><div class="goFireLayer" id="goFireLayer"></div></div><h1>GAME OVER</h1><div class="defeatTitle">VOCÊ FOI DERROTADO!</div><div class="goDetails" id="gameOverDetails"></div><div class="gameOverActions"><button class="start" id="gameOverRanking">🏆 VER PLACAR</button><button class="rankBtn" id="gameOverHome">↩ VOLTAR AO INÍCIO</button></div></div></div><div class="overlay hidden" id="rankingOverlay"><div class="panel"><img class="rankingLogo" src="assets/logo.png" alt="ClassMana"><h1>🏆 PLACAR</h1><div class="decorRow"><img src="assets/items3d/dagger.png"><img src="assets/items3d/crystal.png"><img src="assets/items3d/book_blue.png"><img src="assets/items3d/shield.png"></div><p id="rankSummary"></p><div id="rankingTable"></div><button class="rankBtn" id="closeRanking">VOLTAR</button></div></div></div><script>
+const $=s=>document.querySelector(s),c=$('#c'),ctx=c.getContext('2d'),AS='assets/';let DPR=1,W=1280,H=720,last=0,T=0,playing=false,paused=false,stage=0,shake=0,msgUntil=0,score=0,audio,musicTimer,soundOn=true,heroIdx=0,mediaTrack=null,playerName="",playerClass="4º A",shieldUses=0,bossDefeated=false,transitionBusy=false,superUses=0,iceAlt=0,tutorialTimer=null,elapsedMs=0,lastTimerStamp=0,furyUsed=false,bestStageReached=0,superCooldown=0,manaAutoCountdown=null,gameEnded=false,rechargeRound=null,sessionToken=0,furyTimers=[],expectedStage=0,defeatPending=false,defeatDelay=0,defeatStage=-1,defeatScore=0,defeatHp=0;
+const mediaAudio={avatar:AS+'audio/avatar_config.mp3',lava:AS+'audio/lava_golem.mp3',spider:AS+'audio/spider_queen.mp3'};
+function stopMediaAudio(){if(mediaTrack){mediaTrack.pause();mediaTrack.currentTime=0;mediaTrack=null}}
+function playMediaAudio(src,loop=false,volume=.55){if(!soundOn)return;stopMediaAudio();mediaTrack=new Audio(src);mediaTrack.loop=loop;mediaTrack.volume=volume;mediaTrack.play().catch(()=>{});}
+function stageAudio(){let k=stages[stage].kind;if(k==='lava')playMediaAudio(mediaAudio.lava,true,.48);else if(k==='spider')playMediaAudio(mediaAudio.spider,true,.42);else playMediaAudio(mediaAudio.avatar,true,.28)}
+const sprites=new Image;sprites.src=AS+'sprites.png';
+const heroFiles=['hero_fada.png','hero_chama.png','hero_lobo.png','hero_cavaleiro.png','hero_maga.png','hero_dragao.png'];
+const heroImgs=heroFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
+// V31: animação experimental da Fada Guerreira — somente durante a batalha.
+const fadaFrameFiles=['fada_anim/fada_1.png','fada_anim/fada_2.png','fada_anim/fada_3.png','fada_anim/fada_4.png','fada_anim/fada_5.png','fada_anim/fada_6.png'];
+const fadaFrames=fadaFrameFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
+const FADA_FRAME_MS=130;
+// V32: animação do Chama Congelante — 6 frames individuais, somente durante a batalha.
+const chamaFrameFiles=['chama_anim/chama_1.png','chama_anim/chama_2.png','chama_anim/chama_3.png','chama_anim/chama_4.png','chama_anim/chama_5.png','chama_anim/chama_6.png'];
+const chamaFrames=chamaFrameFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
+const CHAMA_FRAME_MS=130;
+// Cavaleiro Guardião: seis quadros transparentes corrigidos.
+const cavaleiroFrameFiles=['cavaleiro_anim/cavaleiro_1.png','cavaleiro_anim/cavaleiro_2.png','cavaleiro_anim/cavaleiro_3.png','cavaleiro_anim/cavaleiro_4.png','cavaleiro_anim/cavaleiro_5.png','cavaleiro_anim/cavaleiro_6.png'];
+const cavaleiroFrames=cavaleiroFrameFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
+const loboFrames=['lobo_1.png','lobo_2.png','lobo_3.png','lobo_4.png','lobo_5.png','lobo_6.png'].map(f=>{let im=new Image;im.src=AS+'lobo_anim/'+f;return im});
+const magaFrames=['maga_1.png','maga_2.png','maga_3.png','maga_4.png','maga_5.png','maga_6.png'].map(f=>{let im=new Image;im.src=AS+'maga_anim/'+f;return im});
+const dragaoCombateFrames=['dragao_1.png','dragao_2.png','dragao_3.png','dragao_4.png','dragao_5.png','dragao_6.png'].map(f=>{let im=new Image;im.src=AS+'dragao_combate_anim/'+f;return im});
+const dragaoFogoFrames=['dragao_1.png','dragao_2.png','dragao_3.png','dragao_4.png','dragao_5.png','dragao_6.png','dragao_7.png','dragao_8.png','dragao_9.png','dragao_10.png','dragao_11.png','dragao_12.png'].map(f=>{let im=new Image;im.src=AS+'dragao_fogo_anim/'+f;return im});
+const LOBO_FRAME_MS=150,MAGA_FRAME_MS=150,DRAGAO_FRAME_MS=150;
+const CAVALEIRO_FRAME_MS=130;
+// recortes da cartela original: monstros, heróis e itens
+const monsterCrop=[ [20,20,250,225],[278,18,255,230],[560,15,260,225],[845,18,255,225],[1110,15,300,225],[290,245,290,230],[585,245,275,230],[0,240,285,235],[865,240,290,235],[1165,240,330,240] ];
+const heroCrop=[[10,485,235,195],[250,480,235,200],[490,485,230,195],[720,480,245,200],[965,480,250,200],[1220,480,270,200]];
+const heroes=[
+{name:'Fada Guerreira',basic:'Luz Feérica',special:'Tempestade de Luz',col:'#ff7df0',fx:'fairy'},
+{name:'Chama Congelante',basic:'Lança Glacial',special:'Nevasca Arcana',col:'#65dfff',fx:'ice'},
+{name:'Lobo Gatuno',basic:'Adaga Sombria',special:'Corte Fantasma',col:'#d6a35a',fx:'dagger'},
+{name:'Cavaleiro Guardião',basic:'Golpe Real',special:'Onda do Escudo',col:'#ffd04f',fx:'sword'},
+{name:'Maga Engenheira',basic:'Orbe Arcano',special:'Supernova Rúnica',col:'#8e7dff',fx:'arcane'},
+{name:'Dragão de Combate',basic:'Brasa Dracônica',special:'Inferno Dracônico',col:'#ff633f',fx:'fire'}];
+const stages=[
+{name:'FANTASMA',difficulty:6,realm:'NECRÓPOLE ESPECTRAL',bg:'bg_ghost.png',img:'monster_ghost.png',hp:728,rate:4.4,atk:6,kind:'ghost'},
+{name:'GOLEM DE LAVA',difficulty:6.5,realm:'FORJA VULCÂNICA',bg:'bg_lava.png',img:'monster_golem.png',hp:878,rate:4.2,atk:7,kind:'lava',tint:'#8b2500'},
+{name:'MEGA ARANHA',difficulty:7,realm:'FORTALEZA DAS ARANHAS',bg:'bg_mega.png',img:'monster_mega.png',hp:1040,rate:4.0,atk:8,kind:'spider'},
+{name:'FLOR DE PRESAS',difficulty:7.5,realm:'JARDIM CARNÍVORO',bg:'bg_plant.png',img:'monster_plant.png',hp:1213,rate:3.8,atk:9,kind:'plant',tint:'#164d1d'},
+{name:'MESTRE DA COLMEIA',difficulty:8,realm:'REINO DOURADO DA COLMEIA',bg:'bg_bee.png',img:'monster_bee.png',hp:1334,rate:3.6,atk:10,kind:'bee'},
+{name:'DUQUESA ARANHA',difficulty:8.5,realm:'COVIL DA DUQUESA',bg:'bg_duchess.png',img:'monster_duchess.png',hp:1380,rate:3.4,atk:10,kind:'spider'},
+{name:'MORCEGO VAMPIRO',difficulty:9,realm:'CASTELO VAMPÍRICO',bg:'bg_bat.png',img:'monster_bat.png',hp:1620,rate:3.2,atk:11,kind:'bat'},
+{name:'HIDRA',difficulty:9.5,realm:'ABISMO DA HIDRA',bg:'bg_hydra.png',img:'monster_hydra.png',hp:1900,rate:3.0,atk:12,kind:'hydra',tint:'#3d120d'},
+{name:'RAINHA ARANHA',difficulty:10,realm:'TRONO DA RAINHA ARANHA',bg:'bg_queen.png',img:'monster_queen.png',hp:2220,rate:2.8,atk:13,kind:'spider'},
+{name:'DRAGÃO DE FOGO',difficulty:12,realm:'DESAFIO BÔNUS • CÂMARA DO DRAGÃO',bg:'bg_dragon.png',img:'monster_dragon.png',hp:2700,rate:2.55,atk:16,kind:'dragon',tint:'#641400'}];
+const bgs={};for(const s of stages){if(!bgs[s.bg]){bgs[s.bg]=new Image;bgs[s.bg].src=AS+s.bg}} const monsters={};for(const s of stages){monsters[s.img]=new Image;monsters[s.img].src=AS+s.img}
+const fxIcons={};for(const [k,f] of Object.entries({sword:'icon_sword.png',shield:'items3d/shield.png',stinger:'icon_stinger.png',staff:'items3d/staff.png',book:'items3d/book_blue.png',book2:'items3d/book_red.png',potion:'items3d/potion.png',mana:'icon_mana.png',crystal:'items3d/crystal.png',gem:'items3d/gem.png',dagger:'items3d/dagger.png',bow:'items3d/bow.png',torch:'items3d/torch.png',coin:'items3d/coin.png'})){fxIcons[k]=new Image;fxIcons[k].src=AS+f}
+const ghostFrames=['ghost_anim/ghost_1.png','ghost_anim/ghost_2.png','ghost_anim/ghost_3.png','ghost_anim/ghost_4.png','ghost_anim/ghost_5.png','ghost_anim/ghost_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const golemFrames=['golem_anim/golem_1.png','golem_anim/golem_2.png','golem_anim/golem_3.png','golem_anim/golem_4.png','golem_anim/golem_5.png','golem_anim/golem_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const megaAranhaFrames=['mega_aranha_anim/mega_1.png','mega_aranha_anim/mega_2.png','mega_aranha_anim/mega_3.png','mega_aranha_anim/mega_4.png','mega_aranha_anim/mega_5.png','mega_aranha_anim/mega_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const florPresasFrames=['flor_presas_anim/flor_1.png','flor_presas_anim/flor_2.png','flor_presas_anim/flor_3.png','flor_presas_anim/flor_4.png','flor_presas_anim/flor_5.png','flor_presas_anim/flor_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const mestreColmeiaFrames=['mestre_colmeia_anim/colmeia_1.png','mestre_colmeia_anim/colmeia_2.png','mestre_colmeia_anim/colmeia_3.png','mestre_colmeia_anim/colmeia_4.png','mestre_colmeia_anim/colmeia_5.png','mestre_colmeia_anim/colmeia_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const duquesaAranhaFrames=['duquesa_aranha_anim/duquesa_1.png','duquesa_aranha_anim/duquesa_2.png','duquesa_aranha_anim/duquesa_3.png','duquesa_aranha_anim/duquesa_4.png','duquesa_aranha_anim/duquesa_5.png','duquesa_aranha_anim/duquesa_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const morcegoVampiroFrames=['morcego_vampiro_anim/morcego_1.png','morcego_vampiro_anim/morcego_2.png','morcego_vampiro_anim/morcego_3.png','morcego_vampiro_anim/morcego_4.png','morcego_vampiro_anim/morcego_5.png','morcego_vampiro_anim/morcego_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const hydraFrames=['hydra_anim/hydra_1.png','hydra_anim/hydra_2.png','hydra_anim/hydra_3.png','hydra_anim/hydra_4.png','hydra_anim/hydra_5.png','hydra_anim/hydra_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+const rainhaAranhaFrames=['rainha_aranha_anim/rainha_1.png','rainha_aranha_anim/rainha_2.png','rainha_aranha_anim/rainha_3.png','rainha_aranha_anim/rainha_4.png','rainha_aranha_anim/rainha_5.png','rainha_aranha_anim/rainha_6.png'].map(f=>{let im=new Image;im.src=AS+f;return im});
+let enemyAttackCount=0;
+const questions=[
+{q:'Quanto é 2 × 2?',a:["6", "4", "2", "9"],ok:1},
+{q:'Quanto é 2 × 3?',a:["6", "8", "3", "4"],ok:0},
+{q:'Quanto é 2 × 4?',a:["6", "10", "8", "4"],ok:2},
+{q:'Quanto é 2 × 5?',a:["12", "8", "5", "10"],ok:3},
+{q:'Quanto é 2 × 6?',a:["14", "12", "10", "6"],ok:1},
+{q:'Quanto é 2 × 7?',a:["7", "12", "16", "14"],ok:3},
+{q:'Quanto é 2 × 8?',a:["8", "16", "18", "14"],ok:1},
+{q:'Quanto é 2 × 9?',a:["9", "16", "20", "18"],ok:3},
+{q:'Quanto é 2 × 10?',a:["20", "18", "22", "10"],ok:0},
+{q:'Quanto é 3 × 2?',a:["6", "9", "4", "3"],ok:0},
+{q:'Quanto é 3 × 3?',a:["14", "12", "9", "6"],ok:2},
+{q:'Quanto é 3 × 4?',a:["15", "12", "8", "9"],ok:1},
+{q:'Quanto é 3 × 5?',a:["18", "12", "15", "10"],ok:2},
+{q:'Quanto é 3 × 6?',a:["18", "15", "21", "12"],ok:0},
+{q:'Quanto é 3 × 7?',a:["18", "24", "21", "14"],ok:2},
+{q:'Quanto é 3 × 8?',a:["21", "27", "16", "24"],ok:3},
+{q:'Quanto é 3 × 9?',a:["18", "27", "24", "30"],ok:1},
+{q:'Quanto é 3 × 10?',a:["27", "30", "20", "33"],ok:1},
+{q:'Quanto é 4 × 2?',a:["6", "12", "8", "4"],ok:2},
+{q:'Quanto é 4 × 3?',a:["9", "12", "8", "16"],ok:1},
+{q:'Quanto é 4 × 4?',a:["20", "12", "16", "21"],ok:2},
+{q:'Quanto é 4 × 5?',a:["16", "20", "24", "15"],ok:1},
+{q:'Quanto é 4 × 6?',a:["18", "24", "20", "28"],ok:1},
+{q:'Quanto é 4 × 7?',a:["24", "32", "28", "21"],ok:2},
+{q:'Quanto é 4 × 8?',a:["24", "36", "28", "32"],ok:3},
+{q:'Quanto é 4 × 9?',a:["32", "27", "40", "36"],ok:3},
+{q:'Quanto é 4 × 10?',a:["40", "36", "30", "44"],ok:0},
+{q:'Quanto é 5 × 2?',a:["10", "15", "5", "8"],ok:0},
+{q:'Quanto é 5 × 3?',a:["10", "15", "12", "20"],ok:1},
+{q:'Quanto é 5 × 4?',a:["20", "16", "15", "25"],ok:0},
+{q:'Quanto é 5 × 5?',a:["25", "30", "30", "20"],ok:0},
+{q:'Quanto é 5 × 6?',a:["35", "24", "25", "30"],ok:3},
+{q:'Quanto é 5 × 7?',a:["28", "30", "40", "35"],ok:3},
+{q:'Quanto é 5 × 8?',a:["45", "40", "32", "35"],ok:1},
+{q:'Quanto é 5 × 9?',a:["50", "36", "45", "40"],ok:2},
+{q:'Quanto é 5 × 10?',a:["50", "55", "40", "45"],ok:0},
+{q:'Quanto é 6 × 2?',a:["6", "10", "12", "18"],ok:2},
+{q:'Quanto é 6 × 3?',a:["12", "24", "15", "18"],ok:3},
+{q:'Quanto é 6 × 4?',a:["30", "20", "18", "24"],ok:3},
+{q:'Quanto é 6 × 5?',a:["36", "30", "24", "25"],ok:1},
+{q:'Quanto é 6 × 6?',a:["41", "42", "36", "30"],ok:2},
+{q:'Quanto é 6 × 7?',a:["35", "48", "36", "42"],ok:3},
+{q:'Quanto é 6 × 8?',a:["42", "54", "48", "40"],ok:2},
+{q:'Quanto é 6 × 9?',a:["45", "48", "54", "60"],ok:2},
+{q:'Quanto é 6 × 10?',a:["66", "60", "54", "50"],ok:1},
+{q:'Quanto é 7 × 2?',a:["7", "12", "14", "21"],ok:2},
+{q:'Quanto é 7 × 3?',a:["28", "18", "21", "14"],ok:2},
+{q:'Quanto é 7 × 4?',a:["24", "35", "21", "28"],ok:3},
+{q:'Quanto é 7 × 5?',a:["42", "28", "30", "35"],ok:3},
+{q:'Quanto é 7 × 6?',a:["35", "49", "36", "42"],ok:3},
+{q:'Quanto é 7 × 7?',a:["54", "49", "56", "42"],ok:1},
+{q:'Quanto é 7 × 8?',a:["48", "56", "63", "49"],ok:1},
+{q:'Quanto é 7 × 9?',a:["56", "54", "70", "63"],ok:3},
+{q:'Quanto é 7 × 10?',a:["77", "70", "63", "60"],ok:1},
+{q:'Quanto é 8 × 2?',a:["8", "16", "24", "14"],ok:1},
+{q:'Quanto é 8 × 3?',a:["21", "32", "16", "24"],ok:3},
+{q:'Quanto é 8 × 4?',a:["24", "40", "28", "32"],ok:3},
+{q:'Quanto é 8 × 5?',a:["32", "35", "48", "40"],ok:3},
+{q:'Quanto é 8 × 6?',a:["56", "48", "42", "40"],ok:1},
+{q:'Quanto é 8 × 7?',a:["64", "49", "48", "56"],ok:3},
+{q:'Quanto é 8 × 8?',a:["72", "69", "64", "56"],ok:2},
+{q:'Quanto é 8 × 9?',a:["63", "64", "80", "72"],ok:3},
+{q:'Quanto é 8 × 10?',a:["80", "72", "70", "88"],ok:0},
+{q:'Quanto é 9 × 2?',a:["16", "18", "9", "27"],ok:1},
+{q:'Quanto é 9 × 3?',a:["27", "18", "24", "36"],ok:0},
+{q:'Quanto é 9 × 4?',a:["45", "36", "32", "27"],ok:1},
+{q:'Quanto é 9 × 5?',a:["45", "54", "36", "40"],ok:0},
+{q:'Quanto é 9 × 6?',a:["54", "48", "45", "63"],ok:0},
+{q:'Quanto é 9 × 7?',a:["63", "72", "54", "56"],ok:0},
+{q:'Quanto é 9 × 8?',a:["72", "81", "63", "64"],ok:0},
+{q:'Quanto é 9 × 9?',a:["81", "72", "86", "90"],ok:0},
+{q:'Quanto é 9 × 10?',a:["80", "81", "90", "99"],ok:2},
+{q:'Quanto é 10 × 2?',a:["10", "20", "18", "30"],ok:1},
+{q:'Quanto é 10 × 3?',a:["40", "30", "20", "27"],ok:1},
+{q:'Quanto é 10 × 4?',a:["36", "30", "40", "50"],ok:2},
+{q:'Quanto é 10 × 5?',a:["40", "45", "50", "60"],ok:2},
+{q:'Quanto é 10 × 6?',a:["50", "54", "70", "60"],ok:3},
+{q:'Quanto é 10 × 7?',a:["63", "70", "60", "80"],ok:1},
+{q:'Quanto é 10 × 8?',a:["80", "70", "90", "72"],ok:0},
+{q:'Quanto é 10 × 9?',a:["100", "81", "90", "80"],ok:2},
+{q:'Quanto é 10 × 10?',a:["100", "90", "105", "110"],ok:0},
+{q:'Quanto é 4 ÷ 2?',a:["3", "2", "7", "1"],ok:1},
+{q:'Quanto é 6 ÷ 2?',a:["8", "4", "2", "3"],ok:3},
+{q:'Quanto é 8 ÷ 2?',a:["3", "2", "5", "4"],ok:3},
+{q:'Quanto é 10 ÷ 2?',a:["2", "6", "4", "5"],ok:3},
+{q:'Quanto é 20 ÷ 2?',a:["11", "2", "10", "9"],ok:2},
+{q:'Quanto é 6 ÷ 3?',a:["7", "3", "2", "1"],ok:2},
+{q:'Quanto é 9 ÷ 3?',a:["2", "4", "3", "8"],ok:2},
+{q:'Quanto é 12 ÷ 3?',a:["3", "5", "9", "4"],ok:3},
+{q:'Quanto é 15 ÷ 3?',a:["5", "3", "6", "4"],ok:0},
+{q:'Quanto é 30 ÷ 3?',a:["9", "11", "10", "3"],ok:2},
+{q:'Quanto é 8 ÷ 4?',a:["4", "2", "3", "1"],ok:1},
+{q:'Quanto é 12 ÷ 4?',a:["4", "3", "8", "2"],ok:1},
+{q:'Quanto é 16 ÷ 4?',a:["4", "9", "3", "5"],ok:0},
+{q:'Quanto é 20 ÷ 4?',a:["6", "5", "10", "4"],ok:1},
+{q:'Quanto é 40 ÷ 4?',a:["9", "11", "4", "10"],ok:3},
+{q:'Quanto é 10 ÷ 5?',a:["2", "3", "5", "1"],ok:0},
+{q:'Quanto é 15 ÷ 5?',a:["4", "2", "5", "3"],ok:3},
+{q:'Quanto é 20 ÷ 5?',a:["4", "9", "5", "3"],ok:0},
+{q:'Quanto é 25 ÷ 5?',a:["4", "5", "6", "10"],ok:1},
+{q:'Quanto é 50 ÷ 5?',a:["5", "9", "11", "10"],ok:3},
+{q:'Quanto é 12 ÷ 6?',a:["3", "2", "1", "6"],ok:1},
+{q:'Quanto é 18 ÷ 6?',a:["3", "4", "6", "2"],ok:0},
+{q:'Quanto é 24 ÷ 6?',a:["3", "4", "5", "6"],ok:1},
+{q:'Quanto é 30 ÷ 6?',a:["10", "5", "4", "6"],ok:1},
+{q:'Quanto é 60 ÷ 6?',a:["10", "11", "6", "9"],ok:0},
+{q:'Quanto é 14 ÷ 7?',a:["3", "1", "2", "7"],ok:2},
+{q:'Quanto é 21 ÷ 7?',a:["3", "2", "4", "7"],ok:0},
+{q:'Quanto é 28 ÷ 7?',a:["3", "5", "7", "4"],ok:3},
+{q:'Quanto é 35 ÷ 7?',a:["7", "4", "5", "6"],ok:2},
+{q:'Quanto é 70 ÷ 7?',a:["11", "7", "10", "9"],ok:2},
+{q:'Quanto é 16 ÷ 8?',a:["8", "1", "2", "3"],ok:2},
+{q:'Quanto é 24 ÷ 8?',a:["3", "2", "4", "8"],ok:0},
+{q:'Quanto é 32 ÷ 8?',a:["4", "8", "3", "5"],ok:0},
+{q:'Quanto é 40 ÷ 8?',a:["4", "6", "8", "5"],ok:3},
+{q:'Quanto é 80 ÷ 8?',a:["8", "11", "9", "10"],ok:3},
+{q:'Quanto é 18 ÷ 9?',a:["9", "3", "1", "2"],ok:3},
+{q:'Quanto é 27 ÷ 9?',a:["9", "2", "4", "3"],ok:3},
+{q:'Quanto é 36 ÷ 9?',a:["5", "9", "4", "3"],ok:2},
+{q:'Quanto é 45 ÷ 9?',a:["9", "6", "4", "5"],ok:3},
+{q:'Quanto é 90 ÷ 9?',a:["9", "15", "10", "11"],ok:2},
+{q:'Quanto é 20 ÷ 10?',a:["10", "1", "3", "2"],ok:3},
+{q:'Quanto é 30 ÷ 10?',a:["4", "3", "10", "2"],ok:1},
+{q:'Quanto é 40 ÷ 10?',a:["5", "3", "10", "4"],ok:3},
+{q:'Quanto é 50 ÷ 10?',a:["10", "5", "6", "4"],ok:1},
+{q:'Quanto é 100 ÷ 10?',a:["10", "11", "15", "9"],ok:0},
+{q:'Qual é a metade de 10?',a:["10", "0", "5", "10"],ok:2},
+{q:'Qual é a metade de 20?',a:["15", "20", "10", "5"],ok:2},
+{q:'Qual é a metade de 30?',a:["10", "15", "20", "30"],ok:1},
+{q:'Qual é a metade de 40?',a:["40", "20", "25", "15"],ok:1},
+{q:'Qual é a metade de 50?',a:["25", "50", "30", "20"],ok:0},
+{q:'Qual é a metade de 60?',a:["35", "60", "30", "25"],ok:2},
+{q:'Qual é a metade de 70?',a:["35", "70", "30", "40"],ok:0},
+{q:'Qual é a metade de 80?',a:["40", "80", "45", "35"],ok:0},
+{q:'Qual é a metade de 90?',a:["40", "90", "50", "45"],ok:3},
+{q:'Qual é a metade de 100?',a:["50", "100", "55", "45"],ok:0},
+{q:'Qual é o dobro de 5?',a:["5", "0", "20", "10"],ok:3},
+{q:'Qual é o dobro de 10?',a:["10", "20", "30", "25"],ok:1},
+{q:'Qual é o dobro de 15?',a:["30", "40", "20", "15"],ok:0},
+{q:'Qual é o dobro de 20?',a:["30", "20", "40", "50"],ok:2},
+{q:'Qual é o dobro de 25?',a:["60", "25", "50", "40"],ok:2},
+{q:'Qual é o dobro de 30?',a:["30", "60", "70", "50"],ok:1},
+{q:'Qual é o dobro de 35?',a:["60", "80", "70", "35"],ok:2},
+{q:'Qual é o dobro de 40?',a:["80", "70", "90", "40"],ok:0},
+{q:'Qual é o dobro de 45?',a:["80", "45", "90", "100"],ok:2},
+{q:'Qual é o dobro de 50?',a:["110", "50", "90", "100"],ok:3},
+{q:'Quanto é 20 + 10?',a:["35", "20", "30", "40"],ok:2},
+{q:'Quanto é 30 + 20?',a:["60", "50", "40", "30"],ok:1},
+{q:'Quanto é 40 + 30?',a:["60", "70", "80", "40"],ok:1},
+{q:'Quanto é 50 + 20?',a:["50", "70", "80", "60"],ok:1},
+{q:'Quanto é 60 + 30?',a:["100", "60", "80", "90"],ok:3},
+{q:'Quanto é 70 + 20?',a:["100", "90", "70", "80"],ok:1},
+{q:'Quanto é 80 + 10?',a:["80", "100", "95", "90"],ok:3},
+{q:'Quanto é 25 + 25?',a:["50", "40", "25", "60"],ok:0},
+{q:'Quanto é 45 + 5?',a:["45", "60", "50", "40"],ok:2},
+{q:'Quanto é 55 + 5?',a:["55", "70", "60", "50"],ok:2},
+{q:'Quanto é 72 + 8?',a:["80", "70", "90", "72"],ok:0},
+{q:'Quanto é 92 + 8?',a:["90", "92", "110", "100"],ok:3},
+{q:'Quanto é 36 + 4?',a:["30", "50", "40", "36"],ok:2},
+{q:'Quanto é 64 + 6?',a:["64", "80", "70", "60"],ok:2},
+{q:'Quanto é 81 + 9?',a:["81", "100", "80", "90"],ok:3},
+{q:'Quanto é 54 − 14?',a:["14", "30", "50", "40"],ok:3},
+{q:'Quanto é 55 − 5?',a:["50", "40", "5", "60"],ok:0},
+{q:'Quanto é 72 − 2?',a:["80", "60", "70", "2"],ok:2},
+{q:'Quanto é 92 − 90?',a:["2", "12", "0", "90"],ok:0},
+{q:'Quanto é 80 − 20?',a:["50", "70", "60", "20"],ok:2},
+{q:'Quanto é 70 − 30?',a:["40", "50", "45", "30"],ok:0},
+{q:'Quanto é 65 − 5?',a:["50", "70", "5", "60"],ok:3},
+{q:'Quanto é 48 − 8?',a:["40", "30", "50", "8"],ok:0},
+{q:'Quanto é 100 − 50?',a:["55", "40", "60", "50"],ok:3},
+{q:'Quanto é 90 − 10?',a:["10", "80", "90", "70"],ok:1},
+{q:'Quanto é 63 − 3?',a:["60", "70", "3", "50"],ok:0},
+{q:'Quanto é 44 − 4?',a:["30", "50", "4", "40"],ok:3},
+{q:'Quanto é 35 − 5?',a:["20", "40", "30", "5"],ok:2},
+{q:'Quanto é 27 − 7?',a:["30", "7", "10", "20"],ok:3},
+{q:'Quanto é 60 − 40?',a:["20", "40", "10", "30"],ok:0},
+{q:'Quanto é 5 × 4 + 10?',a:["20", "30", "25", "40"],ok:1},
+{q:'Quanto é 6 × 5 − 10?',a:["15", "25", "20", "30"],ok:2},
+{q:'Quanto é 4 × 5 + 5?',a:["25", "30", "20", "15"],ok:0},
+{q:'Quanto é 3 × 8 − 4?',a:["28", "20", "16", "24"],ok:1},
+{q:'Quanto é 20 + 5 × 2?',a:["25", "35", "30", "50"],ok:2},
+{q:'Quanto é 40 − 5 × 4?',a:["25", "15", "20", "35"],ok:2},
+{q:'Quanto é 10 + 6 × 5?',a:["35", "40", "45", "80"],ok:1},
+{q:'Quanto é 50 − 8 × 5?',a:["18", "20", "42", "10"],ok:3}
+];
+function resize(){DPR=Math.min(2,devicePixelRatio||1);c.width=innerWidth*DPR;c.height=innerHeight*DPR;W=innerWidth;H=innerHeight;ctx.setTransform(DPR,0,0,DPR,0,0)}addEventListener('resize',resize);resize();
+let p={x:200,y:520,hp:100,mana:100,inv:0,shield:0,shieldCd:0},boss={x:1000,y:350,hp:1,max:1,cool:1,vx:0,vy:0,moveT:0,dash:0},shots=[],bad=[],parts=[],keys={},joy={x:0,y:0};
+function say(s,d=1.5){$('#msg').textContent=s;msgUntil=T+d}function tone(f=500,d=.1,type='sine',v=.05){if(!audio||!soundOn)return;let o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.value=f;g.gain.value=v;o.connect(g).connect(audio.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+d);o.stop(audio.currentTime+d)}
+function monsterSfx(kind,special=false){if(!audio||!soundOn)return;let seq={ghost:[[760,.12,'sine'],[430,.22,'sine'],[620,.28,'triangle']],lava:[[95,.18,'sawtooth'],[65,.32,'square']],spider:[[1250,.045,'square'],[930,.06,'triangle'],[1450,.04,'square']],plant:[[180,.08,'sawtooth'],[110,.16,'triangle']],bee:[[185,.18,'sawtooth'],[225,.18,'sawtooth'],[165,.22,'sawtooth']],bat:[[1550,.05,'sine'],[1150,.06,'sine'],[1780,.05,'sine']],hydra:[[125,.2,'sawtooth'],[82,.3,'square'],[160,.16,'triangle']],dragon:[[78,.28,'sawtooth'],[55,.4,'square'],[115,.25,'sawtooth']]}[kind]||[[220,.2,'triangle']];seq.forEach((x,i)=>setTimeout(()=>tone(x[0]*(special?0.9:1),x[1]*(special?1.5:1),x[2],special?.085:.045),i*(special?85:55)))}
+function fmtTime(ms){let t=Math.floor(ms/1000),m=Math.floor(t/60),ss=t%60;return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0')}
+function startMusic(){clearInterval(musicTimer);if(!soundOn)return;let seq=[110,146,165,130,110,196,165,146],i=0;musicTimer=setInterval(()=>{if(playing&&!paused){tone(seq[i++%seq.length],.42,'triangle',.018);if(i%4===0)tone(seq[(i+2)%seq.length]*2,.18,'sine',.009)}},430)}
+function burst(px,py,col,n=18){for(let i=0;i<n;i++){let a=Math.random()*6.283,v=40+Math.random()*220;parts.push({x:px,y:py,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:.35+Math.random()*.7,r:2+Math.random()*5,col})}}
+function resetStage(){defeatPending=false;defeatDelay=0;defeatStage=-1;stage=Math.max(0,Math.min(expectedStage,stages.length-1));let s=stages[stage];stageAudio();p.x=W*.18;p.y=H*.70;p.hp=100;p.mana=100;p.shield=0;p.shieldCd=0;enemyAttackCount=0;superUses=0;superCooldown=0;manaAutoCountdown=null;rechargeRound=null;bossDefeated=false;furyUsed=false;bestStageReached=Math.max(bestStageReached,stage+1);boss={x:W*.78,y:H*.48,hp:s.hp,max:s.hp,cool:3.4,vx:0,vy:0,moveT:.2,dash:0,baseY:H*.48};shots=[];bad=[];$('#ename').textContent=s.name;$('#round').textContent=stage===9?'FASE 10 / 10 • CHEFÃO':`FASE ${stage+1} / 10`;$('#stageText').textContent=s.realm;$('#difficulty').textContent='DIFICULDADE ⭐ '+String(s.difficulty).replace('.',',');say('⚔ Prepare-se!',1.8)}
+function superLimit(){return stage>=8?5:stage>=5?4:3}
+function fire(power=false){if(!playing||paused)return;let h=heroes[heroIdx],maxSuper=superLimit();if(power&&superUses>=maxSuper){say('✨ SUPER ESGOTADO • use Z para atacar!',1.8);tone(130,.18,'square',.04);return}if(power&&superCooldown>0){say('⏳ SUPER RECARREGANDO • '+Math.ceil(superCooldown)+'s',1.2);tone(150,.12,'square',.035);return}let cost=power?30:7;if(p.mana<cost){startManaAutoRecharge();say('🧪 Mana insuficiente • R para recarregar!',2);return}p.mana-=cost;if(p.mana<7)startManaAutoRecharge();if(power){superUses++;superCooldown=5}let a=Math.atan2(boss.y-p.y,boss.x-p.x),n=power?5:1;for(let i=0;i<n;i++){let q=a+(i-(n-1)/2)*(power?.11:0);shots.push({x:p.x+35,y:p.y-35,vx:Math.cos(q)*(power?540:620),vy:Math.sin(q)*(power?540:620),life:2.5,r:power?18:12,dmg:power?42:22,col:h.col,fx:h.fx,power,variant:((h.fx==='ice'||h.fx==='fairy')?(iceAlt++%3):(h.fx==='fire'?(iceAlt++%4):0))})}burst(p.x+30,p.y-35,h.col,power?65:22);if(power){tone(180,.20,'sawtooth',.085);setTimeout(()=>tone(360,.22,'square',.055),55);setTimeout(()=>tone(720,.34,'sine',.065),110);shake=12;say('💥 SUPER '+superUses+'/'+maxSuper+' • '+h.special+' • recarga 5s',1.4)}else{tone(520+heroIdx*55,.09,'square',.035);setTimeout(()=>tone(760+heroIdx*35,.11,'triangle',.035),35);shake=3;say('⚔ '+h.basic,.75)}}
+function defend(){if(!playing||paused)return;if(p.shieldCd>0){say('🛡 Escudo recarregando...',1);return}let queen=stage===8;p.shield=queen?7.0:5.0;p.shieldCd=queen?4.5:6.5;shieldUses++;score=Math.max(0,score-(queen?65:50));tone(880,.35,'sine',.06);burst(p.x,p.y,heroes[heroIdx].col,30);say('🛡 ESCUDO ATIVADO • -'+(stage===8?65:50)+' PONTOS',1.3)}
+function startManaAutoRecharge(){if(!playing||paused||gameEnded||manaAutoCountdown!==null)return;manaAutoCountdown=3;say('🧪 MANA ESGOTADA • R para recarregar • automático em 3...',1.1)}
+// Baralho de perguntas persistente entre todas as recargas da partida.
+let questionDeck=[],lastQuestionIndex=-1;
+function refillQuestionDeck(){
+  questionDeck=questions.map((_,i)=>i);
+  for(let i=questionDeck.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [questionDeck[i],questionDeck[j]]=[questionDeck[j],questionDeck[i]];
+  }
+  // Ao iniciar um novo ciclo, não repetir imediatamente a última pergunta.
+  if(questionDeck.length>1&&questionDeck[questionDeck.length-1]===lastQuestionIndex){
+    [questionDeck[0],questionDeck[questionDeck.length-1]]=[questionDeck[questionDeck.length-1],questionDeck[0]];
+  }
+}
+function nextRechargeQuestion(){
+  if(!questionDeck.length)refillQuestionDeck();
+  const index=questionDeck.pop();
+  lastQuestionIndex=index;
+  return questions[index];
+}
+function askQuestion(){
+  if(!playing||paused||gameEnded)return;
+  manaAutoCountdown=null;paused=true;keys={};joy.x=0;joy.y=0;boss.vx=0;boss.vy=0;
+  rechargeRound={number:1,total:0,wrong:0};
+  $('#question').classList.remove('hidden');
+  showRechargeQuestion();
+}
+function showRechargeQuestion(){
+  if(!rechargeRound)return;
+  let q=nextRechargeQuestion(),value=50;rechargeRound.wrong=0;
+  $('#qtext').textContent=`Questão ${rechargeRound.number}/2 • ${q.q}`;
+  $('#answers').innerHTML='';$('#qfeedback').textContent='Cada erro reduz o valor desta questão.';
+  q.a.forEach((a,i)=>{let b=document.createElement('button');b.className='ans';b.textContent=a;b.onclick=()=>{
+    if(b.disabled)return;
+    if(i===q.ok){
+      b.classList.add('correct');
+      rechargeRound.total+=value;score+=Math.round(value*2);tone(960,.35,'sine',.08);
+      $('#qfeedback').textContent=`✅ Correto! Esta questão valeu ${value}% de recarga.`;
+      document.querySelectorAll('#answers .ans').forEach(x=>x.disabled=true);
+      setTimeout(()=>{if(rechargeRound.number<2){rechargeRound.number++;showRechargeQuestion()}else finishRechargeRound()},650);
+    }else{
+      b.classList.add('wrong');
+      b.disabled=true;rechargeRound.wrong++;value=Math.max(0,value-15);tone(160,.25,'sawtooth',.05);
+      $('#qfeedback').textContent=`❌ Erro: esta questão agora vale no máximo ${value}%.`;
+      if(rechargeRound.wrong>=4||value<=0){document.querySelectorAll('#answers .ans').forEach((x,j)=>{x.disabled=true;if(j===q.ok)x.classList.add('correct')});setTimeout(()=>{if(rechargeRound.number<2){rechargeRound.number++;showRechargeQuestion()}else finishRechargeRound()},650)}
+    }
+  };$('#answers').appendChild(b)})
+}
+function finishRechargeRound(){
+  let gain=Math.max(0,Math.min(100,rechargeRound.total));p.mana=gain;rechargeRound=null;
+  $('#qfeedback').textContent=`🔷 RECARGA FINAL: ${gain}%`;
+  const token=sessionToken;setTimeout(()=>{if(gameEnded||token!==sessionToken)return;$('#question').classList.add('hidden');paused=false;restoreGameFocus();say('🔷 Mana recarregada: '+gain+'%',1.4);if(p.mana<7)startManaAutoRecharge()},850)
+}
+function enemyAttack(){let s=stages[stage],a=Math.atan2(p.y-boss.y,p.x-boss.x);enemyAttackCount++;let special=enemyAttackCount%4===0,n=1;if(s.kind==='hydra')n=special?5:2;if(s.kind==='dragon')n=special?7:2;if(s.kind==='spider')n=special?5:1;if(s.kind==='bee')n=special?9:1;if(s.kind==='bat')n=special?9:1;if(s.kind==='ghost')n=special?6:1;if(s.kind==='lava')n=special?6:1;if(s.kind==='plant')n=special?6:1;let speed=(special?195:180)+stage*6;for(let i=0;i<n;i++){let spread=(i-(n-1)/2)*(special?.145:.10),q=a+spread;bad.push({x:boss.x-35,y:boss.y,vx:Math.cos(q)*speed,vy:Math.sin(q)*speed,life:(s.kind==='bee'&&special)?20:10,r:special?28:17,kind:s.kind,col:s.kind==='bee'?'#ffd339':s.kind==='ghost'?'#63f7ff':s.kind==='spider'?'#ffffff':s.kind==='plant'?'#77ff79':s.kind==='lava'?'#ff6a19':s.kind==='bat'?'#c34cff':s.kind==='hydra'?'#65e676':'#ff5b3f',special,spin:(Math.random()-.5)*2})}if(['ghost','bee','bat','dragon'].includes(s.kind)&&special){boss.dash=.38;boss.vx=-210-stage*5}monsterSfx(s.kind,special);if(special){burst(boss.x-45,boss.y,s.kind==='spider'?'#ffffff':s.kind==='bee'?'#ffd339':s.kind==='bat'?'#c34cff':s.kind==='ghost'?'#63f7ff':s.kind==='lava'||s.kind==='dragon'?'#ff5b28':s.kind==='plant'?'#77ff79':'#65e676',55);tone(95+stage*8,.48,'sawtooth',.075);setTimeout(()=>tone(190+stage*12,.28,'square',.05),90);shake=10}else{tone(180+stage*10,.2,'triangle',.04);shake=2}let normal={ghost:'👻 Pulso espectral!',lava:'🌋 Lava!',spider:'🕸 Teia!',plant:'🌿 Espinhos!',bee:'🐝 Ferrão!',bat:'🦇 Ataque vampírico!',hydra:'🐲 Rajada!',dragon:'🔥 Bola de fogo!'}[s.kind],sup={ghost:'👻✨ TEMPESTADE ESPECTRAL!',lava:'🌋🔥 ERUPÇÃO!',spider:'🕸️🕸️ CHUVA DE TEIAS!',plant:'🌿💥 RAJADA DE ESPINHOS!',bee:'🐝🐝🐝 ENXAME DA COLMEIA!',bat:'🦇🦇🦇 NUVEM DE MORCEGOS!',hydra:'🐲🐲🐲 ATAQUE DAS CABEÇAS!',dragon:'🔥🔥🔥 INFERNO DO DRAGÃO!'}[s.kind];say(special?'⚠ SUPER DO MONSTRO • '+sup:normal,special?1.7:.8)}
+function bossFury(){
+  if(furyUsed||bossDefeated||gameEnded)return;
+  furyUsed=true;let s=stages[stage],im=monsters[s.img],token=sessionToken;
+  say('⚠ MODO DESESPERO • '+s.name+' invoca miniaturas!',2.2);monsterSfx(s.kind,true);shake=16;burst(boss.x,boss.y,'#ffd34f',85);
+  let n=Math.min(14,7+Math.floor(stage/2));
+  function spawnMini(i){
+    if(gameEnded||bossDefeated||token!==sessionToken)return;
+    if(paused||!playing){let id=setTimeout(()=>spawnMini(i),120);furyTimers.push(id);return}
+    let yy=H*(.22+.56*Math.random()),xx=boss.x-20-Math.random()*100,a=Math.atan2(p.y-yy,p.x-xx),sp=300+stage*10;
+    bad.push({x:xx,y:yy,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:9,r:26,kind:s.kind,col:'#ffd34f',special:true,mini:true,img:im,miniDamage:Math.round(s.atk*(1.35+stage*.035))});
+  }
+  for(let i=0;i<n;i++){let id=setTimeout(()=>spawnMini(i),i*90);furyTimers.push(id)}
+}
+
+let gameOverFireTimer=null;function startGameOverDragon(){clearInterval(gameOverFireTimer);const layer=$('#goFireLayer');if(!layer)return;layer.innerHTML='';const shoot=()=>{if($('#gameOverOverlay').classList.contains('hidden'))return;const f=document.createElement('i');f.className='goFireball';f.style.top=(72+Math.random()*35)+'px';layer.appendChild(f);setTimeout(()=>f.remove(),1200)};setTimeout(shoot,900);gameOverFireTimer=setInterval(shoot,1450)}function stopGameOverDragon(){clearInterval(gameOverFireTimer);gameOverFireTimer=null;const layer=$('#goFireLayer');if(layer)layer.innerHTML=''}
+function endGameDefeat(){
+  if(gameEnded)return;
+  gameEnded=true;defeatPending=false;sessionToken++;playing=false;paused=true;bossDefeated=true;manaAutoCountdown=null;rechargeRound=null;
+  furyTimers.forEach(clearTimeout);furyTimers=[];clearInterval(tutorialTimer);tutorialTimer=null;transitionBusy=false;$('#question').classList.add('hidden');$('#transition').classList.add('hidden');
+  shots.forEach(z=>z.life=0);bad.forEach(z=>z.life=0);shots=[];bad=[];
+  saveBestScore();stopMediaAudio();clearInterval(musicTimer);tone(220,.35,'sawtooth',.09);setTimeout(()=>tone(150,.45,'sawtooth',.09),260);setTimeout(()=>tone(85,.7,'square',.08),580);
+  $('#gameOverDetails').innerHTML=`<b>${playerName}</b> • ${playerClass}<br>${heroes[heroIdx].name}<br>Derrotado por <b>${stages[stage].name}</b><br>${score.toLocaleString('pt-BR')} pontos • ⏳ ${fmtTime(elapsedMs)}`;
+  $('#gameOverOverlay').classList.remove('hidden');startGameOverDragon();
+}
+function hitPlayer(q){if(paused||!playing||gameEnded)return;q.life=0;if(p.inv>0)return;if(p.shield>0){burst(p.x,p.y,'#75eaff',16);tone(620,.12,'square',.04);return}let dist=Math.hypot(boss.x-p.x,boss.y-(p.y-45)),near=dist<260?1.55:dist<430?1.28:1;let baseDamage=q.mini?(q.miniDamage||Math.round(stages[stage].atk*1.5)):Math.round(stages[stage].atk*(q.special?1.65:1));let incomingDamage=Math.round(baseDamage*near);p.hp=Math.max(0,p.hp-incomingDamage);if(near>1.5)say('⚠ MUITO PERTO! DANO +55%',.9);else if(near>1)say('⚠ PROXIMIDADE! DANO +28%',.8);p.inv=.55;shake=10;burst(p.x,p.y,'#ff566d',18);tone(110,.25,'sawtooth',.07);if(p.hp<=0)endGameDefeat()}
+function showTransition(text,cb){if(transitionBusy||gameEnded)return;const token=sessionToken;transitionBusy=true;const box=$('#transitionText');const defeated=stages.find(s=>String(text).includes(s.name)&&String(text).includes('DERROTADO'));if(defeated){const lines=String(text).split('\n'),bonus=lines.slice(1).join(' • ');box.innerHTML=`<div class="defeatedSkull">☠️</div><div class="defeatedBadge"><img src="${AS+defeated.img}" alt="${defeated.name}"></div><div class="defeatedMain">${defeated.name}<br>DERROTADO!</div>${bonus?`<div class="defeatedBonus">${bonus}</div>`:''}<div class="defeatedNext">PREPARE-SE • O PRÓXIMO DESAFIO ESTÁ CHEGANDO</div>`}else{box.innerText=text}$('#transition').classList.remove('hidden');setTimeout(()=>{if(gameEnded||token!==sessionToken){$('#transition').classList.add('hidden');transitionBusy=false;return}$('#transition').classList.add('hidden');transitionBusy=false;superUses=0;iceAlt=0;tutorialTimer=null;restoreGameFocus();cb&&cb()},3600)}
+function sprite(crop,x,y,w,h,flip=false){if(!sprites.complete)return;ctx.save();ctx.translate(x,y);if(flip)ctx.scale(-1,1);ctx.drawImage(sprites,...crop,-w/2,-h/2,w,h);ctx.restore()}
+const shieldGradientCache=new Map();
+function drawHero(){let im=heroImgs[heroIdx];let seq=[0,1,2,3,4,5,4,3,2,1];if(heroIdx===0&&fadaFrames.length){let fi=seq[Math.floor((T*1000)/FADA_FRAME_MS)%seq.length],fm=fadaFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===1&&chamaFrames.length){let fi=seq[Math.floor((T*1000)/CHAMA_FRAME_MS)%seq.length],fm=chamaFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===2&&loboFrames.length){let fi=seq[Math.floor((T*1000)/LOBO_FRAME_MS)%seq.length],fm=loboFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===3&&cavaleiroFrames.length){let fi=seq[Math.floor((T*1000)/CAVALEIRO_FRAME_MS)%seq.length],fm=cavaleiroFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===4&&magaFrames.length){let fi=seq[Math.floor((T*1000)/MAGA_FRAME_MS)%seq.length],fm=magaFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===5&&dragaoCombateFrames.length){let fi=Math.floor((T*1000)/DRAGAO_FRAME_MS)%dragaoCombateFrames.length,fm=dragaoCombateFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}let hh=Math.min(210,H*.32),ratio=(im&&im.naturalWidth&&im.naturalHeight)?im.naturalWidth/im.naturalHeight:.88,ww=hh*ratio;ctx.save();ctx.translate(p.x,p.y-45);if(heroIdx===3)ctx.scale(-1,1);if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,-ww/2,-hh/2,ww,hh);ctx.restore();if(p.shield>0){
+  // Escudo leve: apenas dois traçados sem sombras, gradientes ou partículas permanentes.
+  const h=heroes[heroIdx],R=Math.max(ww*.62,hh*.62),pulse=1+Math.sin(T*4)*.012;
+  ctx.save();ctx.translate(p.x,p.y-45);
+  ctx.beginPath();ctx.arc(0,0,R*pulse,0,Math.PI*2);
+  ctx.fillStyle='rgba(110,225,255,.075)';ctx.fill();
+  ctx.lineWidth=3;ctx.strokeStyle=h.col;ctx.globalAlpha=.82;ctx.stroke();
+  ctx.beginPath();ctx.arc(0,0,R*.89,Math.PI*.15,Math.PI*.90);
+  ctx.lineWidth=1.5;ctx.strokeStyle='rgba(255,255,255,.65)';ctx.stroke();
+  ctx.restore();
+}}
+function drawEnemy(){let s=stages[stage],im=monsters[s.img];if(s.kind==='ghost'&&ghostFrames.length){let ghostSeq=[0,1,2,3,4,5,4,3,2,1],gi=ghostSeq[Math.floor(T*5)%ghostSeq.length],g=ghostFrames[gi];if(g.complete&&g.naturalWidth)im=g}if(s.kind==='lava'&&golemFrames.length){let golemSeq=[0,1,2,3,4,5,4,3,2,1],gi=golemSeq[Math.floor(T*4)%golemSeq.length],g=golemFrames[gi];if(g.complete&&g.naturalWidth)im=g}if(stage===2&&megaAranhaFrames.length){let megaSeq=[0,1,2,3,4,5,4,3,2,1],mi=megaSeq[Math.floor(T*4)%megaSeq.length],m=megaAranhaFrames[mi];if(m.complete&&m.naturalWidth)im=m}if(stage===3&&florPresasFrames.length){let florSeq=[0,1,2,3,4,5,4,3,2,1],fi=florSeq[Math.floor(T*3.5)%florSeq.length],f=florPresasFrames[fi];if(f.complete&&f.naturalWidth)im=f}if(s.kind==='bee'&&mestreColmeiaFrames.length){let beeSeq=[0,1,2,3,4,5,4,3,2,1],bi=beeSeq[Math.floor(T*3.2)%beeSeq.length],b=mestreColmeiaFrames[bi];if(b.complete&&b.naturalWidth)im=b}if(stage===5&&duquesaAranhaFrames.length){let duchessSeq=[0,1,2,3,4,5,4,3,2,1],di=duchessSeq[Math.floor(T*4)%duchessSeq.length],d=duquesaAranhaFrames[di];if(d.complete&&d.naturalWidth)im=d}if(stage===6&&morcegoVampiroFrames.length){let batSeq=[0,1,2,3,4,5,4,3,2,1],bti=batSeq[Math.floor(T*4)%batSeq.length],bt=morcegoVampiroFrames[bti];if(bt.complete&&bt.naturalWidth)im=bt}if(s.kind==='hydra'&&hydraFrames.length){let hydraSeq=[0,1,2,3,4,5,4,3,2,1],hi=hydraSeq[Math.floor(T*3.8)%hydraSeq.length],h=hydraFrames[hi];if(h.complete&&h.naturalWidth)im=h}if(stage===8&&rainhaAranhaFrames.length){let queenSeq=[0,1,2,3,4,5,4,3,2,1],qi=queenSeq[Math.floor(T*4)%queenSeq.length],q=rainhaAranhaFrames[qi];if(q.complete&&q.naturalWidth)im=q}if(stage===9&&dragaoFogoFrames.length){let dragonSeq=[0,1,2,3,4,5,6,7,8,9,10,11,10,9,8,7,6,5,4,3,2,1],dri=dragonSeq[Math.floor(T*3.2)%dragonSeq.length],dr=dragaoFogoFrames[dri];if(dr&&dr.complete&&dr.naturalWidth)im=dr}let hh=stage===9?Math.min(360,H*.52):Math.min(235,H*.40);if(!im||!im.complete||!im.naturalWidth)return;let ww=hh*(im.naturalWidth/im.naturalHeight);ctx.save();ctx.shadowColor=s.kind==='bee'?'#ffc92f':s.kind==='ghost'?'#64f7ff':s.kind==='lava'||s.kind==='dragon'?'#ff542e':'#e45cff';ctx.shadowBlur=28;ctx.translate(boss.x,boss.y+Math.sin(T*2.1+stage)*10);if(stage!==9)ctx.scale(-1,1);ctx.drawImage(im,-ww/2,-hh/2,ww,hh);ctx.restore()}
+function drawProjectile(q){ctx.save();ctx.translate(q.x,q.y);let ang=Math.atan2(q.vy,q.vx);ctx.shadowColor=q.col;ctx.shadowBlur=q.power?34:20;ctx.globalAlpha=1;let emoji='',icon=null;if(q.power){if(q.fx==='fairy')icon=(superUses%2?fxIcons.potion:fxIcons.gem);else if(q.fx==='ice')icon=(superUses%2?fxIcons.crystal:fxIcons.torch);else if(q.fx==='dagger')icon=(superUses%2?fxIcons.dagger:fxIcons.bow);else if(q.fx==='sword')icon=fxIcons.shield;else if(q.fx==='arcane')icon=(superUses%2?fxIcons.book:fxIcons.book2);else if(q.fx==='fire')icon=([fxIcons.bow,fxIcons.dagger,fxIcons.stinger,fxIcons.torch][q.variant%4])}else{if(q.fx==='fairy')icon=q.variant===0?fxIcons.potion:(q.variant===1?fxIcons.gem:fxIcons.crystal);else if(q.fx==='ice')icon=q.variant===1?fxIcons.gem:fxIcons.crystal;else if(q.fx==='dagger')icon=fxIcons.dagger;else if(q.fx==='sword')icon=fxIcons.sword;else if(q.fx==='arcane')icon=fxIcons.staff;else if(q.fx==='fire')icon=fxIcons.torch}if(icon&&icon.complete&&icon.naturalWidth){ctx.rotate(ang);let z=q.power?68:42,ratio=icon.naturalWidth/icon.naturalHeight,dw=z,dh=z;if(ratio>1)dh=z/ratio;else dw=z*ratio;ctx.drawImage(icon,-dw/2,-dh/2,dw,dh)}else if(emoji){ctx.font=(q.power?54:38)+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(emoji,0,0)}else{ctx.fillStyle=q.col;ctx.beginPath();ctx.arc(0,0,q.r*1.5,0,7);ctx.fill()}if(q.power){ctx.strokeStyle=q.col;ctx.lineWidth=4;ctx.globalAlpha=.75;ctx.beginPath();ctx.arc(0,0,q.r*2.5+Math.sin(T*12)*4,0,7);ctx.stroke()}ctx.restore()}
+function finishBossDefeat(){
+  if(!defeatPending||gameEnded)return;
+  defeatPending=false;
+  const defeatedStage=defeatStage;
+  playing=false;paused=true;
+  showTransition(`🏆 ${stages[defeatedStage].name} DERROTADO!\n+${1000+defeatedStage*250} PONTOS`,()=>{
+    if(defeatedStage!==expectedStage)return;
+    expectedStage=defeatedStage+1;stage=expectedStage;
+    if(expectedStage<stages.length){playing=true;paused=false;resetStage()}
+    else{
+      tone(660,.25,'sine',.08);
+      setTimeout(()=>tone(880,.28,'sine',.09),220);
+      setTimeout(()=>tone(1100,.55,'triangle',.09),470);
+      showTransition('🏆 CAMPANHA CONCLUÍDA!\nDRAGÃO DE FOGO DERROTADO!',()=>{
+        saveBestScore();showRanking(true);
+        $('#menu').classList.remove('hidden');$('#menu').style.display='grid';
+        $('#start').textContent='↻ JOGAR NOVAMENTE';stage=0;expectedStage=0;
+      });
+    }
+  });
+}
+function update(dt){
+  if(defeatPending){
+    // Efeitos já lançados continuam visualmente, mas não provocam dano.
+    defeatDelay-=dt;
+    for(const q of shots){q.x+=q.vx*dt;q.y+=q.vy*dt;q.life-=dt}
+    for(const q of bad){q.x+=q.vx*dt;q.y+=q.vy*dt;q.life-=dt}
+    for(const q of parts){q.x+=q.vx*dt;q.y+=q.vy*dt;q.vy+=80*dt;q.life-=dt}
+    shots=shots.filter(q=>q.life>0);bad=bad.filter(q=>q.life>0);
+    parts=parts.filter(q=>q.life>0);
+    if(defeatDelay<=0)finishBossDefeat();
+    return;
+  }
+  if(!playing||paused){lastTimerStamp=performance.now();return;}elapsedMs+=dt*1000;$('#timerHud').textContent='⏳ '+fmtTime(elapsedMs);if(manaAutoCountdown!==null){manaAutoCountdown-=dt;if(manaAutoCountdown<=0){manaAutoCountdown=null;askQuestion();return}else{let sec=Math.ceil(manaAutoCountdown);if($('#msg').textContent.indexOf('MANA ESGOTADA')<0||Math.ceil(manaAutoCountdown+.15)!==sec)say('🧪 MANA ESGOTADA • R para recarregar • automático em '+sec+'...',.35)}}let dx=(keys.ArrowRight||keys.d?1:0)-(keys.ArrowLeft||keys.a?1:0)+joy.x,dy=(keys.ArrowDown||keys.s?1:0)-(keys.ArrowUp||keys.w?1:0)+joy.y,l=Math.hypot(dx,dy);if(l){p.x+=dx/l*275*dt;p.y+=dy/l*275*dt}p.x=Math.max(70,Math.min(W*.56,p.x));p.y=Math.max(190,Math.min(H-80,p.y));p.inv-=dt;p.shield-=dt;p.shieldCd-=dt;superCooldown=Math.max(0,superCooldown-dt);boss.cool-=dt;boss.moveT-=dt;if(boss.dash>0){boss.dash-=dt;boss.x+=boss.vx*dt;if(boss.dash<=0)boss.vx=0}else{if(boss.moveT<=0){boss.moveT=.55+Math.random()*.9;let pressure=.28+stage*.025+(furyUsed?.12:0);if(Math.random()<pressure){let a=Math.atan2((p.y-45)-boss.y,p.x-boss.x);boss.vx=Math.cos(a)*(105+stage*8);boss.vy=Math.sin(a)*(80+stage*6)}else{boss.vx=(Math.random()-.5)*(150+stage*9);boss.vy=(Math.random()-.5)*(105+stage*7)}}boss.x+=boss.vx*dt;boss.y+=boss.vy*dt}boss.x=Math.max(W*.38,Math.min(W*.91,boss.x));boss.y=Math.max(H*.22,Math.min(H*.78,boss.y));if(boss.cool<=0){enemyAttack();boss.cool=stages[stage].rate}
+for(const q of shots){q.x+=q.vx*dt;q.y+=q.vy*dt;q.life-=dt;if(q.life>0&&!bossDefeated&&Math.hypot(q.x-boss.x,q.y-boss.y)<100){q.life=0;boss.hp=Math.max(0,boss.hp-q.dmg);$('#ehp').style.width=(boss.hp/boss.max*100)+'%';score+=q.dmg;burst(q.x,q.y,q.col,9);shake=4;if(boss.hp>0&&!furyUsed&&boss.hp/boss.max<=.30)bossFury();if(boss.hp<=0){
+  boss.hp=0;$('#ehp').style.width='0%';bossDefeated=true;defeatPending=true;defeatDelay=3.4;defeatStage=stage;defeatScore=score+1000+stage*250;defeatHp=p.hp;
+  // Cancela apenas novos disparos e invocações; projéteis existentes seguem animados.
+  boss.cool=Infinity;boss.vx=0;boss.vy=0;boss.dash=0;
+  furyTimers.forEach(clearTimeout);furyTimers=[];
+  score+=1000+(stage*250);
+  burst(boss.x,boss.y,'#ffe06a',80);tone(980,.6,'sine',.12);
+}}}
+for(const q of bad){q.x+=q.vx*dt;q.y+=q.vy*dt;q.life-=dt;if(!defeatPending&&Math.hypot(q.x-p.x,q.y-p.y+35)<34)hitPlayer(q)}shots=shots.filter(q=>q.life>0);bad=bad.filter(q=>q.life>0);for(const q of parts){q.x+=q.vx*dt;q.y+=q.vy*dt;q.vy+=80*dt;q.life-=dt}parts=parts.filter(q=>q.life>0)}
+const projectileAuraCache=new Map();
+let backgroundCache=null,backgroundCacheKey='';
+function drawBackgroundCached(s,bg){
+  const key=stage+'|'+W+'|'+H+'|'+(bg&&bg.complete&&bg.naturalWidth?bg.src:'none');
+  if(key!==backgroundCacheKey){
+    backgroundCacheKey=key;
+    backgroundCache=document.createElement('canvas');backgroundCache.width=W;backgroundCache.height=H;
+    const c=backgroundCache.getContext('2d',{alpha:false});
+    if(bg&&bg.complete&&bg.naturalWidth){
+      const ir=bg.naturalWidth/bg.naturalHeight,cr=W/H;
+      let dw,dh,ox,oy;
+      if(ir>cr){dh=H;dw=H*ir;ox=(W-dw)/2;oy=0}
+      else{dw=W;dh=W/ir;ox=0;oy=(H-dh)/2}
+      c.drawImage(bg,ox,oy,dw,dh);
+    }else{
+      const g=c.createLinearGradient(0,0,W,H);
+      const pal={lava:['#2a0804','#7b1d08'],plant:['#071b0b','#24572a'],hydra:['#071c19','#174b42'],dragon:['#2a0703','#7b1705']}[s.kind]||['#10243c','#07111e'];
+      g.addColorStop(0,pal[0]);g.addColorStop(1,pal[1]);c.fillStyle=g;c.fillRect(0,0,W,H);
+    }
+    if(s.tint){c.fillStyle=s.tint+'55';c.fillRect(0,0,W,H)}
+    c.fillStyle='#00101a35';c.fillRect(0,0,W,H);
+  }
+  ctx.drawImage(backgroundCache,0,0);
+}
+
+const enemySpriteCache=new Map();
+function enemySprite(q){
+  const key=q.kind+'|'+q.col+'|'+(q.special?1:0)+'|'+(q.mini?'mini':'normal');
+  if(enemySpriteCache.has(key))return enemySpriteCache.get(key);
+  const c=document.createElement('canvas');c.width=240;c.height=240;
+  const g=c.getContext('2d');g.translate(120,120);
+  const z=q.special?78:50;
+  g.save();g.globalCompositeOperation='screen';
+  const aura=g.createRadialGradient(0,0,2,0,0,z*.72);
+  aura.addColorStop(0,'rgba(255,255,255,.98)');aura.addColorStop(.20,q.col);
+  aura.addColorStop(.58,q.col);aura.addColorStop(1,'rgba(0,0,0,0)');
+  g.globalAlpha=q.special?.98:.88;g.fillStyle=aura;
+  g.beginPath();g.arc(0,0,z*.74,0,Math.PI*2);g.fill();g.restore();
+  const em={ghost:q.special?'👻✨':'👻',spider:'🕸️',bee:'🐝',bat:'🦇',lava:q.special?'🌋🔥':'🔥',dragon:q.special?'🔥🔥':'🔥',plant:q.special?'🌿💥':'🌿',hydra:q.special?'🐲⚡':'🐲'}[q.kind]||'✦';
+  g.shadowColor=q.col;g.shadowBlur=q.special?62:42;
+  g.textAlign='center';g.textBaseline='middle';g.font=z+'px sans-serif';g.fillText(em,0,0);
+  enemySpriteCache.set(key,c);return c;
+}
+function draw(){let s=stages[stage],bg=s.bg?bgs[s.bg]:null;ctx.save();if(shake){ctx.translate((Math.random()-.5)*shake,(Math.random()-.5)*shake);shake*=.84}drawBackgroundCached(s,bg);
+if(defeatPending){
+  ctx.save();ctx.globalAlpha=Math.min(1,Math.max(0,(defeatDelay-.6)/2.2));
+  drawEnemy();ctx.restore();
+}else drawEnemy();
+drawHero();shots.forEach(drawProjectile);for(const q of bad){ctx.save();ctx.translate(q.x,q.y);let ang=Math.atan2(q.vy,q.vx),pulse=1+Math.sin(T*12+q.x*.01)*.10,z=q.special?78:50;ctx.globalAlpha=1;if(q.mini&&q.img&&q.img.complete){ctx.shadowColor='#ffd34f';ctx.shadowBlur=28;ctx.scale(-1,1);ctx.drawImage(q.img,-42,-42,84,84);ctx.restore();continue;}if(q.special){ctx.globalCompositeOperation='screen';ctx.strokeStyle=q.col;ctx.lineWidth=4;ctx.beginPath();ctx.arc(0,0,q.r*1.45*pulse,0,Math.PI*2);ctx.stroke();ctx.globalCompositeOperation='source-over'}
+if(q.kind==='bee'&&!q.special&&fxIcons.stinger.complete&&fxIcons.stinger.naturalWidth){
+  ctx.shadowColor=q.col;ctx.shadowBlur=24;ctx.rotate(ang-Math.PI*.75);
+  ctx.drawImage(fxIcons.stinger,-z/2,-z/2,z,z);
+}else{
+  const sprite=enemySprite(q);ctx.drawImage(sprite,-120,-120);
+}
+if(q.special){ctx.globalAlpha=.72;ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,q.r*2.05+Math.sin(T*16)*5,0,Math.PI*2);ctx.stroke()}ctx.restore()}for(const q of parts){if(q.life<=0||q.x<-10||q.x>W+10||q.y<-10||q.y>H+10)continue;ctx.globalAlpha=Math.max(0,Math.min(1,q.life));ctx.fillStyle=q.col;ctx.beginPath();ctx.arc(q.x,q.y,q.r,0,7);ctx.fill();ctx.globalAlpha=1}if(defeatPending){
+  const t=3.4-defeatDelay;
+  ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillStyle='rgba(3,12,30,.64)';ctx.fillRect(W*.29,H*.39,W*.42,H*.18);
+  ctx.font='bold '+Math.round(Math.min(38,W*.033))+'px sans-serif';
+  ctx.fillStyle='#ffe9a0';ctx.fillText(t<1.0?'GOLPE FINAL!':t<2.35?'MONSTRO DERROTADO!':'VITÓRIA!',W*.5,H*.45);
+  ctx.font=Math.round(Math.min(19,W*.017))+'px sans-serif';ctx.fillStyle='#ffffff';
+  ctx.fillText('Vida restante: '+Math.ceil(defeatHp)+'%   •   Pontuação: '+Math.floor(defeatScore),W*.5,H*.515);
+  ctx.restore();
+}
+ctx.restore();}
+function updateHUD(){$('#php').style.width=p.hp+'%';$('#pmana').style.width=p.mana+'%';$('#ehp').style.width=(boss.hp/boss.max*100)+'%';$('#score').textContent=score;let maxSuper=superLimit();$('#special').textContent=superUses>=maxSuper?'[X/ENTER] ✨ SUPER ESGOTADO':superCooldown>0?'[X/ENTER] ⏳ SUPER '+Math.ceil(superCooldown)+'s':'[X/ENTER] ✨ SUPER '+superUses+'/'+maxSuper+' • '+heroes[heroIdx].special.toUpperCase();$('#special').disabled=superUses>=maxSuper||superCooldown>0;$('#hearts').textContent=Math.max(0,Math.ceil(p.hp/20))+'/5';$('#shieldTxt').textContent=p.shield>0?'ATIVO':p.shieldCd>0?Math.ceil(p.shieldCd)+'s':'PRONTO';if(T>msgUntil)$('#msg').textContent=''}
+let lastHudUpdate=-1;
+function loop(ms){let dt=Math.min(.033,(ms-last)/1000||.016);last=ms;T+=dt;update(dt);draw();if(lastHudUpdate<0||ms-lastHudUpdate>=90){updateHUD();lastHudUpdate=ms}requestAnimationFrame(loop)}requestAnimationFrame(loop);
+
+function normalizeName(v){return v.trim().replace(/\s+/g,' ').toLocaleLowerCase('pt-BR').replace(/(^|[\s'-])([\p{L}])/gu,(m,a,b)=>a+b.toLocaleUpperCase('pt-BR'))}
+function playerKey(v){return normalizeName(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR')}
+const RANKING_API='https://script.google.com/macros/s/AKfycbwwTgMZwd_rRniJI07Lg_ZCsK-Ahc1t4jIqukTGj1L_1-JF7SmT9daAeNbImiHOzHmL/exec';
+function loadRanking(){try{return JSON.parse(localStorage.getItem('classmana_batalha_ranking_v2')||'[]')}catch(e){return []}}
+function saveLocalBest(){if(!playerName)return;let r=loadRanking(),key=playerKey(playerName)+'|'+playerClass,entry={key,name:playerName,turma:playerClass,score:Math.round(score),hero:heroes[heroIdx].name,stage:Math.min(bestStageReached,10),time:Math.round(elapsedMs),date:new Date().toISOString()},old=r.find(x=>x.key===key);let better=!old||entry.score>old.score||(entry.score===old.score&&entry.stage>old.stage)||(entry.score===old.score&&entry.stage===old.stage&&entry.time<old.time);if(!old)r.push(entry);else if(better)Object.assign(old,entry);r.sort(sortRankingPontosFaseTempo);localStorage.setItem('classmana_batalha_ranking_v2',JSON.stringify(r.slice(0,150)))}
+function saveBestScore(){if(!playerName)return;saveLocalBest();const payload={nome:playerName,turma:playerClass,personagem:heroes[heroIdx].name,fase:Math.min(bestStageReached,10),pontuacao:Math.round(score),tempo:Math.round(elapsedMs)};fetch(RANKING_API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload),redirect:'follow'}).catch(()=>{})}
+function sortRankingPontosFaseTempo(a,b){return (b.score||0)-(a.score||0)||(b.stage||0)-(a.stage||0)||(a.time||9e15)-(b.time||9e15)||(a.name||'').localeCompare(b.name||'','pt-BR')}
+function rankingLocalNormalizado(){return loadRanking().sort(sortRankingPontosFaseTempo).slice(0,50)}
+async function fetchOnlineRanking(){const res=await fetch(RANKING_API+'?acao=ranking&_='+Date.now(),{cache:'no-store',redirect:'follow'});if(!res.ok)throw new Error('HTTP '+res.status);const data=await res.json();if(!data.sucesso||!Array.isArray(data.ranking))throw new Error(data.erro||'Ranking inválido');return data.ranking.map(x=>({key:playerKey(x.nome)+'|'+x.turma,name:x.nome,turma:x.turma,hero:x.personagem,stage:Number(x.fase)||0,score:Number(x.pontuacao)||0,time:Number(x.tempo)||0}))}
+function renderRanking(all,final=false,defeat=false,online=true){all=[...all].sort(sortRankingPontosFaseTempo);let r=all.slice(0,50),me=playerKey(playerName)+'|'+playerClass;$('#rankingTable').innerHTML=r.length?'<div class="rankingScroll"><table class="ranking"><thead><tr><th>#</th><th>Aluno</th><th>Turma</th><th>Herói</th><th>Fase</th><th>Pontos</th><th>Tempo</th></tr></thead><tbody>'+r.map((x,i)=>`<tr class="${x.key===me?'rankMe':''}"><td>${i<3?['🥇','🥈','🥉'][i]:i+1}</td><td>${x.name}</td><td>${x.turma||'—'}</td><td>${x.hero}</td><td>${x.stage||1}/10</td><td>${x.score.toLocaleString('pt-BR')}</td><td>⏳ ${fmtTime(x.time||0)}</td></tr>`).join('')+'</tbody></table></div><p style="margin:8px 0 0"><b>TOP 50</b> • '+(online?'ranking online ClassMana':'modo local • conexão indisponível')+'</p>':'<p>Ainda não há pontuações registradas.</p>';let pos=all.findIndex(x=>x.key===me);if(defeat){$('#rankSummary').textContent=`💀 FIM DE PARTIDA • ${playerName} • ${playerClass} • ${heroes[heroIdx].name} • derrotado por ${stages[stage].name} • ${score.toLocaleString('pt-BR')} pontos • ⏳ ${fmtTime(elapsedMs)}`;$('#closeRanking').textContent='↩ VOLTAR AO INÍCIO'}else{$('#rankSummary').textContent=final&&pos>=0?`${playerName} • ${playerClass} • ${heroes[heroIdx].name} • ${score.toLocaleString('pt-BR')} pontos • ⏳ ${fmtTime(elapsedMs)} • posição ${pos+1}º`:'Classificação: maior pontuação, maior fase e, em caso de empate, menor tempo.';$('#closeRanking').textContent='VOLTAR'}$('#rankingOverlay').dataset.defeat=defeat?'1':'0';$('#rankingOverlay').classList.remove('hidden')}
+async function showRanking(final=false,defeat=false){$('#rankingTable').innerHTML='<p>🌐 Carregando ranking online...</p>';$('#rankingOverlay').dataset.defeat=defeat?'1':'0';$('#rankingOverlay').classList.remove('hidden');try{renderRanking(await fetchOnlineRanking(),final,defeat,true)}catch(e){renderRanking(rankingLocalNormalizado(),final,defeat,false)}}
+function buildHeroes(){let box=$('#heroes');heroes.forEach((h,i)=>{let d=document.createElement('button');d.className='heroPick'+(i===0?' sel':'');let cv=document.createElement('canvas');cv.width=160;cv.height=150;cv.className='heroCanvas';let nm=document.createElement('div');nm.innerHTML='<b>'+h.name+'</b><br><small>'+h.special+'</small>';d.append(cv,nm);d.onclick=()=>{heroIdx=i;document.querySelectorAll('.heroPick').forEach(z=>z.classList.remove('sel'));d.classList.add('sel')};box.appendChild(d);let draw=()=>{let im=heroImgs[i];if(!im.complete||!im.naturalWidth)return setTimeout(draw,80);let q=cv.getContext('2d');q.clearRect(0,0,160,150);let sc=Math.min(150/im.naturalWidth,145/im.naturalHeight);let dw=im.naturalWidth*sc,dh=im.naturalHeight*sc;q.drawImage(im,(160-dw)/2,(150-dh)/2,dw,dh)};draw()})}buildHeroes();document.querySelectorAll('.classBtn').forEach(b=>b.onclick=()=>{playerClass=b.dataset.class;document.querySelectorAll('.classBtn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel')});
+function beginBattle(){clearInterval(tutorialTimer);$('#tutorial').classList.add('hidden');playing=true;paused=false;resetStage();restoreGameFocus()}
+function showTutorial(){let n=12;$('#tutorial').classList.remove('hidden');$('#tutorialCount').textContent='A batalha começa em '+n+'...';$('#tutorialBar').style.width='100%';setTimeout(()=>$('#tutorialBar').style.width='0%',50);clearInterval(tutorialTimer);tutorialTimer=setInterval(()=>{n--;$('#tutorialCount').textContent=n>0?'A batalha começa em '+n+'...':'⚔ BATALHA!';if(n<=0)beginBattle()},1000)}
+$('#skipTutorial').onclick=beginBattle;
+$('#start').onclick=()=>{playerName=normalizeName($('#playerName').value);if(!playerName){$('#playerName').focus();say('Digite o nome do jogador.',1.5);return}$('#playerName').value=playerName;shieldUses=0;questionDeck=[];lastQuestionIndex=-1;elapsedMs=0;bestStageReached=0;$('#timerHud').textContent='⏳ 00:00';audio=audio||new(window.AudioContext||window.webkitAudioContext)();audio.resume();playMediaAudio(mediaAudio.avatar,true,.32);$('#menu').style.display='none';$('#menu').classList.add('hidden');restoreGameFocus();$('#hname').textContent=playerName+' • '+playerClass+' • '+heroes[heroIdx].name;$('#magic').textContent='[ESPAÇO/Z] ⚔ '+heroes[heroIdx].basic.toUpperCase();$('#special').textContent='[X/ENTER] ✨ SUPER 0/'+superLimit()+' • '+heroes[heroIdx].special.toUpperCase();$('#defend').textContent='[E/SHIFT] 🛡 ESCUDO';$('#charge').textContent='[R/CTRL] 🧪 RECARREGAR';stage=0;expectedStage=0;score=0;p.hp=100;sessionToken++;gameEnded=false;furyTimers.forEach(clearTimeout);furyTimers=[];manaAutoCountdown=null;playing=false;paused=true;showTutorial();startMusic()};$('#magic').onclick=()=>fire(false);$('#special').onclick=()=>fire(true);$('#defend').onclick=defend;$('#charge').onclick=askQuestion;$('#sound').onclick=()=>{soundOn=!soundOn;$('#sound').textContent=soundOn?'🔊':'🔇';if(soundOn){startMusic();stageAudio()}else{clearInterval(musicTimer);stopMediaAudio()}};$('#openRanking').onclick=()=>showRanking(false);$('#gameOverRanking').onclick=()=>{stopGameOverDragon();$('#gameOverOverlay').classList.add('hidden');showRanking(true,true)};$('#gameOverHome').onclick=()=>{stopGameOverDragon();$('#gameOverOverlay').classList.add('hidden');$('#menu').classList.remove('hidden');$('#menu').style.display='grid';$('#start').textContent='▶ INICIAR AVENTURA';restoreGameFocus()};$('#closeRanking').onclick=()=>{let wasDefeat=$('#rankingOverlay').dataset.defeat==='1';$('#rankingOverlay').classList.add('hidden');if(wasDefeat){$('#rankingOverlay').dataset.defeat='0';$('#menu').classList.remove('hidden');$('#menu').style.display='grid';$('#start').textContent='▶ INICIAR AVENTURA';restoreGameFocus()}};
+// V47: ponte mínima para o módulo externo de Magia Suprema / Modo Espectral.
+window.ClassManaUltimateAPI={
+ getState:()=>({playing,paused,gameEnded,stage,heroIdx,score,playerHp:p.hp,playerShield:p.shield,bossHp:boss.hp,bossMax:boss.max,hero:heroes[heroIdx],monster:stages[stage],sessionToken}),
+ // O módulo externo inicia os raios logo após estas chamadas.
+ // O dano é aplicado no primeiro impacto visível (~420 ms), não antes do efeito.
+ // Cada habilidade agenda um único impacto, independentemente dos raios desenhados.
+ heroUltimate:(pointCost,hpCostPct,bossDamagePct)=>{
+   if(!playing||paused||gameEnded||bossDefeated||defeatPending)return {ok:false,reason:'indisponivel'};
+   if(score<pointCost){say('⚡ MAGIA SUPREMA • faltam pontos!',1.4);return {ok:false,reason:'pontos'}}
+   if(p.hp<=20){say('⚡ MAGIA SUPREMA • vida muito baixa!',1.4);return {ok:false,reason:'vida'}}
+   const token=sessionToken,castStage=stage;
+   score=Math.max(0,score-pointCost);
+   p.hp=Math.max(1,p.hp-p.hp*hpCostPct);
+   $('#php').style.width=p.hp+'%';
+   updateHUD();
+   say('⚡ MAGIA SUPREMA • -'+pointCost+' PONTOS • -'+Math.round(hpCostPct*100)+'% VIDA',2);
+   setTimeout(()=>{
+     if(token!==sessionToken||stage!==castStage||!playing||gameEnded||bossDefeated||defeatPending)return;
+     // Se uma pergunta pausou o combate, não aplicar dano em outra tela.
+     if(paused)return;
+     const dmg=Math.max(1,boss.max*bossDamagePct);
+     boss.hp=Math.max(1,boss.hp-dmg);
+     $('#ehp').style.width=(boss.hp/boss.max*100)+'%';
+     burst(boss.x,boss.y,heroes[heroIdx].col,95);
+     shake=20;tone(155,.28,'sawtooth',.08);
+     setTimeout(()=>tone(520,.4,'sine',.08),100);
+     if(boss.hp>0&&!furyUsed&&boss.hp/boss.max<=.30)bossFury();
+   },420);
+   return {ok:true,color:heroes[heroIdx].col};
+ },
+ monsterSpectral:(damagePct)=>{
+   if(!playing||paused||gameEnded||bossDefeated||defeatPending)return {ok:false};
+   const col=stages[stage].kind==='ghost'?'#eaffff':stages[stage].kind==='lava'||stages[stage].kind==='dragon'?'#ff5a24':stages[stage].kind==='bee'?'#ffd43b':stages[stage].kind==='plant'||stages[stage].kind==='hydra'?'#5dff87':stages[stage].kind==='bat'?'#b94cff':'#dc72ff';
+   const token=sessionToken,castStage=stage;
+   setTimeout(()=>{
+     if(token!==sessionToken||stage!==castStage||!playing||paused||gameEnded||bossDefeated||defeatPending)return;
+     if(p.shield>0){
+       burst(p.x,p.y,'#8ff7ff',45);
+       say('🛡 ESCUDO BLOQUEOU O MODO ESPECTRAL!',1.7);
+       return;
+     }
+     p.hp=Math.max(1,p.hp-p.hp*damagePct);
+     $('#php').style.width=p.hp+'%';
+     p.inv=Math.max(p.inv,1.1);
+     burst(p.x,p.y,col,60);
+     shake=18;tone(90,.45,'sawtooth',.08);
+     say('⚠ MODO ESPECTRAL • '+stages[stage].name+' REAGIU!',2);
+   },420);
+   return {ok:true,color:col,blocked:false};
+ },
+ say:(m,d)=>say(m,d),
+ resetVisual:()=>{shake=0}
+};
+// Controles de teclado: botões clicados não podem sequestrar o foco do jogo.
+function restoreGameFocus(){
+  const a=document.activeElement;
+  if(a && typeof a.blur==='function') a.blur();
+}
+window.addEventListener('keydown',e=>{
+  const tag=document.activeElement?.tagName;
+  // Só bloqueia atalhos enquanto o jogador realmente está digitando/escolhendo em um campo.
+  if(['INPUT','TEXTAREA','SELECT'].includes(tag)){const menuVisible=!$('#menu').classList.contains('hidden');if(menuVisible)return;document.activeElement?.blur();}
+  const k=(e.key||'').toLowerCase(), code=e.code||'';
+  keys[e.key]=true; keys[k]=true;
+  // Game Over: setas e PageUp/PageDown rolam a tela, sem mover o herói.
+  if(!$('#gameOverOverlay').classList.contains('hidden')){
+    if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End'].includes(code)){e.preventDefault();const step=code==='ArrowDown'?80:code==='ArrowUp'?-80:code==='PageDown'?innerHeight*.7:code==='PageUp'?-innerHeight*.7:0;if(code==='Home')$('#gameOverOverlay').scrollTo({top:0,behavior:'smooth'});else if(code==='End')$('#gameOverOverlay').scrollTo({top:$('#gameOverOverlay').scrollHeight,behavior:'smooth'});else $('#gameOverOverlay').scrollBy({top:step,behavior:'smooth'});}return;
+  }
+  // Layout ambidestro: movimento por WASD ou setas. Ações têm atalhos nos dois lados do teclado.
+  const basic=code==='Space'||code==='KeyZ'||k==='z';
+  const superKey=code==='KeyX'||code==='Enter'||code==='NumpadEnter'||k==='x';
+  const shieldKey=code==='KeyE'||code==='ShiftRight'||code==='ShiftLeft'||k==='e';
+  const rechargeKey=code==='KeyR'||code==='ControlRight'||code==='ControlLeft'||k==='r';
+  const action=basic||superKey||shieldKey||rechargeKey;
+  if(action) e.preventDefault();
+  if(e.repeat) return;
+  if(basic) fire(false);
+  else if(superKey) fire(true);
+  else if(shieldKey) defend();
+  else if(rechargeKey) askQuestion();
+},{capture:true});
+window.addEventListener('keyup',e=>{keys[e.key]=false;keys[(e.key||'').toLowerCase()]=false},{capture:true});
+// Qualquer clique/toque em um controle devolve imediatamente o teclado ao jogo.
+document.querySelectorAll('.controls button,#sound').forEach(b=>{
+  b.addEventListener('pointerup',()=>setTimeout(restoreGameFocus,0));
+});
+let joyEl=$('#joy'),knob=$('#knob');function jm(e){let b=joyEl.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),d=Math.max(1,Math.hypot(dx,dy)),m=Math.min(34,d);joy.x=dx/d*m/34;joy.y=dy/d*m/34;knob.style.transform=`translate(${joy.x*34}px,${joy.y*34}px)`}joyEl.onpointerdown=e=>{joyEl.setPointerCapture(e.pointerId);jm(e)};joyEl.onpointermove=e=>{if(e.buttons)jm(e)};joyEl.onpointerup=joyEl.onpointercancel=()=>{joy.x=joy.y=0;knob.style.transform=''};
+(function(){
+const wrap=document.getElementById('openingVideo');
+const movie=document.getElementById('openingMovie');
+const sound=document.getElementById('openingSound');
+const skip=document.getElementById('openingSkip');
+let finished=false;
+if(window.matchMedia('(max-width: 700px) and (orientation: portrait)').matches){
+ movie.querySelectorAll('source')[0].removeAttribute('media');
+ movie.querySelectorAll('source')[1].remove();
+ movie.load();
+}
+movie.muted=false;
+movie.volume=0.85;
+function finish(){
+ if(finished)return;
+ finished=true;
+ movie.pause();
+ wrap.hidden=true;
+}
+function startWithSound(){
+ if(finished)return;
+ movie.muted=false;
+ movie.currentTime=0;
+ const play=movie.play();
+ if(play&&play.then){
+  play.then(()=>wrap.classList.add('playing')).catch(()=>{
+   movie.pause();
+   wrap.classList.remove('playing');
+   sound.textContent='🔊 TOQUE PARA ASSISTIR COM SOM';
+  });
+ }
+}
+skip.addEventListener('click',finish);
+sound.addEventListener('click',startWithSound);
+movie.addEventListener('ended',finish);
+movie.addEventListener('error',()=>{
+ sound.textContent='▶ CONTINUAR';
+ sound.removeEventListener('click',startWithSound);
+ sound.addEventListener('click',finish);
+});
+window.startClassManaOpening=startWithSound;
+})();;</script><script src="assets/magia-config.js"></script><script src="assets/magia-suprema.js"></script><script>
+(function(){
+  const btn=document.getElementById('ultimate');if(!btn)return;
+  function compact(){
+    const original=btn.textContent;
+    if(!original)return;
+    const shorter=original.replace(/\s*[•·]\s*-?\d+\s*pts\s*\/\s*-?\d+%\s*HP/ig,'').replace(/\s*[•·]\s*-?\d+\s*pontos\s*\/\s*-?\d+%\s*vida/ig,'');
+    if(shorter!==original)btn.textContent=shorter;
+  }
+  new MutationObserver(compact).observe(btn,{childList:true,characterData:true,subtree:true});
+  compact();
+})();
+</script><script>
+(function(){const splash=document.getElementById('classmanaSplash'),opening=document.getElementById('openingVideo');setTimeout(()=>{splash.classList.add('hide');opening.style.visibility='visible';setTimeout(()=>splash.remove(),650);if(window.startClassManaOpening)window.startClassManaOpening();},2800)})();
+</script></body></html>
