@@ -11,7 +11,6 @@
 #menu:before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 50% 43%,#d5fbff1f 0%,#65d7ff14 36%,#07152a50 100%);pointer-events:none}
 #menu>.menuPanel{width:min(900px,94vw);background:linear-gradient(145deg,#d9f7ffe8 0%,#8ee2f3df 43%,#ae9ae9dc 100%)!important;border:2px solid #83eaff!important;box-shadow:0 0 0 2px #6246a388,0 16px 45px #031025aa,inset 0 0 30px #f4fdff99!important;color:#092a4a!important;backdrop-filter:blur(5px)}
 #menu>.menuPanel:before{background:linear-gradient(135deg,#effdff48,#64d8ef2b 48%,#a879e638)!important}
-/* pedido: BATALHA DOS MONSTROS azul escuro + contorno laranja escuro ClassMana */
 #menu .classmanaTitle{color:#123d78!important;-webkit-text-fill-color:#123d78!important;-webkit-text-stroke:2.4px #b85a16!important;paint-order:stroke fill!important;text-shadow:0 3px 0 #71350d,0 0 4px #f19a3a,0 0 10px #ffd08a88!important}
 #menu .classBtn{border-color:#62dff4;background:linear-gradient(#f2fdff,#93e1ef);color:#12375a;box-shadow:0 4px 12px #183e7c33}
 #menu .classBtn.sel{border-color:#f2bd55;background:linear-gradient(#fff0a0,#e4aa35);box-shadow:0 0 0 2px #fff4bd,0 0 18px #f0b84e99}
@@ -35,10 +34,8 @@
 #rankingOverlay .rankBtn{border:2px solid #e9b650;background:linear-gradient(#dc7968,#ac3342 55%,#6e1b30);color:#fff;text-shadow:0 2px 3px #451323;box-shadow:0 5px 0 #4b1825,0 0 15px #f3a56a66}
 #gameOverOverlay{background:linear-gradient(135deg,#24113a99,#081d38a8),url('assets/ui_ranking_bg.jpg') center/cover no-repeat fixed!important}
 #gameOverOverlay .gameOverPanel{background:linear-gradient(155deg,#173858e8,#49316be8)!important;border-color:#72e8ff!important;box-shadow:0 0 45px #58dcff55,inset 0 0 28px #9b75e833!important}
-/* rocha decorativa fora dos controles; somente posicionamento visual */
 .decor-rocks{left:2%!important;right:auto!important;top:48%!important;bottom:auto!important;width:min(105px,9vw)!important}
 @media(max-width:700px){#menu>.menuPanel,#rankingOverlay>.panel{width:96vw}.decor-rocks{left:1%!important;top:45%!important;width:58px!important}}
-
 
 /* V44 — feedback visual das questões + transição de monstro derrotado */
 #question .ans.correct,#tutorial .ans.correct{background:linear-gradient(145deg,#d9ffe1,#55d675)!important;border-color:#0f8d39!important;color:#063b18!important;box-shadow:0 0 0 3px #fff,0 0 22px #20c45a99!important;transform:scale(1.015)}
@@ -74,7 +71,6 @@
 #ultimate:disabled{filter:grayscale(.65);opacity:.65}
 @media(max-width:700px){#classmanaSplash img{width:96vw}#ultimate{padding:9px 4px!important}}
 
-
 /* V60 • título inspirado no wordmark CLASSMANA enviado pelo usuário */
 #menu .classmanaTitle{font-family:Impact,"Arial Narrow","Arial Black",sans-serif!important;font-stretch:condensed;font-size:clamp(28px,4.2vw,48px)!important;line-height:1!important;letter-spacing:1.5px!important;color:#fff7a8!important;-webkit-text-fill-color:#fff7a8!important;background:linear-gradient(180deg,#fffde7 0%,#fff7a0 32%,#ffd52e 68%,#fff08a 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-stroke:5px #071b57!important;paint-order:stroke fill!important;text-shadow:0 3px 0 #e6004f,0 6px 0 #071b57,0 9px 0 #08bfd1,0 11px 8px #07142b99!important;text-transform:uppercase;margin:8px 0 12px!important;}
 #menu .battleTitleImg{
@@ -91,16 +87,11 @@
     display:block;
     margin:0 auto 4px;
 }
-}
 
-/* Impede que o canvas da batalha apareça durante a abertura do tutorial.
-   Fundo opaco imediato, inclusive enquanto a imagem termina de carregar. */
 #tutorial:not(.hidden){background:#073b32!important;isolation:isolate!important;}
-/* Tutorial Esmeralda: imagem original sem escurecimento e inteira na tela. */
 #tutorial{background:#073b32!important;place-items:center!important;padding:0!important;}
 #tutorial .panel{position:relative!important;box-sizing:border-box!important;width:100vw!important;height:100vh!important;max-width:none!important;max-height:none!important;min-width:0!important;min-height:0!important;overflow:hidden!important;padding:0!important;margin:auto!important;border:0!important;border-radius:0!important;box-shadow:none!important;background: url('assets/arena/fundos/tutorial-esmeralda.png') center center / 100% 100% no-repeat!important;filter:none!important;opacity:1!important;}
 #tutorial .panel>*:not(#skipTutorial){visibility:hidden!important;}
-/* Botão HTML verdadeiro, invisível visualmente sobre o botão já desenhado na arte. */
 #tutorial #skipTutorial{position:absolute!important;left:37%!important;bottom:6.3%!important;width:26%!important;height:9.1%!important;box-sizing:border-box!important;margin:0!important;padding:0!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;cursor:pointer!important;z-index:100!important;display:block!important;background:transparent!important;border:0!important;border-radius:10px!important;box-shadow:none!important;color:transparent!important;font-size:0!important;text-shadow:none!important;}
 #tutorial #skipTutorial:focus-visible{outline:3px solid #fff!important;outline-offset:-3px!important;}
 
@@ -128,7 +119,7 @@
 #question #qfeedback{margin:0;min-height:1.3em;font-size:clamp(11px,1.15vw,15px);font-weight:800;color:#fff;text-align:center}
 #question .arena-status{font-size:clamp(10px,1.05vw,14px);font-weight:800;background:#071a3ed0;border-radius:5px;padding:2px 12px;text-align:center;max-width:100%;transform:translateY(-4px)}
 #question .arena-hero{position:absolute;z-index:4;bottom:0;left:max(0px,calc((100vw - 1250px)/2));height:clamp(85px,22vh,185px);max-width:19vw;object-fit:contain;object-position:bottom left;pointer-events:none;filter:drop-shadow(0 4px 6px #0008)}
-@media(max-width:650px){#question .arena-stage{width:100vw;height:min(100dvh,620px);aspect-ratio:auto}#question .arena-content{padding:0 9% 7%;gap:4px}#question .arena-heading-space{height:22%}#question .arena-question{height:23%;padding:5px}#question .arena-logo{width:23%}#question .arena-answers{height:23%;gap:4px}#question .arena-answers .ans{font-size:11px;padding-left:32px!important}#question .arena-answers .ans::before{height:32px;width:32px}#question .arena-hero{height:90px;max-width:22vw}#question .arena-status{font-size:9px}}
+@media(max-width:650px){#question .arena-stage{width:100vw;height:min(100dvh,620px);aspect-ratio:auto}#question .arena-content{padding:0 9% 7%;gap:4px}#question .arena-heading-space{height:22%}#question .arena-question{height:23%;padding:5px}#question .arena-logo{width:23%}#question .arena-answers{height:23%;gap:4px}#question .arena-answers .ans{font-size:11px;padding-left:32px!important}#question .arena-answers .ans::before{height:32px;width:32px}#question .arena-hint{height:30px}#question #qfeedback{top:81%;left:12%;width:76%}#question .arena-status{font-size:9px}}
 @media(max-height:510px){#question .arena-heading-space{height:19%}#question .arena-question{height:21%}#question .arena-answers{height:22%}#question .arena-hint{height:30px}#question .arena-content{gap:2px}}
 
 /* Imagem fixa na questão e lupa clicável, sem interferir nas alternativas */
@@ -161,7 +152,6 @@
 #question .arena-status{position:absolute;top:85%;left:50%;transform:translateX(-50%)!important;width:max-content;max-width:75%;font-size:clamp(10px,1.03vw,14px);line-height:1.2}
 #question .arena-hero{position:absolute;left:1.2%!important;bottom:0!important;height:clamp(110px,28vh,240px)!important;max-width:20vw!important;z-index:4}
 @media(max-width:650px){#question .arena-progress{top:24%;font-size:10px}#question .arena-question{left:12%;width:76%;top:30%;height:22%}#question .arena-answers{left:12%;width:76%;top:54%;height:17%;gap:4% 2%!important}#question .arena-answers .ans{padding-left:33px!important;font-size:11px!important}#question .arena-answers .ans::before{width:33px;height:33px}#question .arena-hint{top:73%;height:38px!important}#question #qfeedback{top:81%;left:12%;width:76%}#question .arena-status{top:86%;font-size:9px;max-width:76%;white-space:normal}#question .arena-hero{height:clamp(100px,24vh,160px)!important;max-width:26vw!important}}
-
 
 /* V2.16 — geometria única: moldura em proporção nativa e áreas sem sobreposição */
 #question .arena-stage{width:min(96vw,calc(98dvh * 1672 / 941),1320px)!important;height:auto!important;aspect-ratio:1672/941!important;max-height:98dvh!important;flex:none!important}
@@ -196,11 +186,9 @@
  #question .arena-hero{height:30vh!important;max-width:23vw!important}
 }
 
-
 /* V2.17 — ajustes pontuais: respostas, dica e mensagens; sem alterar JS */
 #question .arena-answers{left:18%!important;width:64%!important;top:53.5%!important;height:21.5%!important;column-gap:3%!important;row-gap:10%!important}
 #question .arena-answers .ans{background-image:url('assets/arena/molduras/barra-resposta.png')!important;background-color:rgba(6,48,110,.38)!important;background-size:100% 100%!important;min-height:0!important;height:100%!important;overflow:visible!important;padding-top:5px!important;padding-bottom:5px!important;line-height:1.18!important}
-/* A arte da dica conserva a proporção, enquanto o rótulo permanece legível. */
 #question .arena-hint{top:75.5%!important;width:clamp(135px,15vw,195px)!important;height:clamp(44px,7.6vh,64px)!important;background-size:100% 100%!important;display:flex!important;align-items:center!important;justify-content:center!important;color:white!important;font-size:clamp(12px,1.15vw,17px)!important;font-weight:900!important;text-shadow:0 2px 3px #08163e,0 0 4px #08163e!important;white-space:nowrap!important}
 #question #qfeedback{top:82.1%!important;left:17%!important;width:66%!important;z-index:5!important}
 #question .arena-status{top:85.8%!important;z-index:5!important}
@@ -212,8 +200,6 @@
 }
 #question .arena-answers .ans.correct{background-image:linear-gradient(rgba(13,174,69,.85),rgba(13,174,69,.85)),url('assets/arena/molduras/barra-resposta.png')!important}
 #question .arena-answers .ans.wrong{background-image:linear-gradient(rgba(211,30,48,.85),rgba(211,30,48,.85)),url('assets/arena/molduras/barra-resposta.png')!important}
-
-
 
 /* Ajustes pontuais: barras completas, DICA e avisos laterais. */
 #question .arena-answers .ans{
@@ -252,9 +238,7 @@
  #question .arena-hint{top:78%!important;width:18vw!important;min-width:70px!important;font-size:clamp(9px,1.7vw,12px)!important}
 }
 
-
-/* V2.20 - acabamento das alternativas, DICA e pulsacao da arte original.
-   Somente CSS; sem novas camadas de imagens ou alteracoes na jogabilidade. */
+/* V2.20 - acabamento das alternativas, DICA e pulsacao da arte original. */
 #question .arena-answers .ans,
 #question .arena-answers .ans.correct,
 #question .arena-answers .ans.wrong{
@@ -299,7 +283,6 @@
  #question .arena-answers .ans{padding-left:clamp(27px,6vw,38px)!important}
  #question .arena-hint{width:clamp(85px,19vw,140px)!important;font-size:clamp(8px,1.7vw,12px)!important;padding-left:32%!important;padding-right:5%!important}
 }
-/* Brilho na propria area do botao, sem moldura ou caixa azul. */
 @keyframes classmanaEmeraldPulse{
   0%,100%{box-shadow:0 0 3px 1px rgba(21,221,111,.12)}
   50%{box-shadow:0 0 17px 5px rgba(26,255,128,.64),inset 0 0 12px rgba(36,255,141,.23)}
@@ -311,8 +294,6 @@
 #tutorial #skipTutorial::after{content:none!important;display:none!important}
 @media(prefers-reduced-motion:reduce){#tutorial #skipTutorial{animation:none!important}}
 
-
-/* Botao DICA: ajuste final unico, sem regras conflitantes nem padding percentual. */
 #question .arena-hint{
   position:absolute!important;
   top:75.5%!important;
@@ -348,7 +329,6 @@
   }
 }
 
-/* Ajustes pontuais do placar vermelho: vidro, titulo e cabecalho */
 #rankingOverlay>.panel{background:linear-gradient(145deg,rgba(173,49,59,.24) 0%,rgba(121,24,41,.28) 48%,rgba(74,12,29,.32) 100%)!important;}
 #rankingOverlay h1{-webkit-text-stroke:3px #080405!important;paint-order:stroke fill!important;}
 #rankingOverlay .ranking thead th{color:#ffc344!important;}
@@ -370,7 +350,6 @@
 #arenaImageModal.cm-text #arenaImageExpanded{display:none}#arenaImageModal.cm-text #cmFullText{display:block}
 #arenaImageModal.cm-text #cmTextZoom{display:flex}#cmTextZoom{display:none;gap:12px;justify-content:center}
 
-/* Tela de pontos bônus: recursos originais do ClassMana, sem imagens novas */
 #bonusOverlay{z-index:35;background:#073d2c url('assets/arena/fundos/arena-esmeralda-bonus.png') center/cover no-repeat;overflow:auto;padding:12px}
 #bonusOverlay .bonusPanel{width:min(740px,96vw);margin:auto;text-align:center;padding:14px 18px 20px;border:3px solid #e8bc58;border-radius:20px;background:linear-gradient(145deg,#042d26e8,#0b4738e8);box-shadow:0 15px 55px #001c19;color:#fff}
 #bonusOverlay .bonusLogo{width:min(260px,60vw);max-height:95px;object-fit:contain}
@@ -405,10 +384,7 @@ const cmAudio={inicio:AS+'sons/cm_como_comecar.mp3',selecao:AS+'sons/cm_selecao_
 const trilhaFases=[AS+'sons/cm_fantasma.mp3',AS+'sons/cm_golem.mp3',AS+'sons/cm_mega_aranha.mp3',AS+'sons/cm_flor.mp3',AS+'sons/cm_colmeia.mp3',mediaAudio.spider,AS+'sons/cm_morcego.mp3',AS+'sons/cm_hidra.mp3',AS+'sons/cm_peaks_pass.mp3',AS+'sons/cm_peaks_pass.mp3'];
 const efeitosClassMana={raio_supremo:'cm_raio_supremo',golpe_monstro:'cm_golpe_monstro',selecao:'selecao',confirmar:'confirmar',acerto:'acerto',erro:'erro',moedas:'moedas',especial:'ataque_especial',derrota:'derrota',vitoria:'vitoria',magia_nova:'cm_magia_nova',raio_eletrico:'cm_raio_eletrico',impacto_golpe:'cm_impacto_golpe'};
 const cacheEfeitos={};const ultimosEfeitos={};
-// Efeitos especiais em 100%, sem amplificação extra; trilhas preservadas.
-// Sem amplificacao via AudioContext: reproduzir os MP3 no volume nativo (0 a 1).
 function cmFxAmplificar(elemento){ return elemento; }
-
 
 function efeitoClassMana(nome,volume=1,intervalo=250){
  if(!soundOn||!efeitosClassMana[nome])return;
@@ -421,15 +397,12 @@ function stageAudio(){window.cmQuestionPausedTrack=null;playMediaAudio(trilhaFas
 const sprites=new Image;sprites.src=AS+'sprites.png';
 const heroFiles=['hero_fada.png','hero_chama.png','hero_lobo.png','hero_cavaleiro.png','hero_maga.png','hero_dragao.png'];
 const heroImgs=heroFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
-// V31: animação experimental da Fada Guerreira — somente durante a batalha.
 const fadaFrameFiles=['fada_anim/fada_1.png','fada_anim/fada_2.png','fada_anim/fada_3.png','fada_anim/fada_4.png','fada_anim/fada_5.png','fada_anim/fada_6.png'];
 const fadaFrames=fadaFrameFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
 const FADA_FRAME_MS=130;
-// V32: animação do Chama Congelante — 6 frames individuais, somente durante a batalha.
 const chamaFrameFiles=['chama_anim/chama_1.png','chama_anim/chama_2.png','chama_anim/chama_3.png','chama_anim/chama_4.png','chama_anim/chama_5.png','chama_anim/chama_6.png'];
 const chamaFrames=chamaFrameFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
 const CHAMA_FRAME_MS=130;
-// Cavaleiro Guardião: seis quadros transparentes corrigidos.
 const cavaleiroFrameFiles=['cavaleiro_anim/cavaleiro_1.png','cavaleiro_anim/cavaleiro_2.png','cavaleiro_anim/cavaleiro_3.png','cavaleiro_anim/cavaleiro_4.png','cavaleiro_anim/cavaleiro_5.png','cavaleiro_anim/cavaleiro_6.png'];
 const cavaleiroFrames=cavaleiroFrameFiles.map(f=>{let im=new Image;im.src=AS+f;return im});
 const loboFrames=['lobo_1.png','lobo_2.png','lobo_3.png','lobo_4.png','lobo_5.png','lobo_6.png'].map(f=>{let im=new Image;im.src=AS+'lobo_anim/'+f;return im});
@@ -438,7 +411,6 @@ const dragaoCombateFrames=['dragao_1.png','dragao_2.png','dragao_3.png','dragao_
 const dragaoFogoFrames=['dragao_1.png','dragao_2.png','dragao_3.png','dragao_4.png','dragao_5.png','dragao_6.png','dragao_7.png','dragao_8.png','dragao_9.png','dragao_10.png','dragao_11.png','dragao_12.png'].map(f=>{let im=new Image;im.src=AS+'dragao_fogo_anim/'+f;return im});
 const LOBO_FRAME_MS=150,MAGA_FRAME_MS=150,DRAGAO_FRAME_MS=150;
 const CAVALEIRO_FRAME_MS=130;
-// recortes da cartela original: monstros, heróis e itens
 const monsterCrop=[ [20,20,250,225],[278,18,255,230],[560,15,260,225],[845,18,255,225],[1110,15,300,225],[290,245,290,230],[585,245,275,230],[0,240,285,235],[865,240,290,235],[1165,240,330,240] ];
 const heroCrop=[[10,485,235,195],[250,480,235,200],[490,485,230,195],[720,480,245,200],[965,480,250,200],[1220,480,270,200]];
 const heroes=[
@@ -660,22 +632,19 @@ const questions=[
 function resize(){DPR=Math.min(2,devicePixelRatio||1);c.width=innerWidth*DPR;c.height=innerHeight*DPR;W=innerWidth;H=innerHeight;ctx.setTransform(DPR,0,0,DPR,0,0)}addEventListener('resize',resize);resize();
 let p={x:200,y:520,hp:100,mana:100,inv:0,shield:0,shieldCd:0},boss={x:1000,y:350,hp:1,max:1,cool:1,vx:0,vy:0,moveT:0,dash:0},shots=[],bad=[],parts=[],keys={},joy={x:0,y:0};
 function say(s,d=1.5){$('#msg').textContent=s;msgUntil=T+d}function tone(f=500,d=.1,type='sine',v=.05){if(!audio||!soundOn)return;let o=audio.createOscillator(),g=audio.createGain();o.type=type;o.frequency.value=f;g.gain.value=Math.min(.14,v*1.4);o.connect(g).connect(audio.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+d);o.stop(audio.currentTime+d)}
-// Som ambiente do monstro a cada 10 segundos somente durante a batalha.
 setInterval(()=>{if(!playing||paused||gameEnded||bossDefeated||defeatPending||!soundOn)return;const current=stages[stage];if(current)monsterSfx(current.kind,false);},10000);
 function monsterSfx(kind,special=false){if(!audio||!soundOn)return;let seq={ghost:[[760,.12,'sine'],[430,.22,'sine'],[620,.28,'triangle']],lava:[[95,.18,'sawtooth'],[65,.32,'square']],spider:[[1250,.045,'square'],[930,.06,'triangle'],[1450,.04,'square']],plant:[[180,.08,'sawtooth'],[110,.16,'triangle']],bee:[[185,.18,'sawtooth'],[225,.18,'sawtooth'],[165,.22,'sawtooth']],bat:[[1550,.05,'sine'],[1150,.06,'sine'],[1780,.05,'sine']],hydra:[[125,.2,'sawtooth'],[82,.3,'square'],[160,.16,'triangle']],dragon:[[78,.28,'sawtooth'],[55,.4,'square'],[115,.25,'sawtooth']]}[kind]||[[220,.2,'triangle']];seq.forEach((x,i)=>setTimeout(()=>tone(x[0]*(special?0.9:1),x[1]*(special?1.5:1),x[2],special?.085:.045),i*(special?85:55)))}
 function fmtTime(ms){let t=Math.floor(ms/1000),m=Math.floor(t/60),ss=t%60;return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0')}
-function startMusic(){clearInterval(musicTimer);musicTimer=null} // Sem sintetizador musical simultaneo as trilhas
+function startMusic(){clearInterval(musicTimer);musicTimer=null}
 function burst(px,py,col,n=18){for(let i=0;i<n;i++){let a=Math.random()*6.283,v=40+Math.random()*220;parts.push({x:px,y:py,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:.35+Math.random()*.7,r:2+Math.random()*5,col})}}
 function resetStage(){defeatPending=false;defeatDelay=0;defeatStage=-1;stage=Math.max(0,Math.min(expectedStage,stages.length-1));let s=stages[stage];stageAudio();p.x=W*.18;p.y=H*.70;p.hp=100;p.mana=100;p.shield=0;p.shieldCd=0;enemyAttackCount=0;superUses=0;superCooldown=0;manaAutoCountdown=null;rechargeRound=null;bossDefeated=false;furyUsed=false;bestStageReached=Math.max(bestStageReached,stage+1);boss={x:W*.78,y:H*.48,hp:s.hp,max:s.hp,cool:3.4,vx:0,vy:0,moveT:.2,dash:0,baseY:H*.48};shots=[];bad=[];$('#ename').textContent=s.name;$('#round').textContent=stage===9?'FASE 10 / 10 • CHEFÃO':`FASE ${stage+1} / 10`;$('#stageText').textContent=s.realm;$('#difficulty').textContent='DIFICULDADE ⭐ '+String(s.difficulty).replace('.',',');say('⚔ Prepare-se!',1.8)}
 function superLimit(){return stage>=8?5:stage>=5?4:3}
-// Item 2: sons exclusivos dos seis herois; trilhas e abertura preservadas.
 const cmHeroSoundKinds=['fairy','ice','dagger','sword','arcane','fire'];
 function cmHeroSound(suprema=false){
  if(!soundOn||paused||!playing)return;
  const tipo=cmHeroSoundKinds[heroIdx]||'arcane';
  const arquivo=AS+'sons/cm_hero_'+tipo+'_'+(suprema?'suprema':'disparo')+'.mp3';
  try{
-  // Limitar efeitos de ataque sobrepostos para evitar picos de volume.
   window.cmHeroAudioAtivos=window.cmHeroAudioAtivos||new Set();
   if(window.cmHeroAudioAtivos.size>=2)return;
   const a=new Audio(arquivo);a.volume=suprema?.40:.30;
@@ -688,7 +657,6 @@ function cmHeroSound(suprema=false){
 function fire(power=false){if(!playing||paused||bossDefeated||defeatPending||transitionBusy||gameEnded)return;let h=heroes[heroIdx],maxSuper=superLimit();if(power&&superUses>=maxSuper){say('✨ SUPER ESGOTADO • use Z para atacar!',1.8);tone(130,.18,'square',.04);return}if(power&&superCooldown>0){say('⏳ SUPER RECARREGANDO • '+Math.ceil(superCooldown)+'s',1.2);tone(150,.12,'square',.035);return}let cost=power?25:6;if(p.mana<cost){startManaAutoRecharge();say('🧪 Mana insuficiente • R para recarregar!',2);return}p.mana-=cost;if(p.mana<7)startManaAutoRecharge();if(power){superUses++;superCooldown=5}let a=Math.atan2(boss.y-p.y,boss.x-p.x),n=power?5:1;for(let i=0;i<n;i++){let q=a+(i-(n-1)/2)*(power?.11:0);shots.push({x:p.x+35,y:p.y-35,vx:Math.cos(q)*(power?540:620),vy:Math.sin(q)*(power?540:620),life:2.5,r:power?18:12,dmg:power?42:22,col:h.col,fx:h.fx,power,variant:((h.fx==='ice'||h.fx==='fairy')?(iceAlt++%3):(h.fx==='fire'?(iceAlt++%4):0))})}burst(p.x+30,p.y-35,h.col,power?65:22);cmHeroSound(false);if(power){efeitoClassMana('raio_eletrico',1,400);setTimeout(()=>efeitoClassMana('magia_nova',1,350),160);shake=12;say('💥 SUPER '+superUses+'/'+maxSuper+' • '+h.special+' • recarga 5s',1.4)}else{tone(520+heroIdx*55,.09,'square',.035);setTimeout(()=>tone(760+heroIdx*35,.11,'triangle',.035),35);shake=3;say('⚔ '+h.basic,.75)}}
 function defend(){if(!playing||paused)return;if(p.shieldCd>0){say('🛡 Escudo recarregando...',1);return}let queen=stage===8;p.shield=queen?7.0:5.0;p.shieldCd=queen?4.5:6.5;shieldUses++;score=Math.max(0,score-(queen?65:50));tone(880,.35,'sine',.06);burst(p.x,p.y,heroes[heroIdx].col,30);say('🛡 ESCUDO ATIVADO • -'+(stage===8?65:50)+' PONTOS',1.3)}
 function startManaAutoRecharge(){if(!playing||paused||gameEnded||bossDefeated||defeatPending||transitionBusy||manaAutoCountdown!==null)return;manaAutoCountdown=3;say('🧪 MANA ESGOTADA • R para recarregar • automático em 3...',1.1)}
-// Banco externo prioritario: preserva banco interno apenas como contingencia offline.
 let cmBankReady=false,cmBankError='';
 const cmBankPromise=fetch('banco_questoes.json?v=20261014sorteio-unico',{cache:'no-store'}).then(async r=>{
  if(!r.ok)throw Error('HTTP '+r.status);
@@ -700,9 +668,6 @@ const cmBankPromise=fetch('banco_questoes.json?v=20261014sorteio-unico',{cache:'
  console.info('ClassMana: banco externo carregado:',questions.length,'questões');
  return true;
 }).catch(e=>{cmBankError=String(e.message||e);console.error('ClassMana: banco externo indisponível:',e);return false;});
-// Sorteio unico e aleatorio: V1 e V3 no mesmo conjunto, sem cotas ou prioridades.
-// Somente questoes marcadas como reserva (leitura longa/imagem) ficam para o final.
-// Nenhuma questao se repete ate esgotar todo o banco elegivel.
 let questionDeck=[],lastQuestionIndex=-1,cmQuestionQueues=null,cmQuestionPick=0;
 function cmShuffle(items){
  for(let i=items.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[items[i],items[j]]=[items[j],items[i]];}
@@ -714,7 +679,6 @@ function refillQuestionDeck(){
   if(q.priority==='reserva')reserve.push(i);
   else common.push(i);
  });
- // O pop() retira primeiro todas as comuns embaralhadas e depois as reservas.
  questionDeck=[...cmShuffle(reserve),...cmShuffle(common)];
  cmQuestionQueues=null;
  cmQuestionPick=0;
@@ -834,7 +798,7 @@ function renderSpecialQuestion(q,round,getValue,penalize){
   const b=document.createElement('button');b.className='ans';b.textContent='CONFIRMAR ASSOCIAÇÕES';host.appendChild(b);b.onclick=()=>{if(round.locked||selection.some(x=>!x.value))return;check(selection.every((x,i)=>x.value===answer[i]));};
  }
  function check(correct,reset){
-  if(round.locked||rechargeRound!==round||gameEnded||defeatPending||bossDefeated)return;
+  if(round.locked||rechargeRound!==round||gameEnded||bossDefeated)return;
   if(correct){cmBonusRecord(round,true);round.locked=true;const value=getValue();efeitoClassMana('moedas',.65,0);rechargeRound.total+=value;score+=Math.round(value*2);$('#qfeedback').textContent='✅ Correto! Esta questão valeu '+value+'% de recarga.';setTimeout(next,650);}
   else{efeitoClassMana('erro',.28);round.wrong++;penalize();$('#qfeedback').textContent='❌ Tente novamente. Valor máximo: '+getValue()+'%.';if(round.wrong>=4||getValue()<=0){cmBonusRecord(round,false);round.locked=true;$('#qfeedback').textContent='❌ Tentativas encerradas. Próxima questão.';setTimeout(next,650);}else if(reset)reset();}
  }
@@ -877,11 +841,10 @@ function endGameDefeat(){
   const defeatToken=sessionToken;setTimeout(()=>{if(defeatToken!==sessionToken||$('#gameOverOverlay').classList.contains('hidden'))return;stopGameOverDragon();$('#gameOverOverlay').classList.add('hidden');stopMediaAudio();cmShowBonus(true);},5500);
 }
 function hitPlayer(q){if(paused||!playing||gameEnded)return;q.life=0;if(p.inv>0)return;if(p.shield>0){burst(p.x,p.y,'#75eaff',16);tone(620,.12,'square',.04);return}let dist=Math.hypot(boss.x-p.x,boss.y-(p.y-45)),near=dist<260?1.55:dist<430?1.28:1;let baseDamage=q.mini?(q.miniDamage||Math.round(stages[stage].atk*1.5)):Math.round(stages[stage].atk*(q.special?1.65:1));let incomingDamage=Math.round(baseDamage*near);p.hp=Math.max(0,p.hp-incomingDamage);if(near>1.5)say('⚠ MUITO PERTO! DANO +55%',.9);else if(near>1)say('⚠ PROXIMIDADE! DANO +28%',.8);p.inv=.55;shake=10;burst(p.x,p.y,'#ff566d',18);efeitoClassMana('impacto_golpe',1,95);if(p.hp<=0)endGameDefeat()}
-function showTransition(text,cb){if(transitionBusy||gameEnded)return;const token=sessionToken;transitionBusy=true;const box=$('#transitionText');const defeated=stages.find(s=>String(text).includes(s.name)&&String(text).includes('DERROTADO'));if(defeated){const lines=String(text).split('\n'),bonus=lines.slice(1).join(' • ');box.innerHTML=`<div class="defeatedSkull">☠️</div><div class="defeatedBadge"><img src="${AS+defeated.img}" alt="${defeated.name}"></div><div class="defeatedMain">${defeated.name}<br>DERROTADO!</div>${bonus?`<div class="defeatedBonus">${bonus}</div>`:''}<div class="defeatedNext">PREPARE-SE • O PRÓXIMO DESAFIO ESTÁ CHEGANDO</div>`}else{box.innerText=text}$('#transition').classList.remove('hidden');setTimeout(()=>{if(gameEnded||token!==sessionToken){$('#transition').classList.add('hidden');transitionBusy=false;return}$('#transition').classList.add('hidden');transitionBusy=false;superUses=0;iceAlt=0;tutorialTimer=null;restoreGameFocus();cb&&cb()},3600)}
+function showTransition(text,cb){if(transitionBusy||gameEnded)return;const token=sessionToken;transitionBusy=true;const box=$('#transitionText');const defeated=stages.find(s=>String(text).includes(s.name)&&String(text).includes('DERROTADO'));if(defeated){const lines=String(text).split('\n'),bonus=lines.slice(1).join(' • ');box.innerHTML=`<div class="defeatedSkull">☠️</div><div class="defeatedBadge"><img src="${AS+defeated.img}" alt="${defeated.name}"></div><div class="defeatedMain">${defeated.name}<br>DERROTADO!</div>${bonus?`<div class="defeatedBonus">${bonus}</div>`:''}<div class="defeatedNext">PREPARE-SE • O PRÓXIMO DESAFIO ESTÁ CHEGANDO`}else{box.innerText=text}$('#transition').classList.remove('hidden');setTimeout(()=>{if(gameEnded||token!==sessionToken){$('#transition').classList.add('hidden');transitionBusy=false;return}$('#transition').classList.add('hidden');transitionBusy=false;superUses=0;iceAlt=0;tutorialTimer=null;restoreGameFocus();cb&&cb()},3600)}
 function sprite(crop,x,y,w,h,flip=false){if(!sprites.complete)return;ctx.save();ctx.translate(x,y);if(flip)ctx.scale(-1,1);ctx.drawImage(sprites,...crop,-w/2,-h/2,w,h);ctx.restore()}
 const shieldGradientCache=new Map();
 function drawHero(){let im=heroImgs[heroIdx];let seq=[0,1,2,3,4,5,4,3,2,1];if(heroIdx===0&&fadaFrames.length){let fi=seq[Math.floor((T*1000)/FADA_FRAME_MS)%seq.length],fm=fadaFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===1&&chamaFrames.length){let fi=seq[Math.floor((T*1000)/CHAMA_FRAME_MS)%seq.length],fm=chamaFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===2&&loboFrames.length){let fi=seq[Math.floor((T*1000)/LOBO_FRAME_MS)%seq.length],fm=loboFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===3&&cavaleiroFrames.length){let fi=seq[Math.floor((T*1000)/CAVALEIRO_FRAME_MS)%seq.length],fm=cavaleiroFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===4&&magaFrames.length){let fi=seq[Math.floor((T*1000)/MAGA_FRAME_MS)%seq.length],fm=magaFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}else if(heroIdx===5&&dragaoCombateFrames.length){let fi=Math.floor((T*1000)/DRAGAO_FRAME_MS)%dragaoCombateFrames.length,fm=dragaoCombateFrames[fi];if(fm&&fm.complete&&fm.naturalWidth)im=fm}let hh=Math.min(210,H*.32),ratio=(im&&im.naturalWidth&&im.naturalHeight)?im.naturalWidth/im.naturalHeight:.88,ww=hh*ratio;ctx.save();ctx.translate(p.x,p.y-45);if(heroIdx===3)ctx.scale(-1,1);if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,-ww/2,-hh/2,ww,hh);ctx.restore();if(p.shield>0){
-  // Escudo leve: apenas dois traçados sem sombras, gradientes ou partículas permanentes.
   const h=heroes[heroIdx],R=Math.max(ww*.62,hh*.62),pulse=1+Math.sin(T*4)*.012;
   ctx.save();ctx.translate(p.x,p.y-45);
   ctx.beginPath();ctx.arc(0,0,R*pulse,0,Math.PI*2);
@@ -914,7 +877,6 @@ function finishBossDefeat(){
 }
 function update(dt){
   if(defeatPending){
-    // Mantém partículas e animação de derrota; não mantém projéteis atravessando o monstro.
     defeatDelay-=dt;
     for(const q of bad){q.x+=q.vx*dt;q.y+=q.vy*dt;q.life-=dt}
     for(const q of parts){q.x+=q.vx*dt;q.y+=q.vy*dt;q.vy+=80*dt;q.life-=dt}
@@ -926,7 +888,6 @@ function update(dt){
   if(!playing||paused){lastTimerStamp=performance.now();return;}elapsedMs+=dt*1000;$('#timerHud').textContent='⏳ '+fmtTime(elapsedMs);if(manaAutoCountdown!==null&&!bossDefeated&&!defeatPending&&!transitionBusy){manaAutoCountdown-=dt;if(manaAutoCountdown<=0){manaAutoCountdown=null;askQuestion();return}else{let sec=Math.ceil(manaAutoCountdown);if($('#msg').textContent.indexOf('MANA ESGOTADA')<0||Math.ceil(manaAutoCountdown+.15)!==sec)say('🧪 MANA ESGOTADA • R para recarregar • automático em '+sec+'...',.35)}}let dx=(keys.ArrowRight||keys.d?1:0)-(keys.ArrowLeft||keys.a?1:0)+joy.x,dy=(keys.ArrowDown||keys.s?1:0)-(keys.ArrowUp||keys.w?1:0)+joy.y,l=Math.hypot(dx,dy);if(l){p.x+=dx/l*275*dt;p.y+=dy/l*275*dt}p.x=Math.max(70,Math.min(W*.56,p.x));p.y=Math.max(190,Math.min(H-80,p.y));p.inv-=dt;p.shield-=dt;p.shieldCd-=dt;superCooldown=Math.max(0,superCooldown-dt);boss.cool-=dt;boss.moveT-=dt;if(boss.dash>0){boss.dash-=dt;boss.x+=boss.vx*dt;if(boss.dash<=0)boss.vx=0}else{if(boss.moveT<=0){boss.moveT=.55+Math.random()*.9;let pressure=.28+stage*.025+(furyUsed?.12:0);if(Math.random()<pressure){let a=Math.atan2((p.y-45)-boss.y,p.x-boss.x);boss.vx=Math.cos(a)*(105+stage*8);boss.vy=Math.sin(a)*(80+stage*6)}else{boss.vx=(Math.random()-.5)*(150+stage*9);boss.vy=(Math.random()-.5)*(105+stage*7)}}boss.x+=boss.vx*dt;boss.y+=boss.vy*dt}boss.x=Math.max(W*.38,Math.min(W*.91,boss.x));boss.y=Math.max(H*.22,Math.min(H*.78,boss.y));if(boss.cool<=0){enemyAttack();boss.cool=stages[stage].rate}
 for(const q of shots){q.x+=q.vx*dt;q.y+=q.vy*dt;q.life-=dt;if(q.life>0&&!bossDefeated&&Math.hypot(q.x-boss.x,q.y-boss.y)<100){q.life=0;boss.hp=Math.max(0,boss.hp-q.dmg);$('#ehp').style.width=(boss.hp/boss.max*100)+'%';score+=q.dmg;efeitoClassMana(q.power?'magia_nova':'impacto_golpe',1,90);burst(q.x,q.y,q.col,9);shake=4;if(boss.hp>0&&!furyUsed&&boss.hp/boss.max<=.30)bossFury();if(boss.hp<=0){
   boss.hp=0;$('#ehp').style.width='0%';bossDefeated=true;defeatPending=true;manaAutoCountdown=null;rechargeRound=null;shots=[];defeatDelay=3.4;defeatStage=stage;defeatScore=score+1000+stage*250;defeatHp=p.hp;
-  // Cancela a recarga automática e os projéteis ao derrotar o monstro.
   boss.cool=Infinity;boss.vx=0;boss.vy=0;boss.dash=0;
   furyTimers.forEach(clearTimeout);furyTimers=[];
   score+=1000+(stage*250);efeitoClassMana('vitoria',.9,1500);
@@ -1006,7 +967,6 @@ function loop(ms){let dt=Math.min(.033,(ms-last)/1000||.016);last=ms;T+=dt;updat
 function normalizeName(v){return v.trim().replace(/\s+/g,' ').toLocaleLowerCase('pt-BR').replace(/(^|[\s'-])([\p{L}])/gu,(m,a,b)=>a+b.toLocaleUpperCase('pt-BR'))}
 function playerKey(v){return normalizeName(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR')}
 const RANKING_API='https://script.google.com/macros/s/AKfycbxCi6XuFy0OfXEZ43U3JyRvacopJqBjnyN3cZu--qLEBwPKmAI0yiKFgtsACXIkaIgZ/exec';
-// Consulta JSONP: o endpoint publicado foi confirmado respondendo cmApiCallback_1(...).
 let cmConsultaSeq=0;
 function cmConsultarAPI(params){return new Promise((resolve,reject)=>{
  const callback='cmApiCallback_'+(++cmConsultaSeq);
@@ -1027,7 +987,7 @@ async function fetchOnlineRanking(){const data=await cmConsultarAPI({acao:'ranki
 function renderRanking(all,final=false,defeat=false,online=true){all=[...all].sort(sortRankingPontosFaseTempo);let r=all.slice(0,50),me=playerId||playerKey(playerName)+'|'+playerClass;$('#rankingTable').innerHTML=r.length?'<div class="rankingScroll"><table class="ranking"><thead><tr><th>#</th><th>Aluno</th><th>Turma</th><th>Herói</th><th>Fase</th><th>Pontos</th><th>Tempo</th></tr></thead><tbody>'+r.map((x,i)=>`<tr class="${x.key===me?'rankMe':''}"><td>${i<3?['🥇','🥈','🥉'][i]:i+1}</td><td>${x.name}</td><td>${x.turma||'—'}</td><td>${x.hero}</td><td>${x.stage||1}/10</td><td>${x.score.toLocaleString('pt-BR')}</td><td>⏳ ${fmtTime(x.time||0)}</td></tr>`).join('')+'</tbody></table></div><p style="margin:8px 0 0"><b>TOP 50</b> • '+(online?'ranking online ClassMana':'modo local • conexão indisponível')+'</p>':'<p>Ainda não há pontuações registradas.</p>';let pos=all.findIndex(x=>x.key===me);if(defeat){$('#rankSummary').textContent=`💀 FIM DE PARTIDA • ${playerName} • ${playerClass} • ${heroes[heroIdx].name} • derrotado por ${stages[stage].name} • ${score.toLocaleString('pt-BR')} pontos • ⏳ ${fmtTime(elapsedMs)}`;$('#closeRanking').textContent='↩ VOLTAR AO INÍCIO'}else{$('#rankSummary').textContent=final&&pos>=0?`${playerName} • ${playerClass} • ${heroes[heroIdx].name} • ${score.toLocaleString('pt-BR')} pontos • ⏳ ${fmtTime(elapsedMs)} • posição ${pos+1}º`:'Classificação: maior pontuação, maior fase e, em caso de empate, menor tempo.';$('#closeRanking').textContent='VOLTAR'}$('#rankingOverlay').dataset.defeat=defeat?'1':'0';$('#rankingOverlay').dataset.final=final?'1':'0';if(final)$('#closeRanking').textContent='↩ VOLTAR AO INÍCIO';$('#rankingOverlay').classList.remove('hidden')}
 let cmRankingRequestId=0;
 function cmRankingMatchesCurrentGame(ranking){
- const me=playerKey(playerName)+'|'+playerClass;
+ const me=playerId||(playerKey(playerName)+'|'+playerClass);
  const record=ranking.find(x=>x.key===me);
  if(!record)return false;
  const expectedScore=Math.round(score),expectedStage=Math.min(bestStageReached,10),expectedTime=Math.round(elapsedMs);
@@ -1042,7 +1002,6 @@ async function showRanking(final=false,defeat=false){
  $('#rankingOverlay').classList.remove('hidden');
  try{
   let ranking;
-  // No placar final, não considerar concluída uma leitura que ainda traga a partida antiga.
   for(let tentativa=1;tentativa<=(final?7:1);tentativa++){
    if(requestId!==cmRankingRequestId)return;
    ranking=await fetchOnlineRanking();
@@ -1053,7 +1012,7 @@ async function showRanking(final=false,defeat=false){
   }
   if(requestId===cmRankingRequestId)renderRanking(ranking,final,defeat,true);
  }catch(e){
-  console.error('ClassMana: ranking não confirmado:',e);
+  console.error('ClassMana: ranking não confirmed:',e);
   if(requestId!==cmRankingRequestId)return;
   if(final){
    $('#rankingTable').innerHTML='<p>⚠️ Sua pontuação desta partida ainda não foi confirmada na classificação online. Não exibiremos um placar antigo como se estivesse atualizado.</p><button class="rankBtn" id="cmRetryRanking" type="button">🔄 TENTAR ATUALIZAR PLACAR</button>';
@@ -1069,7 +1028,6 @@ document.getElementById('menu').addEventListener('pointerdown',()=>{if(!playing 
 function showTutorial(){playMediaAudio(cmAudio.tutorial,true,.34);let n=12;$('#tutorial').classList.remove('hidden');$('#tutorialCount').textContent='A batalha começa em '+n+'...';$('#tutorialBar').style.width='100%';setTimeout(()=>$('#tutorialBar').style.width='0%',50);clearInterval(tutorialTimer);tutorialTimer=setInterval(()=>{n--;$('#tutorialCount').textContent=n>0?'A batalha começa em '+n+'...':'⚔ BATALHA!';if(n<=0)beginBattle()},1000)}
 $('#skipTutorial').onclick=beginBattle;
 
-// Cadastro escolar: a identidade vem exclusivamente da escolha confirmada.
 let cmBuscaSequencia=0;
 function cmLimparAluno(){cmBuscaSequencia++;playerId='';$('#playerName').value='';$('#cmAlunoOpcoes').replaceChildren();$('#cmAlunoAviso').textContent='Digite pelo menos 2 letras do seu nome.';}
 function cmTextoAluno(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().trim()}
@@ -1084,12 +1042,8 @@ cmAlunoInput.addEventListener('input',async()=>{
 });
 
 $('#start').onclick=()=>{if(!cmBankReady){alert('Banco de questões não carregado. Verifique banco_questoes.json na raiz do GitHub e recarregue a página. '+cmBankError);return;}if(!playerId){$('#playerName').focus();alert('Selecione seu nome na lista de alunos cadastrados.');return;}playerName=normalizeName($('#playerName').value);$('#playerName').value=playerName;cmBonusTotal=0;cmBonusFirstTry=0;cmBonusApplied=false;shieldUses=0;questionDeck=[];lastQuestionIndex=-1;cmQuestionQueues=null;cmQuestionPick=0;elapsedMs=0;bestStageReached=0;$('#timerHud').textContent='⏳ 00:00';audio=audio||new(window.AudioContext||window.webkitAudioContext)();audio.resume();efeitoClassMana('confirmar',.28);playMediaAudio(cmAudio.tutorial,true,.32);$('#menu').style.display='none';$('#menu').classList.add('hidden');restoreGameFocus();$('#hname').textContent=playerName+' • '+playerClass+' • '+heroes[heroIdx].name;$('#magic').textContent='[ESPAÇO/Z] ⚔ '+heroes[heroIdx].basic.toUpperCase();$('#special').textContent='[X/ENTER] ✨ SUPER 0/'+superLimit()+' • '+heroes[heroIdx].special.toUpperCase();$('#defend').textContent='[E/SHIFT] 🛡 ESCUDO';$('#charge').textContent='[R/CTRL] 🧪 RECARREGAR';stage=0;expectedStage=0;score=0;p.hp=100;sessionToken++;gameEnded=false;furyTimers.forEach(clearTimeout);furyTimers=[];manaAutoCountdown=null;playing=false;paused=true;showTutorial();startMusic()};$('#magic').onclick=()=>fire(false);$('#special').onclick=()=>fire(true);$('#defend').onclick=defend;$('#charge').onclick=askQuestion;$('#sound').onclick=()=>{soundOn=!soundOn;$('#sound').textContent=soundOn?'🔊':'🔇';if(soundOn){startMusic();if(!$('#rankingOverlay').classList.contains('hidden'))playMediaAudio(cmAudio.placar,true,.29);else if(!$('#gameOverOverlay').classList.contains('hidden'))playMediaAudio(cmAudio.gameover,false,.46);else if(!$('#tutorial').classList.contains('hidden'))playMediaAudio(cmAudio.tutorial,true,.34);else if(!$('#menu').classList.contains('hidden'))playMediaAudio(cmAudio.selecao,true,.48);else if(!$('#question').classList.contains('hidden')){playMediaAudio(trilhaFases[stage]||mediaAudio.avatar,true,.50);window.cmQuestionPausedTrack=mediaTrack;}else stageAudio()}else{clearInterval(musicTimer);stopMediaAudio();Object.values(cacheEfeitos).forEach(a=>{a.pause();a.currentTime=0})}};$('#openRanking').onclick=()=>showRanking(false);$('#bonusViewRanking').onclick=async()=>{const btn=$('#bonusViewRanking');if(btn.disabled)return;btn.disabled=true;const bonus=$('#bonusOverlay');const fromDefeat=bonus.dataset.fromDefeat==='1';btn.textContent='🌐 SALVANDO PONTUAÇÃO...';try{await saveBestScore();bonus.classList.add('hidden');await showRanking(true,fromDefeat)}catch(err){console.error('ClassMana: falha ao salvar pontuação:',err);btn.textContent='⚠ FALHA NO ENVIO • TENTAR NOVAMENTE';alert('Não foi possível confirmar a pontuação no ranking online. Verifique a conexão e clique novamente para tentar.');}finally{btn.disabled=false;if(bonus.classList.contains('hidden'))btn.textContent='🏆 VER PLACAR FINAL'}};$('#closeRanking').onclick=()=>{const wasFinal=$('#rankingOverlay').dataset.final==='1';$('#rankingOverlay').classList.add('hidden');$('#rankingOverlay').dataset.defeat='0';$('#rankingOverlay').dataset.final='0';if(wasFinal){$('#menu').classList.remove('hidden');$('#menu').style.display='grid';playMediaAudio(cmAudio.selecao,true,.48);$('#start').textContent='↻ JOGAR NOVAMENTE';stage=0;expectedStage=0;restoreGameFocus();}};
-// V47: ponte mínima para o módulo externo de Magia Suprema / Modo Espectral.
 window.ClassManaUltimateAPI={
  getState:()=>({playing,paused,gameEnded,stage,heroIdx,score,playerHp:p.hp,playerShield:p.shield,bossHp:boss.hp,bossMax:boss.max,hero:heroes[heroIdx],monster:stages[stage],sessionToken}),
- // O módulo externo inicia os raios logo após estas chamadas.
- // O dano é aplicado no primeiro impacto visível (~420 ms), não antes do efeito.
- // Cada habilidade agenda um único impacto, independentemente dos raios desenhados.
  heroUltimate:(pointCost,hpCostPct,bossDamagePct)=>{
    if(!playing||paused||gameEnded||bossDefeated||defeatPending)return {ok:false,reason:'indisponivel'};
    if(score<pointCost){say('⚡ MAGIA SUPREMA • faltam pontos!',1.4);return {ok:false,reason:'pontos'}}
@@ -1103,7 +1057,6 @@ window.ClassManaUltimateAPI={
    cmHeroSound(true);
    setTimeout(()=>{
      if(token!==sessionToken||stage!==castStage||!playing||gameEnded||bossDefeated||defeatPending)return;
-     // Se uma pergunta pausou o combate, não aplicar dano em outra tela.
      if(paused)return;
      const dmg=Math.max(1,boss.max*bossDamagePct);
      boss.hp=Math.max(1,boss.hp-dmg);
@@ -1138,22 +1091,18 @@ window.ClassManaUltimateAPI={
  say:(m,d)=>say(m,d),
  resetVisual:()=>{shake=0}
 };
-// Controles de teclado: botões clicados não podem sequestrar o foco do jogo.
 function restoreGameFocus(){
   const a=document.activeElement;
   if(a && typeof a.blur==='function') a.blur();
 }
 window.addEventListener('keydown',e=>{
   const tag=document.activeElement?.tagName;
-  // Só bloqueia atalhos enquanto o jogador realmente está digitando/escolhendo em um campo.
   if(['INPUT','TEXTAREA','SELECT'].includes(tag)){const menuVisible=!$('#menu').classList.contains('hidden');if(menuVisible)return;document.activeElement?.blur();}
   const k=(e.key||'').toLowerCase(), code=e.code||'';
   keys[e.key]=true; keys[k]=true;
-  // Game Over: setas e PageUp/PageDown rolam a tela, sem mover o herói.
   if(!$('#gameOverOverlay').classList.contains('hidden')){
     if(['ArrowDown','ArrowUp','PageDown','PageUp','Home','End'].includes(code)){e.preventDefault();const step=code==='ArrowDown'?80:code==='ArrowUp'?-80:code==='PageDown'?innerHeight*.7:code==='PageUp'?-innerHeight*.7:0;if(code==='Home')$('#gameOverOverlay').scrollTo({top:0,behavior:'smooth'});else if(code==='End')$('#gameOverOverlay').scrollTo({top:$('#gameOverOverlay').scrollHeight,behavior:'smooth'});else $('#gameOverOverlay').scrollBy({top:step,behavior:'smooth'});}return;
   }
-  // Layout ambidestro: movimento por WASD ou setas. Ações têm atalhos nos dois lados do teclado.
   const basic=code==='Space'||code==='KeyZ'||k==='z';
   const superKey=code==='KeyX'||code==='Enter'||code==='NumpadEnter'||k==='x';
   const shieldKey=code==='KeyE'||code==='ShiftRight'||code==='ShiftLeft'||k==='e';
@@ -1167,7 +1116,6 @@ window.addEventListener('keydown',e=>{
   else if(rechargeKey) askQuestion();
 },{capture:true});
 window.addEventListener('keyup',e=>{keys[e.key]=false;keys[(e.key||'').toLowerCase()]=false},{capture:true});
-// Qualquer clique/toque em um controle devolve imediatamente o teclado ao jogo.
 document.querySelectorAll('.controls button,#sound').forEach(b=>{
   b.addEventListener('pointerup',()=>setTimeout(restoreGameFocus,0));
 });
@@ -1203,7 +1151,6 @@ function startWithSound(){
  const play=movie.play();
  if(play&&play.then){
   play.then(()=>{wrap.classList.add('playing');sound.hidden=true;}).catch(()=>{
-   // Chrome/Windows 10: nunca iniciar a abertura silenciosa como alternativa.
    movie.pause();movie.muted=false;
    wrap.classList.remove('playing');
    sound.hidden=false;sound.style.display='';
@@ -1238,7 +1185,6 @@ window.cmOpeningMovie=movie;
   compact();
 })();
 </script><script>
-/* ClassMana V3: preparar video e selecao antes de revelar abertura. */
 (function(){
  const splash=document.getElementById('classmanaSplash');
  const movie=document.getElementById('openingMovie');
@@ -1285,7 +1231,6 @@ window.cmOpeningMovie=movie;
   await Promise.all(Array.from({length:Math.min(10,count)},worker));console.info('ClassMana: diagnóstico concluído. Exporte: classManaExportarDiagnostico()');
  }
  function prepareSelection(){
-  // Abertura só libera após os personagens e elementos da seleção estarem decodificados.
   const selection=['assets/logo.png','assets/titulo_batalha_monstros.png',
    ...Array.from(document.querySelectorAll('#menu img')).map(i=>i.getAttribute('src')).filter(Boolean),
    ...Array.from(document.querySelectorAll('img[data-hero]')).map(i=>i.getAttribute('src')).filter(Boolean),
@@ -1302,8 +1247,6 @@ window.cmOpeningMovie=movie;
    }catch(e){record(url,'selecao','falha: '+(e.message||e));throw Error('Personagem ou imagem não carregou: '+url);}
   })).then(()=>{selectionReady=true;refreshGoal();});
  }
- // Baixar a trilha da escolha de herois integralmente, ANTES de mostrar o video.
- // A URL blob sera reutilizada pela funcao playMediaAudio: nao ha novo download na selecao.
  async function prepareSelectionAudio(){
   const source='assets/sons/cm_selecao_herois.mp3';
   const response=await fetch(source,{cache:'force-cache'});
@@ -1332,8 +1275,6 @@ window.cmOpeningMovie=movie;
   window.cmPreloadedAudio[source]=blobUrl;
   audioFraction=1;audioReady=true;refreshGoal();
  }
- // Preparar e DECODIFICAR os elementos necessários para iniciar e concluir o primeiro combate.
- // Falhas são bloqueantes: não contam como carregamento concluído.
  async function prepareFirstBattle(){
   const images=[
    'assets/bg_ghost.png','assets/monster_ghost.png','assets/splash_classmana.png',
@@ -1365,13 +1306,11 @@ window.cmOpeningMovie=movie;
     a.addEventListener('loadeddata',loaded);a.addEventListener('error',error);a.load();});
    }finally{URL.revokeObjectURL(u);}
   }
-  // Concorrência limitada para não sobrecarregar dispositivos móveis.
   const tasks=[...images.map(url=>()=>imageReady(url)),...sounds.map(url=>()=>soundReady(url))];let cursor=0;
   async function worker(){while(cursor<tasks.length){const i=cursor++;await tasks[i]();done++;firstBattleFraction=done/total;refreshGoal();}}
   await Promise.all(Array.from({length:Math.min(5,tasks.length)},worker));
   firstBattleReady=true;refreshGoal();
  }
- // O arquivo MP4 inteiro e baixado ANTES da abertura. loadeddata/canplay sozinhos nao bastam.
  async function prepareVideo(){
   const original=movie.currentSrc || (()=>{
    const sources=[...movie.querySelectorAll('source')];
@@ -1389,12 +1328,10 @@ window.cmOpeningMovie=movie;
    if(received!==total)throw Error('Video incompleto: '+received+'/'+total+' bytes');
    blob=new Blob(chunks,{type:'video/mp4'});
   }else{
-   // Sem Content-Length nao e possivel medir os bytes com precisao: manter a barra ate a conclusao real.
    blob=await response.blob();videoFraction=.99;refreshGoal();
   }
   if(!blob.size)throw Error('Video vazio');
   const url=URL.createObjectURL(blob);
-  // Manter a URL em memoria enquanto a abertura estiver em uso.
   movie.pause();movie.removeAttribute('src');movie.querySelectorAll('source').forEach(el=>el.remove());
   movie.src=url;movie.preload='auto';movie.load();
   await new Promise((resolve,reject)=>{
@@ -1414,11 +1351,9 @@ window.cmOpeningMovie=movie;
  function startOpening(){
   if(!ready||revealed)return;
   overlay.hidden=false;overlay.style.display='flex';overlay.style.visibility='visible';overlay.style.zIndex='130';
-  // A splash continua por cima ate o primeiro quadro realmente estar em reproducao.
   movie.addEventListener('playing',reveal,{once:true});
   window.startClassManaOpening?.();
  }
- // Navegadores que exigem gesto: tocar na splash tenta reproduzir, sem criar botoes novos.
  splash.addEventListener('pointerdown',()=>{if(ready&&!revealed)window.startClassManaOpening?.();});
  Promise.all([prepareVideo(),prepareSelection(),prepareSelectionAudio(),prepareFirstBattle(),cmBankPromise.then(ok=>{if(!ok)throw Error("Banco de questões: "+cmBankError);bankReady=true;refreshGoal();})]).then(()=>{
   ready=true;refreshGoal();
@@ -1427,7 +1362,6 @@ window.cmOpeningMovie=movie;
   document.getElementById('cmLoadText').textContent='Falha ao carregar a abertura. Toque para tentar novamente.';
   splash.addEventListener('pointerdown',()=>location.reload(),{once:true});
  });
- // A auditoria continua durante o video, nao impede a abertura.
  diagnostics().catch(e=>record('(diagnostico)','erro',e.message||e));
 })();
 </script></body></html>
