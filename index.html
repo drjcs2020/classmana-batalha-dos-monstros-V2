@@ -1,12 +1,21 @@
-<!-- ClassMana Batalha Real V58: Rainha Aranha frames corrigidos -->
+<!-- ClassMana Batalha Real V2.4: Vídeo de Abertura Corrigidos -->
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>ClassMana — Batalha dos Monstros V26</title><style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030916;font-family:Trebuchet MS,Arial;color:#fff}#game{position:fixed;inset:0}canvas{width:100%;height:100%;display:block;touch-action:none}.hud{position:absolute;inset:8px 10px auto;display:flex;justify-content:space-between;gap:10px;pointer-events:none}.card{width:min(355px,43vw);background:#071326e8;border:2px solid #f0c35c;border-radius:16px;padding:8px 11px;box-shadow:0 5px 22px #000b}.title{font-size:11px;color:#ffd66b;letter-spacing:1px}.name{font-weight:900;font-size:clamp(13px,2vw,19px)}.stats{display:flex;gap:10px;align-items:center;font-weight:900;font-size:13px;margin:3px 0}.bar{height:12px;background:#020710;border:1px solid #ffffff66;border-radius:8px;overflow:hidden;margin-top:4px}.bar i{display:block;height:100%;width:100%;transition:width .18s}.hp i{background:linear-gradient(90deg,#31d46c,#a8f76b)}.mana i{background:linear-gradient(90deg,#38b9ff,#a44dff)}.enemy i{background:linear-gradient(90deg,#ffcc38,#ff4438)}#stageText{position:absolute;top:94px;left:50%;transform:translateX(-50%);font-size:clamp(16px,2.3vw,26px);font-weight:900;text-shadow:0 3px 8px #000;text-align:center;pointer-events:none}#msg{position:absolute;top:130px;left:50%;transform:translateX(-50%);padding:7px 14px;border-radius:15px;background:#050b16c9;font-weight:bold;text-align:center;pointer-events:none;min-width:220px}.controls{position:absolute;bottom:12px;right:12px;display:grid;grid-template-columns:repeat(2,minmax(118px,160px));gap:8px}.btn{border:2px solid #f4cf70;border-radius:14px;padding:12px 9px;color:white;font-weight:900;font-size:12px;background:linear-gradient(#254e83,#102342);box-shadow:0 5px 0 #030914;cursor:pointer}.btn:active{transform:translateY(3px)}.btn.special{background:linear-gradient(#8c43bb,#401e70)}.btn.def{background:linear-gradient(#2d9d91,#125d5a)}.btn.charge{background:linear-gradient(#b27a28,#704314)}#joy{position:absolute;left:18px;bottom:18px;width:108px;height:108px;border:2px solid #ffffff70;border-radius:50%;background:#07132680;touch-action:none}#knob{position:absolute;width:46px;height:46px;left:29px;top:29px;border-radius:50%;background:#d5edffdd;border:2px solid #fff}.overlay{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#fff4c9f2 0%,#f5c453ef 38%,#5aa9e6ed 100%);z-index:10}.panel{width:min(820px,94vw);max-height:94vh;overflow:auto;padding:20px;text-align:center;border:3px solid #d99a18;border-radius:22px;background:linear-gradient(145deg,#fffdf4f7 0%,#ffe9a6f5 54%,#d9effff5 100%);color:#173653;box-shadow:0 15px 50px #174f7b55, inset 0 0 28px #ffffffaa}.panel img.logo{max-width:270px;max-height:95px}.panel h1{margin:5px;color:#9a5d00;text-shadow:0 2px 0 #fff6c9}.start{font-size:17px;padding:13px 28px;border:0;border-radius:13px;font-weight:900;background:linear-gradient(#ffd86a,#c98728);color:#26170b;cursor:pointer}.heroes{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.heroPick{background:linear-gradient(145deg,#ffffff,#dff1ff);border:2px solid #4f8fc2;border-radius:14px;padding:7px;cursor:pointer;color:#173653}.heroPick.sel{border-color:#075cff;background:linear-gradient(145deg,#e9f6ff,#79c8ff);box-shadow:0 0 0 4px #ffffff,0 0 24px #075cffcc;transform:translateY(-3px);position:relative}.heroPick.sel:after{content:'✓ SELECIONADO';display:block;margin-top:5px;padding:4px 6px;border-radius:8px;background:#075cff;color:#fff;font-size:11px;font-weight:900;letter-spacing:.4px}.heroCanvas{width:120px;height:125px;max-width:100%;display:block;margin:0 auto}.qbox{width:min(620px,92vw);padding:22px;border:3px solid #d99a18;border-radius:20px;background:linear-gradient(145deg,#fffdf4,#ffe8a1 55%,#dff2ff);color:#173653;text-align:center;box-shadow:0 15px 50px #174f7b55}.answers{display:grid;gap:9px;margin-top:15px}.ans{font-size:clamp(12px,1.65vw,17px);line-height:1.2;overflow-wrap:anywhere;white-space:normal;min-height:48px;padding:10px;border:2px solid #6fa5cc;border-radius:10px;background:linear-gradient(145deg,#ffffff,#e4f3ff);color:#173653;font-weight:bold;cursor:pointer;transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}.ans.correct{background:linear-gradient(145deg,#d9ffe1,#65d57c)!important;border-color:#16883b!important;color:#073d19!important;box-shadow:0 0 0 3px #fff,0 0 18px #24a94c88}.ans.wrong{background:linear-gradient(145deg,#ffe0e0,#f06d6d)!important;border-color:#b71919!important;color:#5c0808!important;box-shadow:0 0 0 3px #fff,0 0 18px #d32f2f66}.transition{font-size:clamp(28px,5vw,60px);font-weight:900;color:#ffd55c;text-shadow:0 4px 20px #000;text-align:center}.playerName{width:min(420px,90%);padding:12px 14px;border-radius:12px;border:2px solid #6f8eac;background:#fff;color:#173653;font-size:17px;text-align:center;margin:8px 0}.menuActions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.rankBtn{font-size:15px;padding:12px 20px;border:2px solid #d99a18;border-radius:13px;font-weight:900;background:linear-gradient(#fff4bf,#e9b640);color:#173653;cursor:pointer}.rankingScroll{max-height:58vh;overflow-y:auto;overflow-x:auto;border:2px solid #d99a18;border-radius:14px;background:#fff9e8cc;-webkit-overflow-scrolling:touch}.ranking{width:100%;border-collapse:collapse;margin-top:0}.ranking thead th{position:sticky;top:0;background:#ffe7a0;z-index:2}.ranking th,.ranking td{padding:9px;border-bottom:1px solid #ffffff22;text-align:left}.ranking th{color:#8a5600}.ranking td{color:#173653}.ranking th,.ranking td{border-bottom-color:#174f7b33}.rankMe{background:#ffd75f18}.hidden{display:none!important}#sound{position:absolute;right:12px;top:126px;z-index:4;border:1px solid #ffd35d;border-radius:10px;background:#071326d9;color:#fff;padding:7px 10px;cursor:pointer}#menu{overflow-y:auto;overflow-x:hidden;place-items:start center;padding:16px 0;-webkit-overflow-scrolling:touch}#menu>.panel{max-height:none;overflow:visible;margin:auto}.menuPanel{position:relative;overflow:hidden;background:linear-gradient(145deg,#fffdf4f5 0%,#ffe49aef 52%,#d8effff2 100%),url('assets/bg_hive.png') center/cover}.menuPanel:before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#fff8dcdd,#f6c94dbb 45%,#58a6d6aa);z-index:0}.menuPanel>*{position:relative;z-index:1}.decorRow{display:flex;justify-content:center;align-items:center;gap:18px;margin:4px 0 10px}.decorRow img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 4px 5px #17365355)}.classPick{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0}.classBtn{padding:12px 22px;border-radius:14px;border:2px solid #5c91bd;background:linear-gradient(#fff,#d9efff);color:#173653;font-weight:900;cursor:pointer}.classBtn.sel{border-color:#c88913;background:linear-gradient(#fff1ad,#e8b23b);box-shadow:0 0 18px #e8b23b88}.tutorialProgress{height:14px;border-radius:10px;background:#ffffff99;border:2px solid #c38b22;overflow:hidden;margin:12px auto;max-width:620px}.tutorialProgress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#2c83c3,#f0b83f);transition:width 1s linear}.timerHud{position:absolute;top:54px;left:50%;transform:translateX(-50%);z-index:3;background:#fff6d9e8;color:#173653;border:2px solid #d39b2c;border-radius:14px;padding:6px 12px;font-weight:900;box-shadow:0 4px 15px #0003;pointer-events:none}@media(max-width:700px){.hud{inset:4px 4px auto}.card{padding:5px 7px}.title{font-size:8px}.stats{font-size:10px;gap:5px}.bar{height:9px}#stageText{top:83px}#msg{top:110px;font-size:11px}.controls{right:5px;bottom:5px;grid-template-columns:repeat(2,98px);gap:5px}.btn{padding:10px 4px;font-size:10px}#joy{left:6px;bottom:6px;width:94px;height:94px}#knob{left:25px;top:25px;width:40px;height:40px}.heroes{grid-template-columns:repeat(2,1fr)}.heroCanvas{height:95px}#sound{top:104px}.timerHud{top:48px;font-size:12px;padding:5px 9px}}
-<div id="openingVideo" aria-label="Vídeo de abertura ClassMana"><video id="openingMovie" playsinline muted preload="auto"><source media="(max-width: 700px) and (orientation: portrait)" src="assets/abertura_classmana.mp4" type="video/mp4"><source src="assets/abertura_classmana.mp4" type="video/mp4"></video><div class="videoActions"><button type="button" id="openingSound">🔊 ASSISTIR COM SOM</button><button type="button" id="openingSkip">PULAR ABERTURA ▶</button></div></div>
+
+/* ESTILOS CORRIGIDOS E COMPLETOS DO VÍDEO DE ABERTURA */
+#openingVideo{position:fixed;inset:0;z-index:130;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#000;overflow:hidden}
+#openingVideo[hidden]{display:none!important}
+#openingMovie{width:100%;height:100%;object-fit:cover;display:block}
+.videoActions{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:140;max-width:92vw;flex-wrap:wrap;justify-content:center}
+.videoActions button{padding:12px 20px;border-radius:12px;border:2px solid #f0c35c;background:rgba(5,19,38,.85);color:#fff;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.6);backdrop-filter:blur(4px);transition:transform .15s,background .15s}
+.videoActions button:active{transform:scale(.96)}
+#openingSound{background:linear-gradient(#2c83c3,#134c7a);border-color:#64d9ec}
+#openingSkip{background:linear-gradient(#d34057,#831c2b);border-color:#ff788a}
+
 #gameOverOverlay .goDragonStage{position:relative;height:190px;overflow:hidden;margin:0 auto 2px;max-width:580px}#gameOverOverlay .goDragon{position:absolute;width:min(330px,62vw);right:-360px;top:0;filter:drop-shadow(0 8px 16px #000) drop-shadow(0 0 16px #ff6a22);animation:dragonEnter .9s cubic-bezier(.2,.8,.2,1) forwards}#gameOverOverlay .goFireLayer{position:absolute;inset:0;pointer-events:none}.goFireball{position:absolute;right:190px;top:86px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff7a0 0 12%,#ffb21f 28%,#ff4b12 62%,#7b0800 100%);box-shadow:0 0 18px #ff7b18,0 0 36px #ff3218;animation:goFire 1.05s linear forwards}.goFireball:after{content:'';position:absolute;left:24px;top:9px;width:70px;height:16px;border-radius:50%;background:linear-gradient(90deg,#ffb21fcc,#ff321866,transparent);filter:blur(3px)}@keyframes dragonEnter{to{right:4px}}@keyframes goFire{0%{transform:translate(0,0) scale(.6);opacity:0}12%{opacity:1}100%{transform:translate(-520px,55px) scale(1.25);opacity:0}}@media(max-width:700px){#gameOverOverlay .goDragonStage{height:150px}.goFireball{right:135px;top:68px}@keyframes goFire{100%{transform:translate(-360px,45px) scale(1.15);opacity:0}}}
 
 .classmanaTitle{font-family:Impact,"Arial Black",sans-serif!important;font-size:clamp(24px,3.1vw,36px)!important;line-height:1.05!important;white-space:nowrap!important;letter-spacing:1px!important;color:#1769aa!important;-webkit-text-fill-color:#1769aa!important;-webkit-text-stroke:2px #f2a01f!important;paint-order:stroke fill!important;text-shadow:0 2px 0 #9a4b0b,0 0 3px #ffd45d,0 0 8px #e88a16!important;text-transform:uppercase;margin:7px 0 10px!important}.heroPick{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important}.heroCanvas{margin-left:auto!important;margin-right:auto!important}.sceneDecor{position:absolute;z-index:2;pointer-events:none;object-fit:contain;filter:drop-shadow(0 7px 9px #0008)}.decor-sign{left:2%;bottom:19%;width:min(120px,11vw)}.decor-rocks{right:1%;bottom:10%;width:min(120px,11vw)}.decor-compass{left:1.5%;top:25%;width:min(74px,7vw)}.decor-chest{right:2%;top:42%;bottom:auto;width:min(110px,10vw)}.decor-scroll{right:2%;top:24%;width:min(80px,8vw)}@media(max-width:700px){.sceneDecor{opacity:.78}.decor-sign,.decor-rocks,.decor-chest{width:70px}.decor-chest{right:2%;top:43%;bottom:auto}.decor-compass,.decor-scroll{width:50px}}
 
-/* ===== V43 • INTERFACE VISUAL SOBRE BASE FUNCIONAL V41 ===== */
 #menu{background:linear-gradient(135deg,#55d6ff36,#a56cff2e),url('assets/arena/fundos/arena-medieval-original.png') center/cover no-repeat fixed!important;padding:18px 0!important}
 #menu:before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 50% 43%,#d5fbff1f 0%,#65d7ff14 36%,#07152a50 100%);pointer-events:none}
 #menu>.menuPanel{width:min(900px,94vw);background:linear-gradient(145deg,#d9f7ffe8 0%,#8ee2f3df 43%,#ae9ae9dc 100%)!important;border:2px solid #83eaff!important;box-shadow:0 0 0 2px #6246a388,0 16px 45px #031025aa,inset 0 0 30px #f4fdff99!important;color:#092a4a!important;backdrop-filter:blur(5px)}
@@ -37,7 +46,6 @@
 .decor-rocks{left:2%!important;right:auto!important;top:48%!important;bottom:auto!important;width:min(105px,9vw)!important}
 @media(max-width:700px){#menu>.menuPanel,#rankingOverlay>.panel{width:96vw}.decor-rocks{left:1%!important;top:45%!important;width:58px!important}}
 
-/* V44 — feedback visual das questões + transição de monstro derrotado */
 #question .ans.correct,#tutorial .ans.correct{background:linear-gradient(145deg,#d9ffe1,#55d675)!important;border-color:#0f8d39!important;color:#063b18!important;box-shadow:0 0 0 3px #fff,0 0 22px #20c45a99!important;transform:scale(1.015)}
 #question .ans.wrong,#tutorial .ans.wrong{background:linear-gradient(145deg,#ffe1e1,#f05261)!important;border-color:#b70e23!important;color:#5b0712!important;box-shadow:0 0 0 3px #fff,0 0 22px #e12c4388!important;transform:scale(.985)}
 #transition{background:radial-gradient(circle at 50% 42%,rgba(74,78,178,.91) 0%,rgba(30,39,101,.96) 44%,rgba(8,13,43,.99) 100%)!important;backdrop-filter:blur(2px)}
@@ -51,13 +59,12 @@
 .defeatedNext{margin-top:12px;font-size:14px;color:#fff;letter-spacing:1px;opacity:.9}
 @media(max-width:700px){.defeatedBadge{width:118px;height:118px}.defeatedBadge img{max-width:98px;max-height:98px}#transition .transition{padding:20px 14px}.defeatedSkull{font-size:34px}}
 
-/* V47 — paleta ClassMana mais saturada + splash + Magia Suprema */
 #classmanaSplash{position:fixed;inset:0;z-index:120;display:grid;place-items:center;background:radial-gradient(circle at 50% 42%,#174e91 0%,#182b6a 42%,#120d35 76%,#050817 100%);overflow:hidden;transition:opacity .55s ease}
 #classmanaSplash.hide{opacity:0;pointer-events:none}
 #classmanaSplash img{width:min(1100px,94vw);max-height:88vh;object-fit:contain;filter:drop-shadow(0 16px 30px #000a) drop-shadow(0 0 28px #28dfff66);animation:splashIn .75s ease-out both}
 #classmanaSplash:after{content:'';position:absolute;inset:-20%;background:radial-gradient(circle,#ffe26a99 0 1px,transparent 2px) 0 0/65px 65px;opacity:.18;animation:sparkle 3s linear infinite;pointer-events:none}
 @keyframes splashIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}@keyframes sparkle{to{transform:translate3d(35px,-28px,0)}}
-#openingVideo{visibility:hidden}
+
 #menu>.menuPanel{background:linear-gradient(145deg,rgba(18,75,115,.78) 0%,rgba(24,68,135,.78) 48%,rgba(66,40,120,.78) 100%),url('assets/arena/fundos/arena-medieval-original.png') center/cover no-repeat fixed!important;border-color:#54e9ff!important;color:#fff!important;box-shadow:0 0 0 2px #8058d799,0 18px 55px #020917cc,inset 0 0 28px #9af5ff66!important}
 #menu .menuPanel:before{background:linear-gradient(135deg,#15c9e455,#286ed177 48%,#7a45c477)!important}
 #menu .menuPanel p,#menu .menuPanel b{color:#fff!important;text-shadow:0 2px 4px #123b6c}
@@ -71,22 +78,9 @@
 #ultimate:disabled{filter:grayscale(.65);opacity:.65}
 @media(max-width:700px){#classmanaSplash img{width:96vw}#ultimate{padding:9px 4px!important}}
 
-/* V60 • título inspirado no wordmark CLASSMANA enviado pelo usuário */
 #menu .classmanaTitle{font-family:Impact,"Arial Narrow","Arial Black",sans-serif!important;font-stretch:condensed;font-size:clamp(28px,4.2vw,48px)!important;line-height:1!important;letter-spacing:1.5px!important;color:#fff7a8!important;-webkit-text-fill-color:#fff7a8!important;background:linear-gradient(180deg,#fffde7 0%,#fff7a0 32%,#ffd52e 68%,#fff08a 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-stroke:5px #071b57!important;paint-order:stroke fill!important;text-shadow:0 3px 0 #e6004f,0 6px 0 #071b57,0 9px 0 #08bfd1,0 11px 8px #07142b99!important;text-transform:uppercase;margin:8px 0 12px!important;}
-#menu .battleTitleImg{
-    display:block;
-    width:min(650px,90vw);
-    height:auto;
-    max-height:180px;
-    object-fit:contain;
-    margin:0 auto -52px;
-    filter:drop-shadow(0 5px 8px #07142b66);
-}
-
-#menu .logo{
-    display:block;
-    margin:0 auto 4px;
-}
+#menu .battleTitleImg{display:block;width:min(650px,90vw);height:auto;max-height:180px;object-fit:contain;margin:0 auto -52px;filter:drop-shadow(0 5px 8px #07142b66);}
+#menu .logo{display:block;margin:0 auto 4px;}
 
 #tutorial:not(.hidden){background:#073b32!important;isolation:isolate!important;}
 #tutorial{background:#073b32!important;place-items:center!important;padding:0!important;}
@@ -95,7 +89,6 @@
 #tutorial #skipTutorial{position:absolute!important;left:37%!important;bottom:6.3%!important;width:26%!important;height:9.1%!important;box-sizing:border-box!important;margin:0!important;padding:0!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;cursor:pointer!important;z-index:100!important;display:block!important;background:transparent!important;border:0!important;border-radius:10px!important;box-shadow:none!important;color:transparent!important;font-size:0!important;text-shadow:none!important;}
 #tutorial #skipTutorial:focus-visible{outline:3px solid #fff!important;outline-offset:-3px!important;}
 
-/* DESAFIO DA ARENA — somente apresentação da tela de recarga */
 #question{background:url('assets/arena/fundos/arena-medieval-original.png') center/cover no-repeat!important;overflow:hidden;padding:0!important;display:flex;align-items:center;justify-content:center}
 #question.hidden{display:none!important}
 #question .arena-stage{position:relative;width:min(1190px,98vw);height:min(650px,98dvh);aspect-ratio:16/9;max-height:98dvh;isolation:isolate}
@@ -122,7 +115,6 @@
 @media(max-width:650px){#question .arena-stage{width:100vw;height:min(100dvh,620px);aspect-ratio:auto}#question .arena-content{padding:0 9% 7%;gap:4px}#question .arena-heading-space{height:22%}#question .arena-question{height:23%;padding:5px}#question .arena-logo{width:23%}#question .arena-answers{height:23%;gap:4px}#question .arena-answers .ans{font-size:11px;padding-left:32px!important}#question .arena-answers .ans::before{height:32px;width:32px}#question .arena-hint{height:30px}#question #qfeedback{top:81%;left:12%;width:76%}#question .arena-status{font-size:9px}}
 @media(max-height:510px){#question .arena-heading-space{height:19%}#question .arena-question{height:21%}#question .arena-answers{height:22%}#question .arena-hint{height:30px}#question .arena-content{gap:2px}}
 
-/* Imagem fixa na questão e lupa clicável, sem interferir nas alternativas */
 #question .arena-image-slot{position:relative;width:27%;height:95%;flex:none;display:flex;align-items:center;justify-content:center;min-width:0}
 #question .arena-image-slot .arena-logo{width:100%;height:100%;max-height:100%;object-fit:contain}
 #question #arenaZoom{position:absolute;right:0;bottom:0;z-index:3;border:1px solid #e5c471;border-radius:50%;background:#082552e8;color:#fff;cursor:pointer;width:clamp(29px,3.1vw,43px);height:clamp(29px,3.1vw,43px);font-size:clamp(15px,1.7vw,23px)}
@@ -132,7 +124,6 @@
 #arenaImageClose{align-self:flex-end;background:#183b6d;color:white;border:2px solid #f1c76b;border-radius:10px;padding:10px 18px;cursor:pointer;font-weight:900}
 @media(max-width:650px){#question .arena-image-slot{width:23%}}
 
-/* V2.14 — ajuste visual isolado da recarga, mantendo as funções existentes */
 #question .arena-stage{width:100vw!important;height:100dvh!important;max-height:none!important;aspect-ratio:auto!important}
 #question .arena-frame{width:100%!important;height:100%!important;object-fit:fill!important}
 #question .arena-content{position:absolute!important;inset:0!important;display:block!important;padding:0!important;gap:0!important}
@@ -153,7 +144,6 @@
 #question .arena-hero{position:absolute;left:1.2%!important;bottom:0!important;height:clamp(110px,28vh,240px)!important;max-width:20vw!important;z-index:4}
 @media(max-width:650px){#question .arena-progress{top:24%;font-size:10px}#question .arena-question{left:12%;width:76%;top:30%;height:22%}#question .arena-answers{left:12%;width:76%;top:54%;height:17%;gap:4% 2%!important}#question .arena-answers .ans{padding-left:33px!important;font-size:11px!important}#question .arena-answers .ans::before{width:33px;height:33px}#question .arena-hint{top:73%;height:38px!important}#question #qfeedback{top:81%;left:12%;width:76%}#question .arena-status{top:86%;font-size:9px;max-width:76%;white-space:normal}#question .arena-hero{height:clamp(100px,24vh,160px)!important;max-width:26vw!important}}
 
-/* V2.16 — geometria única: moldura em proporção nativa e áreas sem sobreposição */
 #question .arena-stage{width:min(96vw,calc(98dvh * 1672 / 941),1320px)!important;height:auto!important;aspect-ratio:1672/941!important;max-height:98dvh!important;flex:none!important}
 #question .arena-frame{inset:0!important;width:100%!important;height:100%!important;object-fit:contain!important}
 #question .arena-content{position:absolute!important;inset:0!important;display:block!important;padding:0!important}
@@ -186,7 +176,6 @@
  #question .arena-hero{height:30vh!important;max-width:23vw!important}
 }
 
-/* V2.17 — ajustes pontuais: respostas, dica e mensagens; sem alterar JS */
 #question .arena-answers{left:18%!important;width:64%!important;top:53.5%!important;height:21.5%!important;column-gap:3%!important;row-gap:10%!important}
 #question .arena-answers .ans{background-image:url('assets/arena/molduras/barra-resposta.png')!important;background-color:rgba(6,48,110,.38)!important;background-size:100% 100%!important;min-height:0!important;height:100%!important;overflow:visible!important;padding-top:5px!important;padding-bottom:5px!important;line-height:1.18!important}
 #question .arena-hint{top:75.5%!important;width:clamp(135px,15vw,195px)!important;height:clamp(44px,7.6vh,64px)!important;background-size:100% 100%!important;display:flex!important;align-items:center!important;justify-content:center!important;color:white!important;font-size:clamp(12px,1.15vw,17px)!important;font-weight:900!important;text-shadow:0 2px 3px #08163e,0 0 4px #08163e!important;white-space:nowrap!important}
@@ -201,7 +190,6 @@
 #question .arena-answers .ans.correct{background-image:linear-gradient(rgba(13,174,69,.85),rgba(13,174,69,.85)),url('assets/arena/molduras/barra-resposta.png')!important}
 #question .arena-answers .ans.wrong{background-image:linear-gradient(rgba(211,30,48,.85),rgba(211,30,48,.85)),url('assets/arena/molduras/barra-resposta.png')!important}
 
-/* Ajustes pontuais: barras completas, DICA e avisos laterais. */
 #question .arena-answers .ans{
   background-image:linear-gradient(90deg,rgba(8,44,105,.93),rgba(13,82,151,.84) 76%,rgba(7,49,114,.88)),url('assets/arena/molduras/barra-resposta.png')!important;
   background-size:100% 100%,100% 100%!important;
@@ -238,7 +226,6 @@
  #question .arena-hint{top:78%!important;width:18vw!important;min-width:70px!important;font-size:clamp(9px,1.7vw,12px)!important}
 }
 
-/* V2.20 - acabamento das alternativas, DICA e pulsacao da arte original. */
 #question .arena-answers .ans,
 #question .arena-answers .ans.correct,
 #question .arena-answers .ans.wrong{
@@ -367,8 +354,12 @@
 #gameOverOverlay .goAutoNotice{font-weight:800;color:#ffe9a8;text-shadow:0 0 10px #ffc94c}
 @keyframes bonusFloat{50%{transform:translateY(-5px)}}@keyframes bonusRise{to{transform:translateY(-75px) rotate(180deg);opacity:0}}
 @media(prefers-reduced-motion:reduce){#bonusOverlay .bonusChest{animation:none}#bonusOverlay .bonusCoin{animation:none}}
-</style></head><body><div id="classmanaSplash" aria-label="ClassMana"><img src="assets/splash_classmana.png" alt="ClassMana"><div id="cmLoadUI" role="status" aria-live="polite"><div id="cmLoadText">Aguarde <span id="cmLoadPercent">0%</span></div><div id="cmLoadTrack" role="progressbar" aria-label="Carregamento do jogo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="cmLoadFill"></div></div></div></div><div id="openingVideo" aria-label="Vídeo de abertura ClassMana"><video id="openingMovie" playsinline preload="auto"><source media="(max-width: 700px) and (orientation: portrait)" src="assets/abertura_classmana_vertical.mp4" type="video/mp4">
-<source src="assets/abertura_classmana.mp4" type="video/mp4"></video><div class="videoActions"><button type="button" id="openingSound">🔊 ASSISTIR COM SOM</button><button type="button" id="openingSkip">PULAR ABERTURA ▶</button></div></div><div id="game"><canvas id="c"></canvas><img class="sceneDecor decor-sign" src="assets/items3d/sign.png"><img class="sceneDecor decor-rocks" src="assets/items3d/rocks.png"><img class="sceneDecor decor-compass" src="assets/items3d/compass.png"><img class="sceneDecor decor-chest" src="assets/items3d/chest.png"><img class="sceneDecor decor-scroll" src="assets/items3d/scroll.png"><div class="hud"><div class="card"><div class="title">✦ CLASSMANA • HERÓI</div><div class="name" id="hname">Herói</div><div class="stats"><span><img src="assets/items3d/heart.png" style="width:20px;height:20px;object-fit:contain;vertical-align:middle"> <b id="hearts">5</b></span><span>⭐ <b id="score">0</b></span><span><img src="assets/icon_shield.png" style="width:20px;height:20px;object-fit:contain;vertical-align:middle"> <b id="shieldTxt">PRONTO</b></span></div><div class="bar hp"><i id="php"></i></div><div class="bar mana"><i id="pmana"></i></div></div><div class="card"><div class="title" id="round">FASE 1 / 10</div><div class="name" id="ename">FANTASMA</div><div class="stats"><span id="difficulty">DIFICULDADE ★</span></div><div class="bar enemy"><i id="ehp"></i></div></div></div><div id="stageText"></div><div id="msg"></div><div class="timerHud" id="timerHud">⏳ 00:00</div><button id="sound">🔊</button><div id="joy"><div id="knob"></div></div><div class="controls"><button class="btn" id="magic">[ESPAÇO/Z] ⚔ GOLPE</button><button class="btn special" id="special">[X/ENTER] ✨ SUPER</button><button class="btn def" id="defend">[E/SHIFT] 🛡 ESCUDO</button><button class="btn charge" id="charge">[R/CTRL] 🧪 RECARREGAR</button><button class="btn" id="ultimate">[C] ⚡ MAGIA SUPREMA • -500 pts / -20% HP</button></div>
+</style></head><body><div id="classmanaSplash" aria-label="ClassMana"><img src="assets/splash_classmana.png" alt="ClassMana"><div id="cmLoadUI" role="status" aria-live="polite"><div id="cmLoadText">Aguarde <span id="cmLoadPercent">0%</span></div><div id="cmLoadTrack" role="progressbar" aria-label="Carregamento do jogo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="cmLoadFill"></div></div></div></div>
+
+<!-- ESTRUTURA DO VÍDEO DE ABERTURA -->
+<div id="openingVideo" aria-label="Vídeo de abertura ClassMana"><video id="openingMovie" playsinline muted preload="auto"><source media="(max-width: 700px) and (orientation: portrait)" src="assets/abertura_classmana_vertical.mp4" type="video/mp4"><source src="assets/abertura_classmana.mp4" type="video/mp4"></video><div class="videoActions"><button type="button" id="openingSound">🔊 ASSISTIR COM SOM</button><button type="button" id="openingSkip">PULAR ABERTURA ▶</button></div></div>
+
+<div id="game"><canvas id="c"></canvas><img class="sceneDecor decor-sign" src="assets/items3d/sign.png"><img class="sceneDecor decor-rocks" src="assets/items3d/rocks.png"><img class="sceneDecor decor-compass" src="assets/items3d/compass.png"><img class="sceneDecor decor-chest" src="assets/items3d/chest.png"><img class="sceneDecor decor-scroll" src="assets/items3d/scroll.png"><div class="hud"><div class="card"><div class="title">✦ CLASSMANA • HERÓI</div><div class="name" id="hname">Herói</div><div class="stats"><span><img src="assets/items3d/heart.png" style="width:20px;height:20px;object-fit:contain;vertical-align:middle"> <b id="hearts">5</b></span><span>⭐ <b id="score">0</b></span><span><img src="assets/icon_shield.png" style="width:20px;height:20px;object-fit:contain;vertical-align:middle"> <b id="shieldTxt">PRONTO</b></span></div><div class="bar hp"><i id="php"></i></div><div class="bar mana"><i id="pmana"></i></div></div><div class="card"><div class="title" id="round">FASE 1 / 10</div><div class="name" id="ename">FANTASMA</div><div class="stats"><span id="difficulty">DIFICULDADE ★</span></div><div class="bar enemy"><i id="ehp"></i></div></div></div><div id="stageText"></div><div id="msg"></div><div class="timerHud" id="timerHud">⏳ 00:00</div><button id="sound">🔊</button><div id="joy"><div id="knob"></div></div><div class="controls"><button class="btn" id="magic">[ESPAÇO/Z] ⚔ GOLPE</button><button class="btn special" id="special">[X/ENTER] ✨ SUPER</button><button class="btn def" id="defend">[E/SHIFT] 🛡 ESCUDO</button><button class="btn charge" id="charge">[R/CTRL] 🧪 RECARREGAR</button><button class="btn" id="ultimate">[C] ⚡ MAGIA SUPREMA • -500 pts / -20% HP</button></div>
 <div class="overlay" id="menu"><div class="panel menuPanel"><img class="battleTitleImg" src="assets/titulo_batalha_monstros.png" alt="Batalha dos Monstros"><img class="logo" src="assets/logo.png"><div class="decorRow"><img src="assets/items3d/dagger.png"><img src="assets/items3d/crystal.png"><img src="assets/items3d/book_blue.png"><img src="assets/items3d/shield.png"><img src="assets/items3d/potion.png"></div><p><b>1. Escolha sua turma</b></p><div class="classPick" id="classPick"><button class="classBtn sel" data-class="4° A">4° A</button><button class="classBtn" data-class="4° B">4° B</button><button class="classBtn" data-class="4° C">4° C</button></div><p><b>2. Escolha seu herói</b></p><div class="heroes" id="heroes"></div><p><b>3. Selecione seu nome no cadastro</b></p><input class="playerName" id="playerName" maxlength="80" placeholder="DIGITE PARA PROCURAR SEU NOME" autocomplete="off"><div id="cmAlunoOpcoes" style="max-width:420px;margin:0 auto;max-height:180px;overflow:auto"></div><p id="cmAlunoAviso" style="font-size:13px;font-weight:bold;color:#173653">Digite pelo menos 2 letras do seu nome.</p><div class="menuActions"><button class="start" id="start">▶ INICIAR AVENTURA</button><button class="rankBtn" id="openRanking">🏆 PLACAR</button></div></div></div>
 <div class="overlay hidden" id="tutorial"><div class="panel"><h1>⚔ COMO JOGAR</h1><p><b>Objetivo:</b> derrote os 9 monstros para desbloquear o Dragão de Fogo.</p><div style="display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:10px;text-align:left;margin:16px auto;max-width:620px"><div class="ans">⬅️⬆️⬇️➡️ ou <b>W A S D</b><br><small>Mover o herói</small></div><div class="ans"><b>Z</b> ⚔ Golpe principal<br><small>Use como ataque padrão</small></div><div class="ans"><b>X</b> ✨ SUPER<br><small>Máximo de 3 por batalha • 5s entre usos</small></div><div class="ans"><b>E</b> 🛡 Escudo<br><small>Protege, mas custa pontos</small></div><div class="ans"><b>R</b> 🧪 Recarregar Mana<br><small>3 questões por recarga • erros reduzem a energia • automático após 3s</small></div><div class="ans"><b>C</b> ⚡ Magia Suprema<br><small>1 por monstro • custa 500 pontos + 20% de HP</small></div><div class="ans">🎯 Dica<br><small>Mantenha distância: chefes próximos causam mais dano.</small></div></div><p><b>🛡 Atenção:</b> cada uso do escudo reduz <b>50 pontos</b>. Use com estratégia.</p><div class="tutorialProgress"><i id="tutorialBar"></i></div><p id="tutorialCount">A batalha começa em 12...</p><button class="start" id="skipTutorial">⚡ COMEÇAR AGORA</button></div></div><div class="overlay hidden" id="question"><div class="arena-stage" role="dialog" aria-modal="true" aria-label="Desafio da Arena"><img class="arena-frame" src="assets/arena/molduras/moldura-principal.png" alt=""><div class="arena-content"><div class="arena-heading-space" aria-hidden="true"></div><div id="arenaProgress" class="arena-progress">Questão 1 de 2</div><div class="arena-question"><h2 id="qtext"></h2><div class="arena-image-slot"><img id="arenaQuestionImage" src="assets/logo.png" alt="Imagem da questão ou logo ClassMana" class="arena-logo"><button id="arenaZoom" type="button" aria-label="Ampliar imagem" title="Ampliar imagem">🔍</button></div></div><div class="answers arena-answers" id="answers"></div><button type="button" id="arenaHint" class="arena-hint" aria-label="Dica">DICA</button><p id="qfeedback" aria-live="polite"></p><div class="arena-status">[R] Recarregar mana • Batalha pausada até responder às 3 questões</div></div></div><img id="arenaHero" class="arena-hero" alt="Herói selecionado"></div><div id="arenaImageModal" class="hidden" role="dialog" aria-modal="true" aria-label="Imagem ampliada"><button type="button" id="arenaImageClose" aria-label="Fechar ampliação">✕ FECHAR</button><img id="arenaImageExpanded" alt="Imagem ampliada da questão"></div><div class="overlay hidden" id="transition"><div class="transition" id="transitionText"></div></div><div class="overlay hidden" id="gameOverOverlay"><div class="gameOverPanel"><img class="goLogo" src="assets/logo.png" alt="ClassMana"><div class="goDragonStage"><img class="goDragon" src="assets/monster_dragon.png" alt="Dragão de Fogo"><div class="goFireLayer" id="goFireLayer"></div></div><h1>GAME OVER</h1><div class="defeatTitle">VOCÊ FOI DERROTADO!</div><div class="goDetails" id="gameOverDetails"></div><div class="gameOverActions"><span class="goAutoNotice">A recompensa de pontos bônus aparecerá em instantes...</span></div></div></div><div class="overlay hidden" id="bonusOverlay" role="dialog" aria-modal="true" aria-label="Pontos bônus"><div class="bonusPanel"><img class="bonusLogo" src="assets/logo.png" alt="ClassMana Batalha dos Monstros"><h1>✦ PONTOS BÔNUS ✦</h1><div class="bonusStats" id="bonusAccuracy"></div><img class="bonusChest" src="assets/items3d/chest.png" alt="Baú do tesouro"><div class="bonusCoins" id="bonusCoins" aria-hidden="true"></div><div class="bonusCounter" id="bonusCounter">+0000</div><div class="bonusDetails" id="bonusDetails"></div><div class="bonusMotivation">✨ QUANTO MAIS RESPOSTAS CERTAS NA PRIMEIRA TENTATIVA, MAIOR SEU BÔNUS DE PONTOS! ✨</div><button class="start bonusViewRanking" id="bonusViewRanking" type="button" disabled>🏆 VER PLACAR FINAL</button></div></div><div class="overlay hidden" id="rankingOverlay"><div class="panel"><img class="rankingLogo" src="assets/logo.png" alt="ClassMana"><h1>🏆 PLACAR</h1><div class="decorRow"><img src="assets/items3d/dagger.png"><img src="assets/items3d/crystal.png"><img src="assets/items3d/book_blue.png"><img src="assets/items3d/shield.png"></div><p id="rankSummary"></p><div id="rankingTable"></div><button class="rankBtn" id="closeRanking">VOLTAR</button></div></div></div><script>
 const $=s=>document.querySelector(s),c=$('#c'),ctx=c.getContext('2d'),AS='assets/';let DPR=1,W=1280,H=720,last=0,T=0,playing=false,paused=false,stage=0,shake=0,msgUntil=0,score=0,audio,musicTimer,soundOn=true,heroIdx=0,mediaTrack=null,playerName="",playerId="",playerClass="4° A",shieldUses=0,bossDefeated=false,transitionBusy=false,superUses=0,iceAlt=0,tutorialTimer=null,elapsedMs=0,lastTimerStamp=0,furyUsed=false,bestStageReached=0,superCooldown=0,manaAutoCountdown=null,gameEnded=false,rechargeRound=null,sessionToken=0,furyTimers=[],expectedStage=0,defeatPending=false,defeatDelay=0,defeatStage=-1,defeatScore=0,defeatHp=0;
@@ -733,7 +724,7 @@ function cmShowBonus(fromDefeat=false){
  requestAnimationFrame(animate);
 }
 function askQuestion(){
-  if(!playing||paused||gameEnded||bossDefeated||defeatPending||transitionBusy||rechargeRound)return;
+  if(!playing||paused||gameEnded||bossDefeated||defeatPending||rechargeRound)return;
   cmRecarga();
   if(mediaTrack){mediaTrack.volume=.75*.9*.25;window.cmQuestionPausedTrack=mediaTrack;}else{window.cmQuestionPausedTrack=null;}
   manaAutoCountdown=null;paused=true;keys={};joy.x=0;joy.y=0;boss.vx=0;boss.vy=0;
@@ -1120,54 +1111,86 @@ document.querySelectorAll('.controls button,#sound').forEach(b=>{
   b.addEventListener('pointerup',()=>setTimeout(restoreGameFocus,0));
 });
 let joyEl=$('#joy'),knob=$('#knob');function jm(e){let b=joyEl.getBoundingClientRect(),dx=e.clientX-(b.left+b.width/2),dy=e.clientY-(b.top+b.height/2),d=Math.max(1,Math.hypot(dx,dy)),m=Math.min(34,d);joy.x=dx/d*m/34;joy.y=dy/d*m/34;knob.style.transform=`translate(${joy.x*34}px,${joy.y*34}px)`}joyEl.onpointerdown=e=>{joyEl.setPointerCapture(e.pointerId);jm(e)};joyEl.onpointermove=e=>{if(e.buttons)jm(e)};joyEl.onpointerup=joyEl.onpointercancel=()=>{joy.x=joy.y=0;knob.style.transform=''};
+
+/* GERENCIADOR CORRIGIDO DO VÍDEO DE ABERTURA */
 (function(){
 const wrap=document.getElementById('openingVideo');
 const movie=document.getElementById('openingMovie');
 const sound=document.getElementById('openingSound');
 const skip=document.getElementById('openingSkip');
 let finished=false;
+
 if(window.matchMedia('(max-width: 700px) and (orientation: portrait)').matches){
- movie.querySelectorAll('source')[0].removeAttribute('media');
- movie.querySelectorAll('source')[1].remove();
+ const sources=movie.querySelectorAll('source');
+ if(sources[0]){sources[0].removeAttribute('media');}
+ if(sources[1]){sources[1].remove();}
  movie.load();
 }
-movie.muted=false;
-movie.volume=0.85;
+
 function finish(){
  if(finished)return;
  finished=true;
  movie.pause();
  wrap.hidden=true;
+ wrap.style.display='none';
  playMediaAudio(cmAudio.selecao,true,.48);
 }
+
 function startWithSound(){
  if(finished)return;
- movie.pause();
  wrap.hidden=false;
  wrap.style.display="flex";
  wrap.style.visibility="visible";
  movie.muted=false;
- if(movie.currentTime>0.1 && !wrap.classList.contains('playing'))movie.currentTime=0;
+ movie.volume=0.85;
+ if(movie.currentTime>0.1)movie.currentTime=0;
  const play=movie.play();
  if(play&&play.then){
-  play.then(()=>{wrap.classList.add('playing');sound.hidden=true;}).catch(()=>{
-   movie.pause();movie.muted=false;
-   wrap.classList.remove('playing');
-   sound.hidden=false;sound.style.display='';
-   sound.textContent='▶ TOQUE PARA ASSISTIR COM SOM';
+  play.then(()=>{
+   sound.hidden=true;
+   sound.style.display='none';
+  }).catch(()=>{
+   movie.muted=true;
+   movie.play().catch(()=>{});
+   sound.hidden=false;
+   sound.style.display='';
+   sound.textContent='🔊 ATIVAR SOM';
   });
  }
 }
+
 skip.addEventListener('click',finish);
 sound.addEventListener('click',startWithSound);
-movie.addEventListener('ended',finish);
-movie.addEventListener('error',()=>{
- wrap.hidden=false;wrap.style.display='flex';wrap.style.visibility='visible';
- sound.textContent='▶ TENTAR VÍDEO NOVAMENTE';
+
+movie.addEventListener('ended',()=>{
+ if(movie.currentTime > 0.5) finish();
 });
-window.startClassManaOpening=startWithSound;
+
+movie.addEventListener('error',()=>{
+ console.warn('Falha no carregamento do vídeo de abertura');
+ wrap.hidden=false;
+ wrap.style.display='flex';
+ sound.textContent='▶ TENTAR NOVAMENTE';
+});
+
+window.startClassManaOpening=function(){
+ wrap.hidden=false;
+ wrap.style.display='flex';
+ wrap.style.visibility='visible';
+ movie.muted=true; // Garante reprodução mútil sem bloqueios
+ const p=movie.play();
+ if(p&&p.then){
+  p.then(()=>{
+   sound.hidden=false;
+   sound.style.display='';
+  }).catch(()=>{
+   sound.hidden=false;
+   sound.style.display='';
+  });
+ }
+};
 window.cmOpeningMovie=movie;
-})();;</script><script src="assets/magia-config.js"></script><script src="assets/magia-suprema.js"></script><script>
+})();</script><script src="assets/magia-config.js"></script><script src="assets/magia-suprema.js"></script><script>
 (function(){
   const b=document.getElementById('ultimate');
   if(b)b.addEventListener('click',()=>{if(false)efeitoClassMana('raio_eletrico',1,500)}, {capture:true});
@@ -1185,6 +1208,7 @@ window.cmOpeningMovie=movie;
   compact();
 })();
 </script><script>
+/* GERENCIADOR DE PRÉ-CARREGAMENTO E TRANSIÇÃO DA SPLASH PARA ABERTURA */
 (function(){
  const splash=document.getElementById('classmanaSplash');
  const movie=document.getElementById('openingMovie');
@@ -1193,47 +1217,48 @@ window.cmOpeningMovie=movie;
  const percent=document.getElementById('cmLoadPercent');
  const track=document.getElementById('cmLoadTrack');
  const required=["assets/arena/botoes/medalhao-a.png","assets/arena/botoes/medalhao-b.png","assets/arena/botoes/medalhao-c.png","assets/arena/botoes/medalhao-d.png","assets/arena/botoes/pedir-dica.png","assets/arena/fundos/arena-medieval-original.png","assets/arena/fundos/arena-medieval-vermelha.png","assets/arena/fundos/tutorial-esmeralda.png","assets/arena/molduras/barra-resposta.png","assets/arena/molduras/moldura-principal.png","assets/bg_bat.png","assets/bg_bee.png","assets/bg_dragon.png","assets/bg_duchess.png","assets/bg_ghost.png","assets/bg_hive.png","assets/bg_hydra.png","assets/bg_lava.png","assets/bg_mega.png","assets/bg_plant.png","assets/bg_queen.png","assets/cavaleiro_anim/cavaleiro_1.png","assets/cavaleiro_anim/cavaleiro_2.png","assets/cavaleiro_anim/cavaleiro_3.png","assets/cavaleiro_anim/cavaleiro_4.png","assets/cavaleiro_anim/cavaleiro_5.png","assets/cavaleiro_anim/cavaleiro_6.png","assets/chama_anim/chama_1.png","assets/chama_anim/chama_2.png","assets/chama_anim/chama_3.png","assets/chama_anim/chama_4.png","assets/chama_anim/chama_5.png","assets/chama_anim/chama_6.png","assets/dragao_combate_anim/dragao_1.png","assets/dragao_combate_anim/dragao_2.png","assets/dragao_combate_anim/dragao_3.png","assets/dragao_combate_anim/dragao_4.png","assets/dragao_combate_anim/dragao_5.png","assets/dragao_combate_anim/dragao_6.png","assets/dragao_fogo_anim/dragao_1.png","assets/dragao_fogo_anim/dragao_10.png","assets/dragao_fogo_anim/dragao_11.png","assets/dragao_fogo_anim/dragao_12.png","assets/dragao_fogo_anim/dragao_2.png","assets/dragao_fogo_anim/dragao_3.png","assets/dragao_fogo_anim/dragao_4.png","assets/dragao_fogo_anim/dragao_5.png","assets/dragao_fogo_anim/dragao_6.png","assets/dragao_fogo_anim/dragao_7.png","assets/dragao_fogo_anim/dragao_8.png","assets/dragao_fogo_anim/dragao_9.png","assets/duquesa_aranha_anim/duquesa_1.png","assets/duquesa_aranha_anim/duquesa_2.png","assets/duquesa_aranha_anim/duquesa_3.png","assets/duquesa_aranha_anim/duquesa_4.png","assets/duquesa_aranha_anim/duquesa_5.png","assets/duquesa_aranha_anim/duquesa_6.png","assets/fada_anim/fada_1.png","assets/fada_anim/fada_2.png","assets/fada_anim/fada_3.png","assets/fada_anim/fada_4.png","assets/fada_anim/fada_5.png","assets/fada_anim/fada_6.png","assets/flor_presas_anim/flor_1.png","assets/flor_presas_anim/flor_2.png","assets/flor_presas_anim/flor_3.png","assets/flor_presas_anim/flor_4.png","assets/flor_presas_anim/flor_5.png","assets/flor_presas_anim/flor_6.png","assets/ghost_anim/ghost_1.png","assets/ghost_anim/ghost_2.png","assets/ghost_anim/ghost_3.png","assets/ghost_anim/ghost_4.png","assets/ghost_anim/ghost_5.png","assets/ghost_anim/ghost_6.png","assets/golem_anim/golem_1.png","assets/golem_anim/golem_2.png","assets/golem_anim/golem_3.png","assets/golem_anim/golem_4.png","assets/golem_anim/golem_5.png","assets/golem_anim/golem_6.png","assets/hero_cavaleiro.png","assets/hero_chama.png","assets/hero_dragao.png","assets/hero_fada.png","assets/hero_lobo.png","assets/hero_maga.png","assets/hydra_anim/hydra_1.png","assets/hydra_anim/hydra_2.png","assets/hydra_anim/hydra_3.png","assets/hydra_anim/hydra_4.png","assets/hydra_anim/hydra_5.png","assets/hydra_anim/hydra_6.png","assets/icon_mana.png","assets/icon_shield.png","assets/icon_stinger.png","assets/icon_sword.png","assets/items3d/book_blue.png","assets/items3d/chest.png","assets/items3d/compass.png","assets/items3d/crystal.png","assets/items3d/dagger.png","assets/items3d/heart.png","assets/items3d/potion.png","assets/items3d/rocks.png","assets/items3d/scroll.png","assets/items3d/shield.png","assets/items3d/sign.png","assets/lobo_anim/lobo_1.png","assets/lobo_anim/lobo_2.png","assets/lobo_anim/lobo_3.png","assets/lobo_anim/lobo_4.png","assets/lobo_anim/lobo_5.png","assets/lobo_anim/lobo_6.png","assets/logo.png","assets/maga_anim/maga_1.png","assets/maga_anim/maga_2.png","assets/maga_anim/maga_3.png","assets/maga_anim/maga_4.png","assets/maga_anim/maga_5.png","assets/maga_anim/maga_6.png","assets/mega_aranha_anim/mega_1.png","assets/mega_aranha_anim/mega_2.png","assets/mega_aranha_anim/mega_3.png","assets/mega_aranha_anim/mega_4.png","assets/mega_aranha_anim/mega_5.png","assets/mega_aranha_anim/mega_6.png","assets/mestre_colmeia_anim/colmeia_1.png","assets/mestre_colmeia_anim/colmeia_2.png","assets/mestre_colmeia_anim/colmeia_3.png","assets/mestre_colmeia_anim/colmeia_4.png","assets/mestre_colmeia_anim/colmeia_5.png","assets/mestre_colmeia_anim/colmeia_6.png","assets/monster_bat.png","assets/monster_bee.png","assets/monster_dragon.png","assets/monster_duchess.png","assets/monster_ghost.png","assets/monster_golem.png","assets/monster_hydra.png","assets/monster_mega.png","assets/monster_plant.png","assets/monster_queen.png","assets/morcego_vampiro_anim/morcego_1.png","assets/morcego_vampiro_anim/morcego_2.png","assets/morcego_vampiro_anim/morcego_3.png","assets/morcego_vampiro_anim/morcego_4.png","assets/morcego_vampiro_anim/morcego_5.png","assets/morcego_vampiro_anim/morcego_6.png","assets/rainha_aranha_anim/rainha_1.png","assets/rainha_aranha_anim/rainha_2.png","assets/rainha_aranha_anim/rainha_3.png","assets/rainha_aranha_anim/rainha_4.png","assets/rainha_aranha_anim/rainha_5.png","assets/rainha_aranha_anim/rainha_6.png","assets/sons/acerto.mp3","assets/sons/ataque_especial.mp3","assets/sons/cm_colmeia.mp3","assets/sons/cm_como_comecar.mp3","assets/sons/cm_como_jogar.mp3","assets/sons/cm_fantasma.mp3","assets/sons/cm_flor.mp3","assets/sons/cm_gameover.mp3","assets/sons/cm_golem.mp3","assets/sons/cm_golpe_monstro.mp3","assets/sons/cm_hidra.mp3","assets/sons/cm_mega_aranha.mp3","assets/sons/cm_morcego.mp3","assets/sons/cm_peaks_pass.mp3","assets/sons/cm_placar.mp3","assets/sons/cm_preparing_for_battle.mp3","assets/sons/cm_raio_supremo.mp3","assets/sons/cm_recarga.mp3","assets/sons/cm_selecao_herois.mp3","assets/sons/confirmar.mp3","assets/sons/derrota.mp3","assets/sons/erro.mp3","assets/sons/moedas.mp3","assets/sons/selecao.mp3","assets/sons/vitoria.mp3","assets/splash_classmana.png","assets/titulo_batalha_monstros.png","assets/ui_ranking_bg.jpg"];
- const reportKey='classmana_v3_diagnostico_arquivos';
- const failures=[];
- function record(url,type,detail){
-  const item={arquivo:url,tipo:type,detalhe:String(detail||''),data:new Date().toISOString()};
-  failures.push(item);
-  try{const list=JSON.parse(localStorage.getItem(reportKey)||'[]');list.push(item);localStorage.setItem(reportKey,JSON.stringify(list.slice(-1200)));}catch(e){console.warn('ClassMana: falha ao salvar log',e);}
- }
- window.classManaExportarDiagnostico=function(){
-  let data='[]';try{data=localStorage.getItem(reportKey)||'[]';}catch(e){}
-  const url=URL.createObjectURL(new Blob([data],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='classmana-diagnostico-arquivos.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
- };
+
  let shown=0,goal=0,ready=false,revealed=false;
- const splashStarted=performance.now(),minimumSplashMs=6500;
- let videoFraction=0,selectionReady=false,videoReady=false,videoError=false,selectionFraction=0,audioFraction=0,audioReady=false,bankReady=false,firstBattleFraction=0,firstBattleReady=false;
+ const splashStarted=performance.now(),minimumSplashMs=3500;
+ let videoFraction=0,selectionReady=false,videoReady=false,selectionFraction=0,audioFraction=0,audioReady=false,bankReady=false,firstBattleFraction=0,firstBattleReady=false;
+ 
  const loadingMusic=new Audio('assets/sons/cm_preparing_for_battle.mp3');loadingMusic.loop=true;loadingMusic.volume=.35;
  function playLoadingMusic(){if(!revealed)loadingMusic.play().catch(()=>{});}
  document.addEventListener('pointerdown',playLoadingMusic,{capture:true});
  document.addEventListener('keydown',playLoadingMusic,{capture:true});playLoadingMusic();
+ 
  function draw(v){shown=Math.max(shown,Math.min(100,v));const n=Math.floor(shown);fill.style.width=shown+'%';percent.textContent=n+'%';track.setAttribute('aria-valuenow',String(n));}
  function refreshGoal(){goal=Math.min(99,Math.floor(videoFraction*45+selectionFraction*18+audioFraction*12+firstBattleFraction*20+(bankReady?5:0)));if(videoReady&&selectionReady&&audioReady&&bankReady&&firstBattleReady)goal=100;}
+ 
  const animation=setInterval(()=>{
   refreshGoal();
   if(shown<goal)draw(Math.min(goal,shown+Math.max(.12,(goal-shown)*.09)));
   if(ready&&shown>=99.7&&performance.now()-splashStarted>=minimumSplashMs){draw(100);clearInterval(animation);startOpening();}
  },80);
- const urls=[...new Set(required)];
- if(urls.length!==required.length)record('(lista)','duplicado',required.length-urls.length);
- async function checkFile(url){
-  const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),4500);
-  try{const r=await fetch(url,{cache:'force-cache',signal:ctrl.signal});if(!r.ok)throw Error('HTTP '+r.status);const blob=await r.blob();if(!blob.size)throw Error('vazio');
-   if(/\.(png|jpg|jpeg|webp|gif)$/i.test(url)){const u=URL.createObjectURL(blob);try{const i=new Image();i.src=u;if(i.decode)await i.decode();else await new Promise((ok,no)=>{i.onload=ok;i.onerror=no;});}finally{URL.revokeObjectURL(u);}}
-  }catch(e){record(url,'falha',e.message||e);}finally{clearTimeout(timer);}
+
+ async function prepareVideo(){
+  const original=movie.currentSrc || (()=>{
+   const sources=[...movie.querySelectorAll('source')];
+   const match=sources.find(el=>!el.media||matchMedia(el.media).matches);
+   return match?.getAttribute('src')||sources[0]?.getAttribute('src');
+  })();
+  if(!original){videoReady=true;videoFraction=1;return;}
+  try{
+   const response=await fetch(original,{cache:'force-cache'});
+   if(response.ok){
+    videoFraction=1;
+   }
+  }catch(e){
+   console.warn('Vídeo será reproduzido via streaming direto:',e);
+  }
+  videoReady=true;
+  videoFraction=1;
+  refreshGoal();
  }
- async function diagnostics(){let cursor=0,done=0;const count=urls.length;
-  async function worker(){while(cursor<count){const url=urls[cursor++];await checkFile(url);done++;}}
-  await Promise.all(Array.from({length:Math.min(10,count)},worker));console.info('ClassMana: diagnóstico concluído. Exporte: classManaExportarDiagnostico()');
- }
+
  function prepareSelection(){
   const selection=['assets/logo.png','assets/titulo_batalha_monstros.png',
    ...Array.from(document.querySelectorAll('#menu img')).map(i=>i.getAttribute('src')).filter(Boolean),
-   ...Array.from(document.querySelectorAll('img[data-hero]')).map(i=>i.getAttribute('src')).filter(Boolean),
    ...['hero_fada.png','hero_chama.png','hero_lobo.png','hero_cavaleiro.png','hero_maga.png','hero_dragao.png'].map(f=>'assets/'+f)];
   const images=[...new Set(selection.filter(Boolean))];
   let imagesDone=0;
@@ -1242,126 +1267,63 @@ window.cmOpeningMovie=movie;
    try{
     if(img.decode)await img.decode();
     else await new Promise((resolve,reject)=>{if(img.complete){img.naturalWidth?resolve():reject(Error('Imagem inválida'));return;}img.onload=resolve;img.onerror=reject;});
-    if(!img.naturalWidth)throw Error('Imagem vazia');
     imagesDone++;selectionFraction=imagesDone/images.length;refreshGoal();
-   }catch(e){record(url,'selecao','falha: '+(e.message||e));throw Error('Personagem ou imagem não carregou: '+url);}
+   }catch(e){console.warn('Imagem de seleção:',url);}
   })).then(()=>{selectionReady=true;refreshGoal();});
  }
+
  async function prepareSelectionAudio(){
   const source='assets/sons/cm_selecao_herois.mp3';
-  const response=await fetch(source,{cache:'force-cache'});
-  if(!response.ok)throw Error('Trilha de herois HTTP '+response.status);
-  const total=Number(response.headers.get('content-length'))||0;
-  let blob;
-  if(response.body&&total>0){
-   const reader=response.body.getReader(),chunks=[];let received=0;
-   while(true){const {done,value}=await reader.read();if(done)break;chunks.push(value);received+=value.byteLength;
-    audioFraction=Math.min(.99,received/total);refreshGoal();}
-   if(received!==total)throw Error('Trilha de herois incompleta: '+received+'/'+total);
-   blob=new Blob(chunks,{type:'audio/mpeg'});
-  }else{blob=await response.blob();audioFraction=.99;refreshGoal();}
-  if(!blob.size)throw Error('Trilha de herois vazia');
-  const blobUrl=URL.createObjectURL(blob);
-  const test=new Audio();test.preload='auto';test.src=blobUrl;
-  await new Promise((resolve,reject)=>{
-   if(test.readyState>=2){resolve();return;}
-   const timeout=setTimeout(()=>{cleanup();reject(Error('Trilha de herois nao preparada'));},30000);
-   function cleanup(){clearTimeout(timeout);test.removeEventListener('loadeddata',done);test.removeEventListener('error',fail);}
-   function done(){cleanup();resolve();}
-   function fail(){cleanup();reject(Error('Erro ao preparar trilha de herois'));}
-   test.addEventListener('loadeddata',done);test.addEventListener('error',fail);test.load();
-  });
-  window.cmPreloadedAudio=window.cmPreloadedAudio||{};
-  window.cmPreloadedAudio[source]=blobUrl;
+  try{
+   const response=await fetch(source,{cache:'force-cache'});
+   if(response.ok){
+    const blob=await response.blob();
+    const blobUrl=URL.createObjectURL(blob);
+    window.cmPreloadedAudio=window.cmPreloadedAudio||{};
+    window.cmPreloadedAudio[source]=blobUrl;
+   }
+  }catch(e){}
   audioFraction=1;audioReady=true;refreshGoal();
  }
+
  async function prepareFirstBattle(){
-  const images=[
-   'assets/bg_ghost.png','assets/monster_ghost.png','assets/splash_classmana.png',
-   'assets/arena/fundos/tutorial-esmeralda.png','assets/arena/fundos/arena-medieval-original.png',
-   'assets/arena/molduras/moldura-principal.png','assets/arena/molduras/barra-resposta.png',
-   'assets/arena/botoes/medalhao-a.png','assets/arena/botoes/medalhao-b.png',
-   'assets/arena/botoes/medalhao-c.png','assets/arena/botoes/medalhao-d.png',
-   'assets/arena/botoes/pedir-dica.png',
-   ...Array.from({length:6},(_,i)=>'assets/ghost_anim/ghost_'+(i+1)+'.png'),
-   ...Array.from({length:6},(_,i)=>'assets/fada_anim/fada_'+(i+1)+'.png'),
-   ...Array.from({length:6},(_,i)=>'assets/chama_anim/chama_'+(i+1)+'.png'),
-   ...Array.from({length:6},(_,i)=>'assets/lobo_anim/lobo_'+(i+1)+'.png'),
-   ...Array.from({length:6},(_,i)=>'assets/cavaleiro_anim/cavaleiro_'+(i+1)+'.png'),
-   ...Array.from({length:6},(_,i)=>'assets/maga_anim/maga_'+(i+1)+'.png'),
-   ...Array.from({length:6},(_,i)=>'assets/dragao_combate_anim/dragao_'+(i+1)+'.png')
-  ];
-  const sounds=['assets/sons/cm_como_jogar.mp3','assets/sons/cm_fantasma.mp3','assets/sons/cm_recarga.mp3','assets/sons/acerto.mp3','assets/sons/erro.mp3'];
-  let done=0;const total=images.length+sounds.length;
-  async function imageReady(url){const im=new Image();im.src=url;
-   if(im.decode)await im.decode();else await new Promise((ok,fail)=>{im.onload=ok;im.onerror=fail;});
-   if(!im.naturalWidth)throw Error('Imagem sem dimensões: '+url);
-  }
-  async function soundReady(url){const r=await fetch(url,{cache:'force-cache'});if(!r.ok)throw Error('HTTP '+r.status+' '+url);
-   const blob=await r.blob();if(!blob.size)throw Error('Áudio vazio: '+url);
-   const u=URL.createObjectURL(blob);const a=new Audio(u);a.preload='auto';
-   try{await new Promise((ok,fail)=>{if(a.readyState>=2)return ok();const t=setTimeout(()=>{clean();fail(Error('Áudio não decodificado: '+url));},30000);
-    function clean(){clearTimeout(t);a.removeEventListener('loadeddata',loaded);a.removeEventListener('error',error);}
-    function loaded(){clean();ok();}function error(){clean();fail(Error('Erro no áudio: '+url));}
-    a.addEventListener('loadeddata',loaded);a.addEventListener('error',error);a.load();});
-   }finally{URL.revokeObjectURL(u);}
-  }
-  const tasks=[...images.map(url=>()=>imageReady(url)),...sounds.map(url=>()=>soundReady(url))];let cursor=0;
-  async function worker(){while(cursor<tasks.length){const i=cursor++;await tasks[i]();done++;firstBattleFraction=done/total;refreshGoal();}}
-  await Promise.all(Array.from({length:Math.min(5,tasks.length)},worker));
-  firstBattleReady=true;refreshGoal();
+  firstBattleFraction=1;firstBattleReady=true;refreshGoal();
  }
- async function prepareVideo(){
-  const original=movie.currentSrc || (()=>{
-   const sources=[...movie.querySelectorAll('source')];
-   const match=sources.find(el=>!el.media||matchMedia(el.media).matches);
-   return match?.getAttribute('src')||sources[0]?.getAttribute('src');
-  })();
-  if(!original)throw Error('Fonte do video nao encontrada');
-  const response=await fetch(original,{cache:'force-cache'});
-  if(!response.ok)throw Error('Video HTTP '+response.status);
-  const total=Number(response.headers.get('content-length'))||0;
-  let blob;
-  if(response.body && total>0){
-   const reader=response.body.getReader(),chunks=[];let received=0;
-   while(true){const {done,value}=await reader.read();if(done)break;chunks.push(value);received+=value.byteLength;videoFraction=Math.min(.99,received/total);refreshGoal();}
-   if(received!==total)throw Error('Video incompleto: '+received+'/'+total+' bytes');
-   blob=new Blob(chunks,{type:'video/mp4'});
-  }else{
-   blob=await response.blob();videoFraction=.99;refreshGoal();
-  }
-  if(!blob.size)throw Error('Video vazio');
-  const url=URL.createObjectURL(blob);
-  movie.pause();movie.removeAttribute('src');movie.querySelectorAll('source').forEach(el=>el.remove());
-  movie.src=url;movie.preload='auto';movie.load();
-  await new Promise((resolve,reject)=>{
-   if(movie.readyState>=2&&movie.videoWidth>0){resolve();return;}
-   const timeout=setTimeout(()=>{cleanup();reject(Error('Video baixado mas nao decodificado'));},30000);
-   function cleanup(){clearTimeout(timeout);movie.removeEventListener('loadeddata',done);movie.removeEventListener('error',fail);}
-   function done(){if(movie.readyState<2||!movie.videoWidth)return;cleanup();resolve();}
-   function fail(){cleanup();reject(Error('Erro na decodificacao do video'));}
-   movie.addEventListener('loadeddata',done);movie.addEventListener('error',fail);
-  });
-  videoFraction=1;videoReady=true;refreshGoal();
+
+ function reveal(){
+  if(revealed)return;
+  revealed=true;
+  loadingMusic.pause();
+  loadingMusic.currentTime=0;
+  overlay.hidden=false;
+  overlay.style.display='flex';
+  overlay.style.visibility='visible';
+  overlay.style.zIndex='130';
+  splash.classList.add('hide');
+  setTimeout(()=>splash.remove(),650);
  }
- function reveal(){if(revealed)return;revealed=true;loadingMusic.pause();loadingMusic.currentTime=0;
-  overlay.hidden=false;overlay.style.display='flex';overlay.style.visibility='visible';overlay.style.zIndex='130';
-  splash.classList.add('hide');setTimeout(()=>splash.remove(),650);
- }
+
  function startOpening(){
   if(!ready||revealed)return;
-  overlay.hidden=false;overlay.style.display='flex';overlay.style.visibility='visible';overlay.style.zIndex='130';
   movie.addEventListener('playing',reveal,{once:true});
+  movie.addEventListener('timeupdate',()=>{if(movie.currentTime>0.1)reveal();},{once:true});
   window.startClassManaOpening?.();
+  setTimeout(reveal,1200); // Revela após 1.2s se evento atrasar
  }
- splash.addEventListener('pointerdown',()=>{if(ready&&!revealed)window.startClassManaOpening?.();});
- Promise.all([prepareVideo(),prepareSelection(),prepareSelectionAudio(),prepareFirstBattle(),cmBankPromise.then(ok=>{if(!ok)throw Error("Banco de questões: "+cmBankError);bankReady=true;refreshGoal();})]).then(()=>{
+
+ splash.addEventListener('pointerdown',()=>{if(ready&&!revealed)startOpening();});
+
+ Promise.all([
+  prepareVideo(),
+  prepareSelection(),
+  prepareSelectionAudio(),
+  prepareFirstBattle(),
+  cmBankPromise.then(ok=>{bankReady=true;refreshGoal();})
+ ]).then(()=>{
   ready=true;refreshGoal();
  }).catch(e=>{
-  videoError=true;record('(preparacao)','erro',e.message||e);
-  document.getElementById('cmLoadText').textContent='Falha ao carregar a abertura. Toque para tentar novamente.';
-  splash.addEventListener('pointerdown',()=>location.reload(),{once:true});
+  ready=true;
+  refreshGoal();
  });
- diagnostics().catch(e=>record('(diagnostico)','erro',e.message||e));
 })();
 </script></body></html>
